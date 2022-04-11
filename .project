@@ -3,7 +3,6 @@
 	<name>CorsoSpringWeb</name>
 	<comment></comment>
 	<projects>
-		<project>Treno con Builder</project>
 		<project>queryPrototype</project>
 	</projects>
 	<buildSpec>
