@@ -1,7 +1,7 @@
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-    <hibernate-configuration>
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
 
     <session-factory>
         <!-- Configure MySQL -->
@@ -13,7 +13,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <!-- Mapping Files -->
-        <mapping resource="hibernate/Standards.hbm.xml" />
+        <mapping resource="com/corso/hibernateCFG/Standards.hbm.xml" />
     </session-factory>
 
 </hibernate-configuration>

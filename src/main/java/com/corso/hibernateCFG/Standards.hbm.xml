@@ -5,7 +5,7 @@
  
 
 <hibernate-mapping>
-    <class name="hibernate.Standards" table="treni">
+    <class name="com.corso.hibernateCFG.Standards" table="treni">
         <id name="Id">
             <generator class="assigned"></generator>
         </id>
