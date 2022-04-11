@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+ 
+
+<hibernate-mapping>
+    <class name="hibernate.Standards" table="treni">
+        <id name="Id">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="sigla"></property>
+        <property name="factory"></property>
+        <property name="utente"></property>
+    </class>
+</hibernate-mapping>
