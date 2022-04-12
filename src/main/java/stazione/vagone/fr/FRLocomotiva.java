@@ -1,6 +1,6 @@
 package stazione.vagone.fr;
 
-import stazione.vagone.Locomotiva;
+import com.course.model.wagons.Locomotiva;
 
 public class FRLocomotiva extends Locomotiva {
 

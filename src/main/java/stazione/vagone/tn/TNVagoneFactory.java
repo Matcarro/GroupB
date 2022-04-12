@@ -1,10 +1,10 @@
 package stazione.vagone.tn;
 
-import stazione.vagone.Cargo;
-import stazione.vagone.Locomotiva;
-import stazione.vagone.Passeggeri;
-import stazione.vagone.Ristorante;
-import stazione.vagone.VagoneFactory;
+import com.course.model.wagons.Cargo;
+import com.course.model.wagons.Locomotiva;
+import com.course.model.wagons.Passeggeri;
+import com.course.model.wagons.Ristorante;
+import com.course.model.wagons.VagoneFactory;
 
 public class TNVagoneFactory implements VagoneFactory {
 
