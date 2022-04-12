@@ -1,4 +1,4 @@
-package stazione.vagone.fr;
+package com.course.model.wagons.factory;
 
 import com.course.model.wagons.Cargo;
 import com.course.model.wagons.Locomotiva;

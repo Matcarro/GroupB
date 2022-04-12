@@ -16,8 +16,8 @@ import com.course.model.station.ConcreteBuilder;
 import com.course.model.station.Treno;
 import com.course.model.station.TrenoBuilder;
 import com.course.model.wagons.VagoneFactory;
+import com.course.model.wagons.factory.BaseWagonFactory;
 
-import stazione.vagone.fr.BaseWagonFactory;
 
 @Controller
 @RequestMapping("/")
@@ -53,6 +53,7 @@ public class WebController {
 	}
 	
 	@RequestMapping(
+			path="/*",
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
