@@ -26,8 +26,8 @@ public class WebController {
 	@PostMapping("/train")
 	@Scope("session")
 	public String getTrain(@WebParam String train, @WebParam String factory, Model model, HttpSession session) {
-		StandardsDaoImpl test = new StandardsDaoImpl();
-		System.out.println("test get: "+test.getByWord("LPPR"));
+		//StandardsDaoImpl test = new StandardsDaoImpl();
+		//System.out.println("test get: "+test.getByWord("LPPR"));
 		VagoneFactory vf;
 		if (factory == "FR") {
 			vf = new FRVagoneFactory();
@@ -53,8 +53,7 @@ public class WebController {
 		} catch (Exception e) {
 			System.out.println("error: " + e.getMessage());
 			model.addAttribute("error", e.getMessage());
-			session.invalidate();
-			return "redirect:/login";
+			return "trainView";
 		}
 	}
 	
@@ -75,15 +74,5 @@ public class WebController {
 				session.invalidate();
 				return "login";
 			}
-	}
-	
-	@RequestMapping(
-			path={"/login"},
-			method= {RequestMethod.GET, RequestMethod.POST}
-	)
-	
-	public String getLoginPage(HttpSession session) {	
-		session.invalidate();
-		return "login";
 	}
 }

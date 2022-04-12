@@ -34,7 +34,7 @@ public abstract class TrenoBuilder {
 						vagoni.add(r);
 						vagoniSimple.add(r.toStringSimple());
 					} else
-						throw new TroppiRistorantiException(sequenza, "Troppi ristoranti presenti, ");
+						throw new TroppiRistorantiException(sequenza, "Troppi ristoranti presenti,");
 					break;
 				case 'p':
 					if (!sequenza.contains("c")) {
@@ -42,7 +42,7 @@ public abstract class TrenoBuilder {
 						vagoni.add(p);
 						vagoniSimple.add(p.toStringSimple());
 					} else
-						throw new TipoVagoneInattesoException(sequenza, "Tipo vagone inatteso, ");
+						throw new TipoVagoneInattesoException(sequenza, "Tipo vagone inatteso,");
 					;
 					break;
 				case 'c':
@@ -54,7 +54,7 @@ public abstract class TrenoBuilder {
 						stampaErrore();
 					break;
 				default:
-					throw new LocomotivaNonInTestaException(sequenza, "Locomotiva non presente in testa, ");
+					throw new LocomotivaNonInTestaException(sequenza, "Locomotiva non presente in testa,");
 				}
 			}
 		}
