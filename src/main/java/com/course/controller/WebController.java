@@ -6,16 +6,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.course.dao.impl.StandardsDaoImpl;
-import com.course.model.station.ConcreteBuilder;
-import com.course.model.station.Treno;
-import com.course.model.station.TrenoBuilder;
-import com.course.model.wagons.VagoneFactory;
+import com.course.model.train.ConcreteBuilder;
+import com.course.model.train.Treno;
+import com.course.model.train.TrenoBuilder;
 import com.course.model.wagons.factory.BaseWagonFactory;
 
 
@@ -72,7 +69,6 @@ public class WebController {
 			}
 	}
 	
-
 	@RequestMapping(
 			path = {"/insertTrain"},
 			method= {RequestMethod.GET, RequestMethod.POST}

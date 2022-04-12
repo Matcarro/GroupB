@@ -7,10 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import com.course.config.hibernate.Standards;
+import com.course.dao.Standards;
 
 public class StandardsDaoImpl {
-	private static File hibernate = new File("hibernate.cfg.xml");
+	private static File hibernate = new File("hibernate.cfg.xml"); //src.main.resources
 	private static Configuration configuration;
 	private static Session session;
 	

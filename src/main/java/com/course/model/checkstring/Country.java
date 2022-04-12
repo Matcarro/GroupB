@@ -4,7 +4,7 @@ import com.course.model.checkstring.algorithms.Levenshtein;
 import com.course.model.checkstring.algorithms.Soundex;
 import com.course.model.checkstring.algorithms.Start;
 
-public class Word {
+public class Country {
 	private int reputazione;
 	private String parolaErrata;
 	private String parolaCorretta;
@@ -12,7 +12,7 @@ public class Word {
 	private CheckString l015 = new Levenshtein();     // Characters level distance
 	private CheckString s020 = new Soundex();         // 0 :: Sound match
 	
-	public Word() {
+	public Country() {
 		super();
 		s010.setNext(l015);
 		l015.setNext(s020);
