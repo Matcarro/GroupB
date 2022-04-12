@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration // qui si creano i bean per Spring core
-@EnableWebMvc  // indica che � una applicazione web
-@ComponentScan(basePackages={"com.corso.springMVC.httpController"})
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages={"com.course.controller"})
 public class WebConfig {
 
 	@Bean

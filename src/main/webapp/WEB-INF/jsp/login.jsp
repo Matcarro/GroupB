@@ -136,14 +136,14 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form id="form" action="/CorsoSpringWeb/jsp/index" method="post">
+    <form id="form" action="/CorsoSpringWeb/" method="post">
         <h3>Login Here</h3>
 
         <label for="username">Username</label>
         <input type="text" placeholder="Email or Phone" id="username" name="username">
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password">
 		<input type="submit" value="Submit">
     </form>
 </body>

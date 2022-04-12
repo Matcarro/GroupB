@@ -85,7 +85,7 @@
 		</div>
 	</div>
 	<div class="flex">
-		<form id="form" action="/CorsoSpringWeb/jsp/train" method="post">
+		<form id="form" action="/CorsoSpringWeb/train" method="post">
 			<label for="train">Train:</label> 
 			<input type="text" id="train" name="train">
 			<br />

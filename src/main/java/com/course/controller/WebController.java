@@ -20,7 +20,7 @@ import stazione.vagone.fr.FRVagoneFactory;
 import stazione.vagone.tn.TNVagoneFactory;
 
 @Controller
-@RequestMapping("/jsp")
+@RequestMapping("/")
 @Scope("session")
 public class WebController {
 	@PostMapping("/train")
@@ -59,7 +59,6 @@ public class WebController {
 	}
 	
 	@RequestMapping(
-			path={"/index"},
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
