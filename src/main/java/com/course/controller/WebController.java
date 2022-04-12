@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,10 +70,23 @@ public class WebController {
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(1000*60*20);
-				return "index";  
+				return "profile";  
 			} else {
 				session.invalidate();
 				return "login";
 			}
 	}
+	
+
+	@RequestMapping(
+			path = {"/insertTrain"},
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	@Scope("session")
+	public String insertTrain(HttpSession session) {
+		
+		return "insertTrain";
+	}
+	
+	
 }
