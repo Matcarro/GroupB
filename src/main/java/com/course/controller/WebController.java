@@ -16,9 +16,8 @@ import com.course.model.station.ConcreteBuilder;
 import com.course.model.station.Treno;
 import com.course.model.station.TrenoBuilder;
 import com.course.model.wagons.VagoneFactory;
-
-import stazione.vagone.fr.FRVagoneFactory;
-import stazione.vagone.tn.TNVagoneFactory;
+import com.course.model.wagons.factory.FRVagoneFactory;
+import com.course.model.wagons.factory.TNVagoneFactory;
 
 @Controller
 @RequestMapping("/")
