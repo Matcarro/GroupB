@@ -1,6 +1,6 @@
 package com.course.model.wagons;
 
-public abstract class Locomotiva extends Vagone {
+public class Locomotiva extends Vagone{
 	
 	private double pesoTrainabile;
 	private double potenza;

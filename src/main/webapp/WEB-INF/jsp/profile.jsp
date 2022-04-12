@@ -11,7 +11,9 @@
 </head>
 <body>
 <div id="form">
-	<button onclick="window.location.href='/CorsoSpringWeb/insertTrain'"> Crea nuovo treno </button>
+	<h2>${username}'s profile</h2>	
+	<button onclick="window.location.href='/CorsoSpringWeb/insertTrain'"> Create new train </button>
+	<h2>My trains</h2>
 </div>
 
 </body>
