@@ -5,7 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 <style>
-	      *,
+*,
 *:before,
 *:after{
     padding: 0;
