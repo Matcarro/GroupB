@@ -58,6 +58,7 @@ public class WebController {
 	}
 	
 	@RequestMapping(
+			path="/*",
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
