@@ -1,11 +1,10 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Main page</title>
-    <link href="/CorsoSpringWeb/resources/css/style.css" rel="stylesheet">
+<link href="/CorsoSpringWeb/resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div id="menuHeader">
