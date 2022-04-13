@@ -59,7 +59,7 @@ public class WebController {
 	)
 	@Scope("session")
 	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
-			System.out.println("username: " + username+ "password: " + password + "session: " + session.getId());
+			System.out.println("U: " + username+ " - P: " + password + "- S: " + session.getId());
 			if (username != null && username != "" && password != null && password != ""){		
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);

@@ -17,15 +17,13 @@ import com.course.dao.Train;
 import com.course.dao.User;
 
 public class DaoImpl implements Dao {
-	private static File hibernate = new File("src/main/resources/hibernate.cfg.xml");
 	private static Configuration configuration;
 	private static Session session;
 	private static Dao dao;
-
+	
 	private DaoImpl() {
 		configuration = new Configuration();
-		configuration.configure(hibernate);
-
+		configuration.configure();
 	}
 
 	public static Dao getInstance() {
