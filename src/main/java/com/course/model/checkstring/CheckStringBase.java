@@ -1,5 +1,6 @@
 package com.course.model.checkstring;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,24 +30,19 @@ public abstract class CheckStringBase implements CheckString {
 	public String check(String word) {
 		in = new Scanner(System.in);
 		this.fixes = dao.getAllCountries();
-		
 		if(fixes == null) return "dbERR";
-		
 		if(ratings.isEmpty()){
 			CheckStringBase.readyFix = dao.getCountryBySearch(word);
 			if(CheckStringBase.readyFix != null) {
 				return CheckStringBase.readyFix;
 			}
-			
 		}
-		
 		for(int i = 0 ; i < fixes.size(); i++) {
 			if(fixes.get(i) != null ) {
 				int dist = internalCheck(word, fixes.get(i));
 				ratings.put(dist, fixes.get(i));
 			}
 		}
-		
 		if(hasNext()) {
 			return next.check(word);
 		} else  {
@@ -55,13 +51,11 @@ public abstract class CheckStringBase implements CheckString {
 			int i = 0;
 			while (topFive.size()<2) {
 				if(ratings.get(i) != null) {
-					// System.out.println( (topFive.size()+1) + "# - " + ratings.get(i));
 					if(correct == null && i <= 2) { // Automatic threshold
 						correct = ratings.get(i);
 						System.out.println(">> FIX automatico : " + ratings.get(i));
 						break;
 					} else if (correct == null && i <= 4){ // Manual add
-						correct = askWhatToDo(word, ratings.get(i));
 						// TODO Save
 					}
 					topFive.add(ratings.get(i));
@@ -71,18 +65,6 @@ public abstract class CheckStringBase implements CheckString {
 			ratings.clear();
 			CheckStringBase.readyFix = null;
 			return correct;
-		}
-		
-	}
-	
-	// Aggiungere parametro passato dal controller
-	private String askWhatToDo(String trovata, String parola) {
-		System.out.print(">  Sostituire con [ " + parola +" ] ? [y/N]");
-		String answer = in.nextLine();
-		if(answer.contains("Y") || answer.contains("y")) {
-			return parola;
-		} else {
-			return null;
 		}
 	}
 
