@@ -31,8 +31,8 @@ public class WebController {
 		BaseWagonFactory vf = new BaseWagonFactory();
 		TrenoBuilder tb = new ConcreteBuilder(vf);
 		try {
-			checkString.setParola(country);
-			checkString.selfCheck();
+			//checkString.setParola(country);
+			//checkString.selfCheck();
 			
 			Treno treno = tb.buildTreno(train);
 
