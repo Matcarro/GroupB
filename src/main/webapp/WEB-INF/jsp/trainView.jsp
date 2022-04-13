@@ -24,7 +24,7 @@
 		<h1>Wagon list:</h1>
 		<% for(int i = 0; i < 5; i++) { %>
 			<div class="wagon">
-				<h1>Wagon</h1>
+				<h1>Wagon ${i}</h1>
 			</div> 
 		<% } %>
 	</div>

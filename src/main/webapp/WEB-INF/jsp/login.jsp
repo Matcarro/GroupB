@@ -24,6 +24,9 @@
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
 		<input type="submit" value="Submit">
+		
+		<div class="train"> 
+	</div>
     </form>
 </body>
 
