@@ -1,30 +1,31 @@
+<%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.png" />
+    <link rel="icon" href="/CorsoSpringWeb/resources/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="homestyle.css" />
+    <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/homestyle.css" />
     <title>TrainLine - costruisci il tuo treno</title>
   </head>
   <body>
     <header class="header">
       <a href="#">
-        <img src="logo.png" alt="" class="logo" />
+        <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
       </a>
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a href="#how" class="nav-link">Come funziona</a></li>
           <li><a href="#who" class="nav-link">Chi siamo</a></li>
           <li><a href="#contact" class="nav-link">Contattaci</a></li>
-          <li class="login">Log In</li>
+          <li class="login"><a href="/CorsoSpringWeb/login">Log In</a></li>
         </ul>
       </nav>
     </header>
@@ -42,7 +43,7 @@
             <a class="button-heading" href="#">Costruisci treno</a>
           </div>
           <div class="right-div">
-            <img src="treno1.jpg" alt="" class="img-hero" />
+            <img src="/CorsoSpringWeb/resources/images/treno1.jpg" alt="" class="img-hero" />
           </div>
         </div>
       </section>
@@ -61,7 +62,7 @@
             </div>
           </div>
           <div class="img-step-box">
-            <img src="01.png" alt="" class="img-step" />
+            <img src="/CorsoSpringWeb/resources/images/01.png" alt="" class="img-step" />
           </div>
           <!-- STEP 2-->
           <div class="text-step">
@@ -73,18 +74,18 @@
             </div>
           </div>
           <div class="img-step-box">
-            <img src="02.png" alt="" class="img-step" />
+            <img src="/CorsoSpringWeb/resources/images/02.png" alt="" class="img-step" />
           </div>
           <!-- STEP 3-->
           <div class="text-step">
             <div class="step-number">03</div>
             <div class="step-title">Crea il tuo treno</div>
             <div class="step-descr">
-              Il tuo treno verrà creato con i vagoni scelti ed il suo paese
+              Il tuo treno verrÃ  creato con i vagoni scelti ed il suo paese
             </div>
           </div>
           <div class="img-step-box">
-            <img src="03.png" alt="" class="img-step" />
+            <img src="/CorsoSpringWeb/resources/images/03.png" alt="" class="img-step" />
           </div>
         </div>
       </section>
@@ -111,7 +112,7 @@
           </div>
           <div class="person">
             <ion-icon name="person-outline" class="icon"></ion-icon>
-            <p class="title-person">Federico Rainò</p>
+            <p class="title-person">Federico RainÃ²</p>
             <p class="title-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
               soluta minus illo totam ipsam dolor quam

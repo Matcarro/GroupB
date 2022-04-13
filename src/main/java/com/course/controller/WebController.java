@@ -54,11 +54,11 @@ public class WebController {
 	}
 	
 	@RequestMapping(
-			path="/*",
+			path="/login",
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
-	public String getMainPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
+	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
 			System.out.println("username: " +username);
 			System.out.println("password: " +password);
 			System.out.println("session: " +session.getId());
@@ -74,12 +74,20 @@ public class WebController {
 	}
 	
 	@RequestMapping(
+			path="/*",
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	@Scope("session")
+	public String getHomePage() {	
+		return "home";  
+	}
+	
+	@RequestMapping(
 			path = {"/insertTrain"},
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
 	public String insertTrain(HttpSession session) {
-		
 		return "insertTrain";
 	}
 	
