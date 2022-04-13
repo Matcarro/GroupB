@@ -169,4 +169,20 @@ public class DaoImpl implements Dao {
 
 		return s;
 	}
+
+	@Override
+	public List<String> getAllCountries() {
+		List<String> result=null;
+		
+		session=configuration.buildSessionFactory().openSession();
+		Query q=session.createQuery("FROM Country");
+		
+		result=new ArrayList<>(q.list());
+		session.close();
+		
+		
+		if(result==null || result.size()==0) return null;
+		
+		return result;
+	}
 }
