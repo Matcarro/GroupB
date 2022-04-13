@@ -3,6 +3,8 @@ package com.course.dao.impl;
 import java.io.File;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,14 +16,13 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import com.course.config.hibernate.Country;
-import com.course.config.hibernate.Search;
-import com.course.config.hibernate.Standards;
-import com.course.config.hibernate.Train;
-import com.course.config.hibernate.User;
+import com.course.dao.Country;
+import com.course.dao.Search;
+import com.course.dao.Train;
+import com.course.dao.User;
 
 public class DaoImpl implements Dao {
-	private static File hibernate = new File("src/main/java/com/course/config/hibernate/hibernate.cfg.xml");
+	private static File hibernate = new File("src/main/resources/hibernate.cfg.xml");
 	private static Configuration configuration;
 	private static Session session;
 	private static Dao dao;
@@ -37,16 +38,6 @@ public class DaoImpl implements Dao {
 			dao = new DaoImpl();
 		return dao;
 	}
-
-	/*
-	 * public Standards getByWord(String word) { session =
-	 * configuration.buildSessionFactory().openSession(); Query query =
-	 * session.createQuery("FROM Standards WHERE sigla =:sigla");
-	 * query.setParameter("sigla", word); System.out.println("Getting query: " +
-	 * query); Optional<?> tuples = query.getResultList().stream().findFirst();
-	 * session.close(); return tuples.isPresent() ? (Standards) tuples.get() : null;
-	 * // return null; }
-	 */
 
 	@Override
 	public Collection<Train> getTrains(String username) {
@@ -67,7 +58,19 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public String getCountryBySearch(String search) {
-		return null;
+		if (isSearch(search) == false)
+			return null;
+		
+		session=configuration.buildSessionFactory().openSession();
+		ArrayList<Search> result=null;
+		Query q=session.createQuery("FROM Search WHERE search=:search");
+		q.setParameter("search",search);
+		result=new ArrayList<>(q.list());		
+		session.close();
+		
+		if(result==null || result.size()==0) return null;
+		
+		return result.get(0).getStandardCountry();
 	}
 
 	@Override
@@ -104,27 +107,35 @@ public class DaoImpl implements Dao {
 
 		if (result == null || result.size() == 0)
 			return false;
-		
+
 		return true;
 	}
 
 	@Override
-	public boolean insertSearch(String search, String country,String method) throws SQLException{
-		session=configuration.buildSessionFactory().openSession();
-		Search s=new Search();
+	public boolean insertSearch(String search, String country, String method) {
+		if (isSearch(search) == true || isCountry(country) == false)
+			return false;
+
+		session = configuration.buildSessionFactory().openSession();
+		session.beginTransaction();
+
+		Search s = new Search();
 		s.setSearch(search);
 		s.setStandardCountry(country);
 		s.setMethod(method);
-		
-		return false;
-		
+		s.setInsertDate(Timestamp.from(Instant.now()));
+
+		session.save(s);
+		session.getTransaction().commit();
+		session.close();
+
+		return true;
 	}
 
 	@Override
 	public boolean isSearch(String search) {
 		ArrayList<Search> result = null;
 		Search s;
-		
 
 		this.session = configuration.buildSessionFactory().openSession();
 
@@ -140,5 +151,22 @@ public class DaoImpl implements Dao {
 
 		return s.getSearch().equals(search);
 	}
+	
+	public Search getSearch(String search) {
+		ArrayList<Search> result = null;
+		Search s;
+		this.session = configuration.buildSessionFactory().openSession();
 
+		Query q = session.createQuery("FROM Search WHERE search=:search");
+		q.setParameter("search", search);
+		result = new ArrayList(q.list());
+		session.close();
+
+		if (result == null || result.size() == 0)
+			return null;
+
+		s = result.get(0);
+
+		return s;
+	}
 }

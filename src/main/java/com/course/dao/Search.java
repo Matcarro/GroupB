@@ -1,4 +1,4 @@
-package com.course.config.hibernate;
+package com.course.dao;
 
 import java.sql.Date;
 import java.sql.Timestamp;

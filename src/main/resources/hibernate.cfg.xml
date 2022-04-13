@@ -13,10 +13,10 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <!-- Mapping Files -->
-        <mapping resource="com/course/config/hibernate/Train.cfg.xml" />
-        <mapping resource="com/course/config/hibernate/Country.cfg.xml" />
-        <mapping resource="com/course/config/hibernate/Search.cfg.xml" />
-        <mapping resource="com/course/config/hibernate/User.cfg.xml" />
+        <mapping resource="Train.cfg.xml" />
+        <mapping resource="Country.cfg.xml" />
+        <mapping resource="Search.cfg.xml" />
+        <mapping resource="User.cfg.xml" />
     </session-factory>
 
 </hibernate-configuration>
