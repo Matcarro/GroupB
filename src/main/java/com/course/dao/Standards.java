@@ -1,4 +1,4 @@
-package com.course.config.hibernate;
+package com.course.dao;
 
 public class Standards {
 	private int Id;

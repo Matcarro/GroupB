@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.course.dao.impl.DaoImpl;
-import com.course.model.station.ConcreteBuilder;
-import com.course.model.station.Treno;
-import com.course.model.station.TrenoBuilder;
-import com.course.model.wagons.VagoneFactory;
 
-import stazione.vagone.fr.FRVagoneFactory;
-import stazione.vagone.tn.TNVagoneFactory;
+
+import com.course.model.train.ConcreteBuilder;
+import com.course.model.train.Treno;
+import com.course.model.train.TrenoBuilder;
+import com.course.model.wagons.factory.BaseWagonFactory;
+
 
 @Controller
 @RequestMapping("/")
@@ -25,28 +24,23 @@ import stazione.vagone.tn.TNVagoneFactory;
 public class WebController {
 	@PostMapping("/train")
 	@Scope("session")
-	public String getTrain(@WebParam String train, @WebParam String factory, Model model, HttpSession session) {
+	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
 		//StandardsDaoImpl test = new StandardsDaoImpl();
 		//System.out.println("test get: "+test.getByWord("LPPR"));
-		VagoneFactory vf;
-		if (factory == "FR") {
-			vf = new FRVagoneFactory();
-		} else {
-			vf = new TNVagoneFactory();
-		}
-
+		BaseWagonFactory vf = new BaseWagonFactory();
+		
 		TrenoBuilder tb = new ConcreteBuilder(vf);
 
 		try {
 			Treno treno = tb.buildTreno(train);
 
 			model.addAttribute("train", train);
-			model.addAttribute("factory", factory);
-			model.addAttribute("trainString", treno.toString());
+			model.addAttribute("country", country);
+			model.addAttribute("trainString", treno);
 
 			System.out.println("TrenoJava: " + treno.toString());
 			System.out.println("train: " + train);
-			System.out.println("factory: " + factory);
+			System.out.println("country: " + country);
 			System.out.println("session: " +session.getId());
 
 			return "trainView";
@@ -58,6 +52,7 @@ public class WebController {
 	}
 	
 	@RequestMapping(
+			path="/*",
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
@@ -69,10 +64,22 @@ public class WebController {
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(1000*60*20);
-				return "index";  
+				return "profile";  
 			} else {
 				session.invalidate();
 				return "login";
 			}
 	}
+	
+	@RequestMapping(
+			path = {"/insertTrain"},
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	@Scope("session")
+	public String insertTrain(HttpSession session) {
+		
+		return "insertTrain";
+	}
+	
+	
 }

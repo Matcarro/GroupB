@@ -1,4 +1,4 @@
-package stazione.vagone.fr;
+package com.course.model.wagons.factory;
 
 import com.course.model.wagons.Cargo;
 import com.course.model.wagons.Locomotiva;
@@ -6,11 +6,11 @@ import com.course.model.wagons.Passeggeri;
 import com.course.model.wagons.Ristorante;
 import com.course.model.wagons.VagoneFactory;
 
-public class FRVagoneFactory implements VagoneFactory {
+public class BaseWagonFactory implements VagoneFactory {
 
 	@Override
 	public Locomotiva getLocomotiva() {
-		return new FRLocomotiva(50,500,8222);
+		return new Locomotiva(50,500,8222);
 	}
 
 	@Override

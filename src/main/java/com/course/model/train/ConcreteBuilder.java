@@ -1,4 +1,4 @@
-package com.course.model.station;
+package com.course.model.train;
 
 import com.course.model.wagons.Cargo;
 import com.course.model.wagons.Locomotiva;

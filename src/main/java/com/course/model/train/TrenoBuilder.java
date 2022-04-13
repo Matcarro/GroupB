@@ -1,4 +1,4 @@
-package com.course.model.station;
+package com.course.model.train;
 
 import java.util.ArrayList;
 import java.util.Collection;
