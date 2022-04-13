@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+ 
+
+<hibernate-mapping>
+    <class name="com.course.config.hibernate.Search" table="searches">
+        <id name="search" type="string" column="search">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="standardCountry" type="string" column="standard_country" />
+        <property name="insertDate" type="timestamp" column="insert_date" />
+        <property name="method" type="string" column="method" />
+    </class>
+</hibernate-mapping>

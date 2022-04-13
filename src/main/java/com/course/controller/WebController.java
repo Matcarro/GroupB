@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.course.dao.impl.StandardsDaoImpl;
+import com.course.dao.impl.DaoImpl;
 import com.course.model.station.ConcreteBuilder;
 import com.course.model.station.Treno;
 import com.course.model.station.TrenoBuilder;
