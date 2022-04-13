@@ -25,7 +25,7 @@
           <li><a href="#how" class="nav-link">Come funziona</a></li>
           <li><a href="#who" class="nav-link">Chi siamo</a></li>
           <li><a href="#contact" class="nav-link">Contattaci</a></li>
-          <li class="login"><a href="/CorsoSpringWeb/login">Log In</a></li>
+          <li class="login"><a class="button-heading" href="/CorsoSpringWeb/login">Log In</a></li>
         </ul>
       </nav>
     </header>
@@ -40,7 +40,7 @@
               Effettua il log in per poter costruire il treno dei tuoi sogni, in
               maniera facile e veloce. Provalo oggi.
             </p>
-            <a class="button-heading" href="#">Costruisci treno</a>
+            <a class="button-heading" href="/CorsoSpringWeb/login">Costruisci treno</a>
           </div>
           <div class="right-div">
             <img src="/CorsoSpringWeb/resources/images/treno1.jpg" alt="" class="img-hero" />
@@ -177,7 +177,7 @@
             </address>
           </div>
           <div class="col-login">
-            <a class="button-heading footer-btn" href="#">Accedi adesso</a>
+            <a class="button-heading footer-btn" href="/CorsoSpringWeb/login">Accedi adesso</a>
           </div>
         </div>
       </footer>
