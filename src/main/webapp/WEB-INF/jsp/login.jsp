@@ -15,7 +15,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form id="form" action="/CorsoSpringWeb/" method="post">
+    <form id="form" action="/CorsoSpringWeb/login" method="post">
         <h3>Login Here</h3>
 
         <label for="username">Username</label>
