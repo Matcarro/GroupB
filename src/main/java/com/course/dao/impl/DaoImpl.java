@@ -1,16 +1,11 @@
 package com.course.dao.impl;
 
 import java.io.File;
-import java.sql.Date;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;

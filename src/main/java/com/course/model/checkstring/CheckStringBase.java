@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.course.dao.impl.Dao;
+import com.course.dao.impl.DaoImpl;
+
 public abstract class CheckStringBase implements CheckString {
 	private CheckString next = null;
 	private List<String> fixes;
-	private WordDAO dao = new WordDAO();
+	private Dao dao = DaoImpl.getInstance();
 	private static Map<Integer, String> ratings = new HashMap<Integer, String>();
 	private static String readyFix ;
 	private Scanner in;
@@ -25,11 +28,12 @@ public abstract class CheckStringBase implements CheckString {
 	
 	public String check(String word) {
 		in = new Scanner(System.in);
-		this.fixes = dao.getFixable();
+		this.fixes = dao.getAllCountries();
 		
 		if(fixes == null) return "dbERR";
+		
 		if(ratings.isEmpty()){
-			CheckStringBase.readyFix = dao.getFix(word);
+			CheckStringBase.readyFix = dao.getCountryBySearch(word);
 			if(CheckStringBase.readyFix != null) {
 				return CheckStringBase.readyFix;
 			}
