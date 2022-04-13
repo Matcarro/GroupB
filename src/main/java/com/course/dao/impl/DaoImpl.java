@@ -14,12 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import com.course.config.hibernate.Country;
-import com.course.config.hibernate.Search;
-import com.course.config.hibernate.Standards;
-import com.course.config.hibernate.Train;
-import com.course.config.hibernate.User;
-
 public class DaoImpl implements Dao {
 	private static File hibernate = new File("src/main/java/com/course/config/hibernate/hibernate.cfg.xml");
 	private static Configuration configuration;
