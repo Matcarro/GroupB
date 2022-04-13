@@ -15,7 +15,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form id="form" action="/CorsoSpringWeb/" method="post">
+    <form id="form" action="/CorsoSpringWeb/login" method="post">
         <h3>Login Here</h3>
 
         <label for="username">Username</label>
@@ -24,6 +24,9 @@
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
 		<input type="submit" value="Submit">
+		
+		<div class="train"> 
+	</div>
     </form>
 </body>
 

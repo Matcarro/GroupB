@@ -14,7 +14,7 @@
 
 <body>
 	<div class="content">
-	<h1>Train code ${train}</h2>
+	<h2>Train code ${train}</h2>
 	<h1>${username}</h1>
 	<h1>You selected the following train:</h1>
 	<p>${train}</p>
@@ -24,11 +24,14 @@
 		<h1>Wagon list:</h1>
 		<% for(int i = 0; i < 5; i++) { %>
 			<div class="wagon">
-				<h1>Wagon</h1>
+				<h1>Wagon ${i}</h1>
 			</div> 
 		<% } %>
 	</div>
-	<p>${trainString}</p>
+		<div>
+			<!-- <p>${trainString}</p> -->
+			<p>${trainWagons}</p>
+		</div>
 	</div>
 </body>
 </html>

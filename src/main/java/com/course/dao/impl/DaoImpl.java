@@ -60,16 +60,16 @@ public class DaoImpl implements Dao {
 	public String getCountryBySearch(String search) {
 		if (isSearch(search) == false)
 			return null;
-		
+
 		session=configuration.buildSessionFactory().openSession();
 		ArrayList<Search> result=null;
 		Query q=session.createQuery("FROM Search WHERE search=:search");
 		q.setParameter("search",search);
-		result=new ArrayList<>(q.list());		
+		result=new ArrayList<>(q.list());
 		session.close();
-		
+
 		if(result==null || result.size()==0) return null;
-		
+
 		return result.get(0).getStandardCountry();
 	}
 
@@ -151,7 +151,7 @@ public class DaoImpl implements Dao {
 
 		return s.getSearch().equals(search);
 	}
-	
+
 	public Search getSearch(String search) {
 		ArrayList<Search> result = null;
 		Search s;
