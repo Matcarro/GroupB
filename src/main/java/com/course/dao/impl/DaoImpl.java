@@ -61,14 +61,15 @@ public class DaoImpl implements Dao {
 		if (isSearch(search) == false)
 			return null;
 
-		session=configuration.buildSessionFactory().openSession();
-		ArrayList<Search> result=null;
-		Query q=session.createQuery("FROM Search WHERE search=:search");
-		q.setParameter("search",search);
-		result=new ArrayList<>(q.list());
+		session = configuration.buildSessionFactory().openSession();
+		ArrayList<Search> result = null;
+		Query q = session.createQuery("FROM Search WHERE search=:search");
+		q.setParameter("search", search);
+		result = new ArrayList<>(q.list());
 		session.close();
 
-		if(result==null || result.size()==0) return null;
+		if (result == null || result.size() == 0)
+			return null;
 
 		return result.get(0).getStandardCountry();
 	}
@@ -172,17 +173,23 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public List<String> getAllCountries() {
-		List<String> result=null;
-		
-		session=configuration.buildSessionFactory().openSession();
-		Query q=session.createQuery("FROM Country");
-		
-		result=new ArrayList<>(q.list());
+		List<String> result = null;
+		List<Country> queryResult = null;
+
+		session = configuration.buildSessionFactory().openSession();
+		Query q = session.createQuery("FROM Country");
+
+		queryResult = new ArrayList<>(q.list());
 		session.close();
-		
-		
-		if(result==null || result.size()==0) return null;
-		
+
+		if (result == null || result.size() == 0)
+			return null;
+
+		result = new ArrayList<>(queryResult.size());
+
+		for (int i = 0; i < queryResult.size(); i++)
+			result.add(queryResult.get(i).getCountry());
+
 		return result;
 	}
 }
