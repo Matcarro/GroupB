@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.course.model.checkstring.Country;
 import com.course.model.train.ConcreteBuilder;
 import com.course.model.train.Treno;
 import com.course.model.train.TrenoBuilder;
@@ -25,18 +26,20 @@ public class WebController {
 	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
 		//StandardsDaoImpl test = new StandardsDaoImpl();
 		//System.out.println("test get: "+test.getByWord("LPPR"));
+		Country checkString = new Country();
 		BaseWagonFactory vf = new BaseWagonFactory();
-		
 		TrenoBuilder tb = new ConcreteBuilder(vf);
-
 		try {
+			checkString.setParola(country);
+			checkString.selfCheck();
+			
 			Treno treno = tb.buildTreno(train);
 
 			model.addAttribute("train", train);
 			model.addAttribute("country", country);
-			model.addAttribute("trainString", treno);
+			model.addAttribute("trainWagons", treno.getVagoni());
 
-			System.out.println("TrenoJava: " + treno.toString());
+			System.out.println("trainWagons: " + treno.getVagoni());
 			System.out.println("train: " + train);
 			System.out.println("country: " + country);
 			System.out.println("session: " +session.getId());

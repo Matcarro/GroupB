@@ -28,12 +28,15 @@ public class Treno {
 	}
 */	
 	
+	public Collection<Vagone> getVagoni() {
+		return vagoni;
+	}
 	
 	@Override
 	public String toString() {
 		return "[Treno [vagoni=" + vagoni + "]";
 	}
-	
+
 	public String toStringSimple() {
 		return "[Treno [vagoni=" + vagoniSimple + "]";
 	}
