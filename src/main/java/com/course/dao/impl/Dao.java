@@ -14,6 +14,7 @@ public interface Dao {
 //trains table
 public Collection<TrainDao> getTrains(String username); /*Restituisce  Collection di train oppure null*/
 public Collection<TrainDao> getAllTrains();
+public boolean insertTrain(String ownerUsername, String buildCountry, String sigla);
 
 //country table
 public String getCountryBySearch(String search);
