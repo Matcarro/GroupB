@@ -31,12 +31,12 @@ public abstract class CheckStringBase implements CheckString {
 		in = new Scanner(System.in);
 		this.fixes = dao.getAllCountries();
 		if(fixes == null) return "dbERR";
-		if(ratings.isEmpty()){
-			CheckStringBase.readyFix = dao.getCountryBySearch(word);
-			if(CheckStringBase.readyFix != null) {
-				return CheckStringBase.readyFix;
-			}
-		}
+//		if(ratings.isEmpty()){
+//			CheckStringBase.readyFix = dao.getCountryBySearch(word);
+//			if(CheckStringBase.readyFix != null) {
+//				return CheckStringBase.readyFix;
+//			}
+//		}
 		for(int i = 0 ; i < fixes.size(); i++) {
 			if(fixes.get(i) != null ) {
 				int dist = internalCheck(word, fixes.get(i));
@@ -45,7 +45,7 @@ public abstract class CheckStringBase implements CheckString {
 		}
 		if(hasNext()) {
 			return next.check(word);
-		} else  {
+		} else {
 			List<String> topFive = new ArrayList<String>();
 			String correct = null;
 			int i = 0;

@@ -2,7 +2,7 @@ package com.course.dao;
 
 import java.sql.Date;
 
-public class User {
+public class UserDao {
 	private String username;
 	private String password;
 	private String firstName;

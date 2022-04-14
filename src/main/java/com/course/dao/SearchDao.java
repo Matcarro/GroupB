@@ -3,7 +3,7 @@ package com.course.dao;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class Search {
+public class SearchDao {
 	private String search;
 	private String standardCountry;
 	private String method;
