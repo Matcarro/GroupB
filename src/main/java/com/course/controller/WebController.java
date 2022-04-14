@@ -63,15 +63,26 @@ public class WebController {
 	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
 			Dao dao=DaoImpl.getInstance();
 			System.out.println("U: " + username+ " - P: " + password + "- S: " + session.getId());
-			if ((username != null && username != "" && password != null && password != "") && dao.verifyUser(username, password)){		
+			if (dao.verifyUser(username, password)){	
+				System.out.println("test");
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(1000*60*20);
-				return "profile";  
+				return "redirect:/profile";  
 			} else {
 				session.invalidate() ;
 				return "login" ;
 			}
+	}
+	
+	@Scope("session")
+	@RequestMapping(
+			path="/profile",
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	public String getProfilePage(Model model, HttpSession session) {	
+			session.getAttribute("username");
+			return "profile";  
 	}
 	
 	@RequestMapping(
