@@ -40,12 +40,15 @@ public class WebController {
 	
 	@GetMapping("/admin")
 	public String getAdminPage(HttpSession session) {
+		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
+			session.setAttribute("countriesFull", dao.getAllCountries());
+			session.setAttribute("trainsFull", dao.getAllTrains());
+			// session.setAttribute("trainsFull", dao.getUsersView()); //TODO: match with Persistance
 			return "controlPanel";
 		} else {
 			return "redirect:/login";
 		}
-		
 	}
 	
 

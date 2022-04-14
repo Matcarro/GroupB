@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,108 +33,158 @@
 	<header class="header">
 
 		<div class="container d-flex justify-content-center">
-			<header	class="justify-content-center py-3 mb-4 border-bottom">
-				<a href="/"	class="logo justify-content-center">
-        			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
+			<header class="justify-content-center py-3 mb-4 border-bottom">
+				<a href="./home" class="logo justify-content-center"> <img
+					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
+					class="logo-img" />
 				</a>
 				<ul class="nav nav-pills justify-content-center ">
-					<li class="nav-item"><a href="#" class="nav-link">Users</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">Trains</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">Nations</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="./profile" class="nav-link">Profile</a></li>
 				</ul>
 			</header>
 		</div>
 	</header>
 
 	<main>
-		<section class="section-hero">
-			<div class="container px-4 py-5 " id="featured-3">
-				<div class="row py-5 row-cols-1 gx-5 row-cols-lg-4 justify-content-center">
-
-					<div class="feature col m-2">
-						<div class="icon-square ">
-							<i class="fas fa-users fa-3x">
-								<h2>Users</h2>
-							</i>
+		<div class="container ">
+			<div class="accordion my-5" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseOne"
+							aria-controls="collapseOne">
+							<i class="col fas fa-users fa-3x m-2"></i>
+							<h2 class="col row justify-content-end m-4">Users</h2>
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse"
+						aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<p>Manage all saved trains associated to each user.</p>
+							<table class="container">
+								<!-- here should go some titles... -->
+								<tr>
+									<th>Username</th>
+									<th>Name</th>
+									<th>Surname</th>
+									<th>Trains #</th>
+								</tr>
+								<c:forEach items="${usersFull}" var="usr">
+									<tr>
+										<td><c:out value="${usr.usrname}" /></td>
+										<td><c:out value="${usr.name}" /></td>
+										<td><c:out value="${usr.surname}" /></td>
+										<td><c:out value="${usr.trainsnum}" /></td>
+									</tr>
+								</c:forEach>
+							</table>
 						</div>
-						<p>Manage users and theirs roles.</p>
-						<a href="#" class="icon-link"> Manage users <svg class="bi"
-								width="1em" height="1em"><i class="bi bi-chevron-right"></i>
-						</a>
 					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+							aria-expanded="false" aria-controls="collapseTwo">
+							<i class="col fas fa-train fa-3x m-2"></i>
+							<h2 class="col row justify-content-end m-4">Trains</h2>
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse"
+						aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<p>Manage all saved trains associated to each user.</p>
+							<table class="container">
+								<!-- here should go some titles... -->
+								<tr>
+									<th>Code</th>
+									<th>Owner</th>
+									<th>Country</th>
+								</tr>
+								<c:forEach items="${trainsFull}" var="train">
+									<tr>
 
-					<div class="feature col m-2">
-						<div class="icon-square">
-							<i class="fas fa-train fa-3x"><h2>Trains</h2></i>
-
+										<td><c:out value="${train.sigla}" /></td>
+										<td><c:out value="${train.ownerUsername}" /></td>
+										<td><c:out value="${train.buildCountry}" /></td>
+									</tr>
+								</c:forEach>
+							</table>
 						</div>
-						<p>Manage all saved trains associated to each user.</p>
-						<a href="#" class="icon-link"> Manage trains <svg class="bi"
-								width="1em" height="1em">
-								<i class="bi bi-chevron-right"></i></svg>
-						</a>
 					</div>
-
-					<div class="feature col m-2">
-						<div class="icon-square ">
-							<i class="fas fa-language fa-3x">
-								<h2>Nations</h2>
-							</i>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseThree"
+							aria-expanded="true"  aria-controls="collapseThree">
+							<i class="col fas fa-language fa-3x m-2"></i>
+							<h2 class="col row justify-content-end m-4">Nations</h2>
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse show"
+						aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<p>Manage registered Nations and associated corrections.
+								Algorithms statistics is also avaiable.</p>
+							<table class="container">
+								<!-- here should go some titles... -->
+								<tr>
+									<th>Country</th>
+									<th># Corrections</th>
+								</tr>
+								<c:forEach items="${countriesFull}" var="country">
+									<tr>
+										<td><c:out value="${country}" /></td>
+										<td><c:out value="WIP" /></td>
+									</tr>
+								</c:forEach>
+							</table>
 						</div>
-						<p>Manage registered Nations and associated corrections.
-							Algorithms statistics is also avaiable.</p>
-						<a href="#" class="icon-link"> Manage nations <svg class="bi"
-								width="1em" height="1em">
-								<i class="bi bi-chevron-right"></i></svg>
-						</a>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingPro">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapsePro"
+							aria-expanded="false" aria-controls="collapsePro">
+							<i class="col fas fa-exclamation-triangle fa-2x m-1"></i>
+							<h3 class="col row justify-content-end m-2">Advanced options</h3>
+						</button>
+					</h2>
+					<div id="collapsePro" class="accordion-collapse collapse"
+						aria-labelledby="headingPro" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<div class="d-grid gap-2">
+		  						<button class="btn btn-warning disabled" type="button">Reset Database Schema to Defaults</button>
+								<button class="btn btn-danger disabled" type="button">Format Database</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section class="how" id="usr"></section>
+		</div>
 
-		<section class="who" id="trains"></section>
-
-		<section class="nations"></section>
-
-		<footer id="footer-contact">
-			<div class="grid-container-3">
-				<div class="col-logo">
-					<a href="#" class="footer-logo"> <img
-						src="/CorsoSpringWeb/resources/images/logo.png" alt=""
-						class="logo" />
-					</a>
-					<ul class="socials">
-						<li><a href="#" class="footer-link"> <ion-icon
-									name="logo-instagram"></ion-icon>
-						</a></li>
-						<li><a href="#" class="footer-link"> <ion-icon
-									name="logo-tiktok"></ion-icon>
-						</a></li>
-						<li><a href="#" class="footer-link"> <ion-icon
-									name="logo-facebook"></ion-icon>
-						</a></li>
-						<li><a href="#" class="footer-link"> <ion-icon
-									name="logo-twitter"></ion-icon>
-						</a></li>
-					</ul>
-				</div>
-				<div class="col-addr">
-					<p class="addr-title">Dove ci troviamo</p>
-					<address>
-						<p class="address">Via delle Vie, 27, Milano, MI, Italia</p>
-						<a href="tel:1234567890" class="footer-addr">+39 01234567890</a> <a
-							href="mailto:trainline@traincop.com" class="footer-addr">trainline@traincop.com</a>
-					</address>
-				</div>
-				<div class="col-login">
-					<a class="button-heading footer-btn" href="/CorsoSpringWeb/login">Accedi
-						adesso</a>
-				</div>
-			</div>
-		</footer>
+		<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="./home" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="./home#how" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="./profile" class="nav-link px-2 text-muted">Profile</a></li>
+      <li class="nav-item"><a href="./home#who" class="nav-link px-2 text-muted">About the developers</a></li>
+    </ul>
+    <a href="./home" class="logo justify-content-center"> <img
+					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
+					class="logo-img small" />
+				</a>
+    <p class="text-center text-muted">© 2022 DecHit-Trains, Inc</p>
+  </footer>
 	</main>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous" type="text/javascript"></script>
 
 </body>
 </html>

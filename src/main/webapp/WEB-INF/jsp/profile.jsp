@@ -22,9 +22,17 @@
 </head>
 <body>
 <div>
-    <div class="d-flex justify-content-center align-items-center">
-        <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" >
-    </div>
+    <div class="container d-flex justify-content-center">
+			<header	class="justify-content-center py-3 mb-4 border-bottom">
+				<a href="/"	class="logo justify-content-center">
+        			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
+				</a>
+				<ul class="nav nav-pills justify-content-center ">
+					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+				</ul>
+			</header>
+		</div>
     <h3 class="d-flex justify-content-center align-items-center pt-3 mb-3">Profile: ${username}</h3>
     <div class="d-flex  justify-content-center align-items-center pt-2">
         <button onclick="window.location.href='/CorsoSpringWeb/insertTrain'" class="btn btn-primary cl-submit">Create new train</button>

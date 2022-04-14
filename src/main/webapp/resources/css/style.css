@@ -13,6 +13,12 @@
 	padding: 30px;
 }
 
+.logo-img.small {
+	margin: auto;
+display: block;
+  height: 50px;
+}
+
 .fas h2 {
   font-family: system-ui;
 }

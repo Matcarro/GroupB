@@ -20,9 +20,19 @@
 <link  href="/CorsoSpringWeb/resources/css/register.css" rel="stylesheet">
 </head>
 <body>
-    <div class="d-flex justify-content-center align-items-center">
-        <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" >
-      </div>
+    <div class="container d-flex justify-content-center">
+			<header	class="justify-content-center py-3 mb-4 border-bottom">
+				<a href="/"	class="logo justify-content-center">
+        			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
+				</a>
+				<ul class="nav nav-pills justify-content-center ">
+					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="./profile" class="nav-link">Profile</a></li>
+					
+					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+				</ul>
+			</header>
+		</div>
 
 	<div class="d-flex justify-content-center align-items-center col-12">
 		<form id="form" action="/CorsoSpringWeb/train" method="post">

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 	
 <!DOCTYPE html>
 <html>
@@ -27,9 +27,19 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center">
-        <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" >
-    </div>
+    <div class="container d-flex justify-content-center">
+			<header	class="justify-content-center py-3 mb-4 border-bottom">
+				<a href="/"	class="logo justify-content-center">
+        			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
+				</a>
+				<ul class="nav nav-pills justify-content-center ">
+					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="./profile" class="nav-link">Profile</a></li>
+					
+					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+				</ul>
+			</header>
+		</div>
 
 	<h3 class="d-flex justify-content-center align-items-center">You selected the following train:</h3>
 	<p class="d-flex justify-content-center align-items-center">${train}</p>
