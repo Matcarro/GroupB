@@ -25,9 +25,9 @@
       <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" />
     </div>
     <div class="pt-1 col-12 d-flex align-items-center justify-content-center">
-      <form>
+      <form id="form" action="/CorsoSpringWeb/login" method="post">
         <div class="mb-3">
-          <label for="name" class="form-label">Nome</label>
+          <label for="name" class="form-label">Name</label>
           <input
             type="text"
             class="form-control form-input"
@@ -37,7 +37,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="surname" class="form-label">Cognome</label>
+          <label for="surname" class="form-label">Surname</label>
           <input
             type="text"
             class="form-control form-input"
@@ -48,7 +48,7 @@
         </div>
         <div class="mb-3">
           <label for="date" class="form-label"
-            >Data di nascita</label
+            >Birthday</label
           >
           <input
             type="date"
@@ -69,7 +69,7 @@
             name="email"
           />
           <div id="emailHelp" class="form-text">
-            Non condivideremo la tua email con altri.
+            We will not share your email.
           </div>
         </div>
         <div class="mb-5">
@@ -77,7 +77,7 @@
           <input type="password" class="form-control form-input" id="password" name="password"/>
         </div>
         <div class="buttons d-flex justify-content-between">
-          <button type="reset" class="btn btn-primary cl-back">Back</button>
+          <a href="/CorsoSpringWeb/home" class="button-heading reg-btn">Back</a>
           <button type="submit" class="btn btn-primary cl-submit">
             Submit
           </button>
