@@ -10,6 +10,7 @@ import com.course.dao.TrainDao;
 
 public interface Dao {
 
+public Collection<TrainDao> getAllTrains(); /*Restituisce  Collection di train oppure null*/
 public Collection<TrainDao> getTrains(String username); /*Restituisce  Collection di train oppure null*/
 public String getCountryBySearch(String search);
 public boolean isCountry(String country); /*verifica che un paese sia gi� standard*/
