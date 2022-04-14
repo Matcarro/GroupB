@@ -18,7 +18,11 @@
   <body>
     <header class="header">
       <a href="#">
-        <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
+        <img
+          src="/CorsoSpringWeb/resources/images/logo.png"
+          alt=""
+          class="logo"
+        />
       </a>
       <nav class="main-nav">
         <ul class="main-nav-list">
@@ -30,7 +34,9 @@
               >Registrati</a
             >
           </li>
-          <li class="login"><a class="button-heading" href="/CorsoSpringWeb/login">Log In</a></li>
+          <li class="login">
+            <a class="button-heading" href="/CorsoSpringWeb/login">Log In</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -45,10 +51,16 @@
               Effettua il log in per poter costruire il treno dei tuoi sogni, in
               maniera facile e veloce. Provalo oggi.
             </p>
-            <a class="button-heading" href="/CorsoSpringWeb/login">Costruisci treno</a>
+            <a class="button-heading" href="/CorsoSpringWeb/login"
+              >Costruisci treno</a
+            >
           </div>
           <div class="right-div">
-            <img src="/CorsoSpringWeb/resources/images/treno1.jpg" alt="" class="img-hero" />
+            <img
+              src="/CorsoSpringWeb/resources/images/treno1.jpg"
+              alt=""
+              class="img-hero"
+            />
           </div>
         </div>
       </section>
@@ -67,7 +79,11 @@
             </div>
           </div>
           <div class="img-step-box">
-            <img src="/CorsoSpringWeb/resources/images/01.png" alt="" class="img-step" />
+            <img
+              src="/CorsoSpringWeb/resources/images/01.png"
+              alt=""
+              class="img-step"
+            />
           </div>
           <!-- STEP 2-->
           <div class="text-step">
@@ -79,7 +95,11 @@
             </div>
           </div>
           <div class="img-step-box">
-            <img src="/CorsoSpringWeb/resources/images/02.png" alt="" class="img-step" />
+            <img
+              src="/CorsoSpringWeb/resources/images/02.png"
+              alt=""
+              class="img-step"
+            />
           </div>
           <!-- STEP 3-->
           <div class="text-step">
@@ -90,7 +110,11 @@
             </div>
           </div>
           <div class="img-step-box">
-            <img src="/CorsoSpringWeb/resources/images/03.png" alt="" class="img-step" />
+            <img
+              src="/CorsoSpringWeb/resources/images/03.png"
+              alt=""
+              class="img-step"
+            />
           </div>
         </div>
       </section>
@@ -146,7 +170,11 @@
         <div class="grid-container-3">
           <div class="col-logo">
             <a href="#" class="footer-logo">
-              <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
+              <img
+                src="/CorsoSpringWeb/resources/images/logo.png"
+                alt=""
+                class="logo"
+              />
             </a>
             <ul class="socials">
               <li>
@@ -182,7 +210,9 @@
             </address>
           </div>
           <div class="col-login">
-            <a class="button-heading footer-btn" href="/CorsoSpringWeb/login">Accedi adesso</a>
+            <a class="button-heading footer-btn" href="/CorsoSpringWeb/login"
+              >Accedi adesso</a
+            >
           </div>
         </div>
       </footer>
