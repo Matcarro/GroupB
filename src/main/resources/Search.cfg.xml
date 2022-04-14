@@ -5,7 +5,7 @@
  
 
 <hibernate-mapping>
-    <class name="com.course.dao.Search" table="searches">
+    <class name="com.course.dao.SearchDao" table="searches">
         <id name="search" type="string" column="search">
             <generator class="assigned"></generator>
         </id>
