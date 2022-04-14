@@ -1,6 +1,7 @@
 package com.course.dao.impl;
 
 import java.io.File;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class DaoImpl implements Dao {
 		configuration = new Configuration();
 		configuration.configure();
 		factory=configuration.buildSessionFactory();
-
 	}
 
 	public static Dao getInstance() {
@@ -188,6 +188,50 @@ public class DaoImpl implements Dao {
 			result.add(queryResult.get(i).getCountry());
 
 		return result;
+	}
+
+	public boolean usernameExists(String username) {
+		ArrayList<User> result = null;
+
+		Session s = factory.openSession();
+		Query q = s.createQuery("FROM User WHERE username=:username");
+		q.setParameter("username", username);
+		result = new ArrayList<>(q.list());
+		s.close();
+
+		if (result == null || result.size() == 0)
+			return false;
+
+		User u = result.get(0);
+
+		if (!u.getUsername().equals(username))
+			return false;
+
+		return true;
+
+	}
+
+	@Override
+	public boolean insertUser(String username, String password, String firstName, String lastName, Date birthDate) {
+
+		if (usernameExists(username)==true)
+			return false;
+
+		session = factory.openSession();
+		session.beginTransaction();
+
+		User u = new User();
+		u.setUsername(username);
+		u.setPassword(password);
+		u.setFirstName(firstName);
+		u.setLastName(lastName);
+		u.setBirthDate(birthDate);
+
+		session.save(u);
+		session.getTransaction().commit();
+		session.close();
+
+		return true;
 	}
 
 	public void shutdown() {
