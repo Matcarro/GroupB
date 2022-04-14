@@ -24,7 +24,7 @@
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
         
-        <h3>${error}</h3>
+        <p>${error}</p>
         
 		<input type="submit" value="Submit">
 		

@@ -9,12 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
-import com.course.model.checkstring.CheckStringBase;
 import com.course.model.checkstring.Country;
 import com.course.model.train.ConcreteBuilder;
 import com.course.model.train.Treno;
@@ -25,6 +23,7 @@ import com.course.model.wagons.factory.BaseWagonFactory;
 @RequestMapping("/")
 @Scope("session")
 public class WebController {
+	
 	private boolean isLogged(HttpSession session) {
 		if (session.getAttribute("username") != null && session.getAttribute("password") != null
 				&& session.getAttribute("username") != "" && session.getAttribute("password") != "") {
@@ -35,10 +34,21 @@ public class WebController {
 
 	}
 
-	@RequestMapping(path = "/*", method = { RequestMethod.GET })
+	@GetMapping("/*")
 	public String getHomePage() {
 		return "home";
 	}
+	
+	@GetMapping("/admin")
+	public String getAdminPage(HttpSession session) {
+		if (isLogged(session)) {
+			return "admin";
+		} else {
+			return "redirect:/";
+		}
+		
+	}
+
 
 	@PostMapping("/login")
 	public String getProfilePage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {
@@ -57,8 +67,7 @@ public class WebController {
 	}
 
 	@GetMapping("/login")
-	public String getLoginFormPage(@WebParam String error, Model model) {
-		System.out.println(error);
+	public String getLoginFormPage(Model model) {
 		return "login";
 	}
 
@@ -69,7 +78,6 @@ public class WebController {
 		} else {
 			return "redirect:/";
 		}
-
 	}
 
 	@GetMapping("/insertTrain")
