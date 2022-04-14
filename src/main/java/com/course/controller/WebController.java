@@ -25,20 +25,19 @@ public class WebController {
 	@PostMapping("/train")
 	@Scope("session")
 	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
-		//StandardsDaoImpl test = new StandardsDaoImpl();
-		//System.out.println("test get: "+test.getByWord("LPPR"));
 		Country checkString = new Country();
 		BaseWagonFactory vf = new BaseWagonFactory();
 		TrenoBuilder tb = new ConcreteBuilder(vf);
 		try {
-			checkString.setParola(country);
-			checkString.selfCheck();
+			//checkString.setParola(country);
+			//checkString.selfCheck();
 			
 			Treno treno = tb.buildTreno(train);
 
 			model.addAttribute("train", train);
 			model.addAttribute("country", country);
 			model.addAttribute("trainWagons", treno.getVagoni());
+			model.addAttribute("trainSize", treno.getVagoni().size());
 
 			System.out.println("trainWagons: " + treno.getVagoni());
 			System.out.println("train: " + train);
