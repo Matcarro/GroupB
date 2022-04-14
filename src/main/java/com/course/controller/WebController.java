@@ -102,5 +102,14 @@ public class WebController {
 		return "insertTrain";
 	}
 	
+	@RequestMapping(
+			path="/register",
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	@Scope("session")
+	public String getRegisterPage( Model model, HttpSession session) {	
+				return "register" ;
+			}
+	
 	
 }

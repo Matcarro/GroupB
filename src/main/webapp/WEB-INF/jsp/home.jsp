@@ -30,7 +30,7 @@
           <li><a href="#who" class="nav-link">Chi siamo</a></li>
           <li><a href="#contact" class="nav-link">Contattaci</a></li>
           <li>
-            <a class="button-heading reg-btn" href="/CorsoSpringWeb/login"
+            <a class="button-heading reg-btn" href="/CorsoSpringWeb/register"
               >Registrati</a
             >
           </li>
