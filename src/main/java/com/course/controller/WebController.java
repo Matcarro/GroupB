@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
-
+import com.course.model.checkstring.CheckStringBase;
+import com.course.model.checkstring.Country;
 import com.course.model.train.ConcreteBuilder;
 import com.course.model.train.Treno;
 import com.course.model.train.TrenoBuilder;
@@ -45,6 +46,27 @@ public class WebController {
 				System.out.println("train: " + train);
 				System.out.println("country: " + country);
 				System.out.println("session: " +session.getId());
+			} else {
+				Country cntry = new Country();
+				cntry.setParola(country);
+				String valid = cntry.selfCheck();
+
+				System.out.println("valid : " + valid);
+				if(valid == null) {
+					Treno treno = tb.buildTreno(train);
+					// STOP : Nazione non trovata
+					model.addAttribute("train", train);
+					model.addAttribute("country", null);
+					model.addAttribute("trainWagons", treno.getVagoni());
+					model.addAttribute("trainSize", treno.getVagoni().size());
+				} else {
+					Treno treno = tb.buildTreno(train);
+					model.addAttribute("train", train);
+					model.addAttribute("country", valid);
+					model.addAttribute("algorithm", cntry);
+					model.addAttribute("trainWagons", treno.getVagoni());
+					model.addAttribute("trainSize", treno.getVagoni().size());
+				}
 			}
 			
 			return "trainView";

@@ -13,7 +13,7 @@ public abstract class CheckStringBase implements CheckString {
 	private CheckString next = null;
 	private List<String> fixes;
 	private Dao dao = DaoImpl.getInstance();
-	private static Map<Integer, String> ratings = new HashMap<Integer, String>();
+	static Map<Integer, String> ratings = new HashMap<Integer, String>();
 	private static String readyFix ;
 	private Scanner in;
 	
@@ -31,15 +31,10 @@ public abstract class CheckStringBase implements CheckString {
 		in = new Scanner(System.in);
 		this.fixes = dao.getAllCountries();
 		if(fixes == null) return "dbERR";
-//		if(ratings.isEmpty()){
-//			CheckStringBase.readyFix = dao.getCountryBySearch(word);
-//			if(CheckStringBase.readyFix != null) {
-//				return CheckStringBase.readyFix;
-//			}
-//		}
 		for(int i = 0 ; i < fixes.size(); i++) {
 			if(fixes.get(i) != null ) {
 				int dist = internalCheck(word, fixes.get(i));
+				System.out.println(">> chk: " + getName() +" @ "+ + dist);
 				ratings.put(dist, fixes.get(i));
 			}
 		}
@@ -62,8 +57,6 @@ public abstract class CheckStringBase implements CheckString {
 				}
 				i++;
 			}
-			ratings.clear();
-			CheckStringBase.readyFix = null;
 			return correct;
 		}
 	}

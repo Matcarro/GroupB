@@ -55,8 +55,9 @@ public class Country {
 		}
 	}
 	
-	public void selfCheck() {
+	public String selfCheck() {
 		this.parolaCorretta = s010.check(this.parolaErrata);
+		return this.parolaCorretta;
 	}
 
 	public String getParola() {

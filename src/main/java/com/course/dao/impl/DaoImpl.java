@@ -194,14 +194,16 @@ public class DaoImpl implements Dao {
 		queryResult = new ArrayList<>(q.list());
 		session.close();
 
-		if (result == null || result.size() == 0)
+		if (queryResult == null || queryResult.size() == 0) {
 			return null;
+		}
 
 		result = new ArrayList<>(queryResult.size());
 
-		for (int i = 0; i < queryResult.size(); i++)
+		for (int i = 0; i < queryResult.size(); i++) {
 			result.add(queryResult.get(i).getCountry());
-
+		}
+		
 		return result;
 	}
 
