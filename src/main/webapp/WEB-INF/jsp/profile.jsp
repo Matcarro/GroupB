@@ -32,7 +32,7 @@
 	<h3 class="d-flex justify-content-center align-items-center pt-3 mb-3">My trains</h3>
 	<div class="d-flex  justify-content-center align-items-center pt-2">
 		<c:forEach items="${usersTrains}" var="train">
-    		${train}
+    		${train.getSigla()}
     	<br>
 		</c:forEach>
 	</div>

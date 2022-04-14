@@ -62,6 +62,7 @@ public class WebController {
 		} else {
 			session.invalidate();
 			model.addAttribute("error", "Wrong username or password, please retry");
+			model.addAttribute("username", username);
 			return "login";
 		}
 	}
@@ -73,7 +74,7 @@ public class WebController {
 
 	@GetMapping("/profile")
 	public String getProfileFormPage(Model model, HttpSession session) {
-		model.addAttribute("usersTrains", DaoImpl.getInstance().getTrains((String)session.getAttribute("username")));
+		model.addAttribute("usersTrains", DaoImpl.getInstance().getTrains((String)session.getAttribute("username")).toArray());
 		if (isLogged(session)) {
 			return "profile";
 		} else {

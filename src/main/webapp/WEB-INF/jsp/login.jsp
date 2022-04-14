@@ -38,6 +38,7 @@
             aria-describedby="emailHelp"
             id="username"
             name="username"
+            value="${username}"
           />
         </div>
 
