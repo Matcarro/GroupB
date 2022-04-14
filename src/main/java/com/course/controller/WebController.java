@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
 import com.course.model.checkstring.Country;
@@ -98,10 +97,8 @@ public class WebController {
 	@Scope("session")
 	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
 		Dao dao=DaoImpl.getInstance();
-		//TrainDao trainFromDb = (TrainDao) dao.getAllTrains().toArray()[1];
 		BaseWagonFactory vf = new BaseWagonFactory();
 		TrenoBuilder tb = new ConcreteBuilder(vf);
-		//System.out.println("getTrainsFromDB: " + trainFromDb.getSigla());
 		try {
 			if(dao.isCountry(country)) { 
 				Treno treno = tb.buildTreno(train);
