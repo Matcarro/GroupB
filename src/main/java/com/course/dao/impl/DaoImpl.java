@@ -42,7 +42,7 @@ public class DaoImpl implements Dao {
 
 		this.session = factory.openSession();
 
-		Query q = session.createQuery("FROM Train WHERE ownerUsername= :username");
+		Query q = session.createQuery("FROM TrainDao WHERE ownerUsername= :username");
 		q.setParameter("username", username);
 		result = new ArrayList(q.list());
 		session.close();
@@ -58,7 +58,7 @@ public class DaoImpl implements Dao {
 
 		this.session = configuration.buildSessionFactory().openSession();
 
-		Query q = session.createQuery("FROM Train");
+		Query q = session.createQuery("FROM TrainDao");
 		result = new ArrayList(q.list());
 		session.close();
 
@@ -75,7 +75,7 @@ public class DaoImpl implements Dao {
 
 		session = factory.openSession();
 		ArrayList<SearchDao> result = null;
-		Query q = session.createQuery("FROM Search WHERE search=:search");
+		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
 		result = new ArrayList<>(q.list());
 		session.close();
@@ -93,7 +93,7 @@ public class DaoImpl implements Dao {
 
 		this.session = factory.openSession();
 
-		Query q = session.createQuery("FROM Country WHERE country=:country");
+		Query q = session.createQuery("FROM CountryDao WHERE country=:country");
 		q.setParameter("country", country);
 		result = new ArrayList(q.list());
 		session.close();
@@ -111,7 +111,7 @@ public class DaoImpl implements Dao {
 		ArrayList<UserDao> result = null;
 
 		session = factory.openSession();
-		Query q = session.createQuery("FROM User WHERE username=:username AND password=:password");
+		Query q = session.createQuery("FROM UserDao WHERE username=:username AND password=:password");
 		q.setParameter("username", username);
 		q.setParameter("password", password);
 
@@ -152,7 +152,7 @@ public class DaoImpl implements Dao {
 
 		this.session = factory.openSession();
 
-		Query q = session.createQuery("FROM Search WHERE search=:search");
+		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
 		result = new ArrayList(q.list());
 		session.close();
@@ -170,7 +170,7 @@ public class DaoImpl implements Dao {
 		SearchDao s;
 		this.session = factory.openSession();
 
-		Query q = session.createQuery("FROM Search WHERE search=:search");
+		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
 		result = new ArrayList(q.list());
 		session.close();
@@ -189,7 +189,7 @@ public class DaoImpl implements Dao {
 		List<CountryDao> queryResult = null;
 
 		session = factory.openSession();
-		Query q = session.createQuery("FROM Country");
+		Query q = session.createQuery("FROM CountryDao");
 
 		queryResult = new ArrayList<>(q.list());
 		session.close();

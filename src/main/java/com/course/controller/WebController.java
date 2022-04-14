@@ -63,7 +63,7 @@ public class WebController {
 	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
 			Dao dao=DaoImpl.getInstance();
 			System.out.println("U: " + username+ " - P: " + password + "- S: " + session.getId());
-			if (dao.verifyUser(username, password) || (username != null && username != "" && password != null && password != "") ){		
+			if ((username != null && username != "" && password != null && password != "") && dao.verifyUser(username, password)){		
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(1000*60*20);
