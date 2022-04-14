@@ -1,6 +1,6 @@
 package com.course.dao;
 
-public class Train {
+public class TrainDao {
 	private int id;
 	private String buildCountry;
 	private String ownerUsername;

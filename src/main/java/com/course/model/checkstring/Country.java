@@ -2,13 +2,13 @@ package com.course.model.checkstring;
 
 import com.course.model.checkstring.algorithms.Levenshtein;
 import com.course.model.checkstring.algorithms.Soundex;
-import com.course.model.checkstring.algorithms.Start;
+import com.course.model.checkstring.algorithms.Equal;
 
 public class Country {
 	private int reputazione;
 	private String parolaErrata;
 	private String parolaCorretta;
-	private CheckString s010 = new Start();     // Characters level distance
+	private CheckString s010 = new Equal();     // Characters level distance
 	private CheckString l015 = new Levenshtein();     // Characters level distance
 	private CheckString s020 = new Soundex();         // 0 :: Sound match
 	
