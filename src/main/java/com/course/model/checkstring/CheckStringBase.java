@@ -57,6 +57,7 @@ public abstract class CheckStringBase implements CheckString {
 				}
 				i++;
 			}
+			ratings.clear();
 			return correct;
 		}
 	}

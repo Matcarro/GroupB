@@ -254,4 +254,24 @@ public class DaoImpl implements Dao {
 	public void shutdown() {
 		factory.close();
 	}
+
+	@Override
+	public boolean insertTrain(String ownerUsername, String buildCountry, String sigla) {
+		if(ownerUsername==null || buildCountry==null || sigla==null)
+			return false;
+
+		session = factory.openSession();
+		session.beginTransaction();
+
+		TrainDao t = new TrainDao();
+		t.setOwnerUsername(ownerUsername);
+		t.setBuildCountry(buildCountry);
+		t.setSigla(sigla);
+
+		session.save(t);
+		session.getTransaction().commit();
+		session.close();
+
+		return true;
+	}
 }
