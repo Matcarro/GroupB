@@ -56,7 +56,7 @@ public class DaoImpl implements Dao {
 	public Collection<TrainDao> getAllTrains() {
 		ArrayList<TrainDao> result;
 
-		this.session = configuration.buildSessionFactory().openSession();
+		this.session = factory.openSession();
 
 		Query q = session.createQuery("FROM TrainDao");
 		result = new ArrayList(q.list());
@@ -206,10 +206,10 @@ public class DaoImpl implements Dao {
 	}
 
 	public boolean usernameExists(String username) {
-		ArrayList<User> result = null;
+		ArrayList<UserDao> result = null;
 
 		Session s = factory.openSession();
-		Query q = s.createQuery("FROM User WHERE username=:username");
+		Query q = s.createQuery("FROM UserDao WHERE username=:username");
 		q.setParameter("username", username);
 		result = new ArrayList<>(q.list());
 		s.close();
@@ -217,7 +217,7 @@ public class DaoImpl implements Dao {
 		if (result == null || result.size() == 0)
 			return false;
 
-		User u = result.get(0);
+		UserDao u = result.get(0);
 
 		if (!u.getUsername().equals(username))
 			return false;
@@ -235,7 +235,7 @@ public class DaoImpl implements Dao {
 		session = factory.openSession();
 		session.beginTransaction();
 
-		User u = new User();
+		UserDao u = new UserDao();
 		u.setUsername(username);
 		u.setPassword(password);
 		u.setFirstName(firstName);
