@@ -35,15 +35,22 @@
 	<p class="d-flex justify-content-center align-items-center">${train}</p>
 	<h3 class="d-flex justify-content-center align-items-center">From the country:</h3>
 	<p class="d-flex justify-content-center align-items-center">${country}</p>
-
-
-	<div class="d-flex justify-content-center align-items-center"> 
+	
+	<div class="d-flex justify-content-center align-items-center">
 		<h3>Wagon list:</h3>
-		<c:forEach items="${wagon}" var="wagon">
-    		${trainWagons}
-    	<br>
-		</c:forEach>
-
-	</div>	
+	</div>
+	
+		<div class="d-flex  justify-content-center align-items-center pt-2">
+			<c:forEach items="${trainWagons}" var="wagon">
+				<div class="card" style="width: 18rem;">
+  					<img src="/CorsoSpringWeb/resources/images/01.png" class="card-img-left" alt="">
+  					<div class="card-body">
+    						${wagon}
+    					<!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
+  					</div>
+			   </div>
+			</c:forEach>
+		</div>
+		
 </body>
 </html>

@@ -73,6 +73,7 @@ public class WebController {
 
 	@GetMapping("/profile")
 	public String getProfileFormPage(Model model, HttpSession session) {
+		model.addAttribute("usersTrains", DaoImpl.getInstance().getTrains((String)session.getAttribute("username")));
 		if (isLogged(session)) {
 			return "profile";
 		} else {
@@ -94,10 +95,10 @@ public class WebController {
 	@Scope("session")
 	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
 		Dao dao=DaoImpl.getInstance();
-		TrainDao trainFromDb = (TrainDao) dao.getAllTrains().toArray()[1];
+		//TrainDao trainFromDb = (TrainDao) dao.getAllTrains().toArray()[1];
 		BaseWagonFactory vf = new BaseWagonFactory();
 		TrenoBuilder tb = new ConcreteBuilder(vf);
-		System.out.println("getTrainsFromDB: " + trainFromDb.getSigla());
+		//System.out.println("getTrainsFromDB: " + trainFromDb.getSigla());
 		try {
 			if(dao.isCountry(country)) { 
 				Treno treno = tb.buildTreno(train);

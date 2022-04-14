@@ -30,6 +30,12 @@
         <button onclick="window.location.href='/CorsoSpringWeb/insertTrain'" class="btn btn-primary cl-submit">Create new train</button>
     </div>
 	<h3 class="d-flex justify-content-center align-items-center pt-3 mb-3">My trains</h3>
+	<div class="d-flex  justify-content-center align-items-center pt-2">
+		<c:forEach items="${usersTrains}" var="train">
+    		${train}
+    	<br>
+		</c:forEach>
+	</div>
 </div>
 
 </body>
