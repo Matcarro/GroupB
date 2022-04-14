@@ -34,7 +34,7 @@ public abstract class CheckStringBase implements CheckString {
 		for(int i = 0 ; i < fixes.size(); i++) {
 			if(fixes.get(i) != null ) {
 				int dist = internalCheck(word, fixes.get(i));
-				System.out.println(">> chk: " + getName() +" @ "+ + dist);
+				System.out.println(">> " + word + " w/"+ getName() + " VS " + fixes.get(i) + " = "+ dist);
 				ratings.put(dist, fixes.get(i));
 			}
 		}
