@@ -41,8 +41,7 @@ public class WebController {
 	}
 
 	@PostMapping("/login")
-	public String getProfilePage(@WebParam String username, @WebParam String password, Model model,
-			HttpSession session) {
+	public String getProfilePage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		System.out.println("U: " + username + " - P: " + password + "- S: " + session.getId());
 		if (dao.verifyUser(username, password)) {
@@ -58,13 +57,13 @@ public class WebController {
 	}
 
 	@GetMapping("/login")
-	public String getLoginPage(@WebParam String error, Model model) {
+	public String getLoginFormPage(@WebParam String error, Model model) {
 		System.out.println(error);
 		return "login";
 	}
 
 	@GetMapping("/profile")
-	public String getProfilePageTrue(Model model, HttpSession session) {
+	public String getProfileFormPage(Model model, HttpSession session) {
 		if (isLogged(session)) {
 			return "profile";
 		} else {
@@ -135,39 +134,8 @@ public class WebController {
 		}
 	}
 
-	@RequestMapping(path = "/login", method = { RequestMethod.GET, RequestMethod.POST })
-	@Scope("session")
-	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {
-		Dao dao = DaoImpl.getInstance();
-		System.out.println("U: " + username + " - P: " + password + "- S: " + session.getId());
-		if (dao.verifyUser(username, password)) {
-			System.out.println("test");
-			session.setAttribute("username", username);
-			session.setAttribute("password", password);
-			session.setMaxInactiveInterval(1000 * 60 * 20);
-			return "redirect:/profile";
-		} else {
-			session.invalidate();
-			return "login";
-		}
-	}
-
-	@Scope("session")
-	@RequestMapping(path = "/profile", method = { RequestMethod.GET, RequestMethod.POST })
-	public String getProfilePage(Model model, HttpSession session) {
-		session.getAttribute("username");
-		return "profile";
-	}
-
-	@RequestMapping(path = { "/insertTrain" }, method = { RequestMethod.GET, RequestMethod.POST })
-	@Scope("session")
-	public String insertTrain(HttpSession session) {
-		return "insertTrain";
-	}
-
-	@RequestMapping(path = "/register", method = { RequestMethod.GET, RequestMethod.POST })
-	@Scope("session")
-	public String getRegisterPage(Model model, HttpSession session) {
+	@GetMapping("/register")
+	public String getRegisterPage() {
 		return "register";
 	}
 

@@ -99,20 +99,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
-<dependency>
-    <groupId>jakarta.validation</groupId>
-    <artifactId>jakarta.validation-api</artifactId>
-    <version>3.0.1</version>
-</dependency>
-
-<dependency>
-    <groupId>jakarta.el</groupId>
-    <artifactId>jakarta.el-api</artifactId>
-    <version>4.0.0</version>
-</dependency>
-
-
 	</dependencies>
 
 	<build>
