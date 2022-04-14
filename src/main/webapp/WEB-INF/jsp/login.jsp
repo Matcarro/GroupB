@@ -53,7 +53,9 @@
             name="password"
           />
         </div>
-
+		<div id="error" style="color: red">
+          ${error}
+        </div>
         <div id="emailHelp" class="form-text">
           Not registered?
         </div>
