@@ -18,7 +18,6 @@ import com.course.dao.Train;
 import com.course.dao.User;
 
 public class DaoImpl implements Dao {
-	private static File hibernate = new File("src/main/resources/hibernate.cfg.xml");
 	private static Configuration configuration;
 	private static Session session;
 	private static Dao dao;
@@ -190,7 +189,7 @@ public class DaoImpl implements Dao {
 
 		return result;
 	}
-	
+
 	public void shutdown() {
 		factory.close();
 	}

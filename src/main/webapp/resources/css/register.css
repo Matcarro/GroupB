@@ -1,0 +1,27 @@
+* {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+}
+
+body {
+  background-color: #d8e6f9;
+  color: #222e50;
+}
+
+.form-input {
+  background-color: #ecf3fc;
+}
+
+.cl-submit {
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(#1845ad, #23a2f6);
+  font-weight: 700;
+}
+
+.cl-back {
+  border-radius: 9px;
+  color: #222e50;
+  background: linear-gradient(#b8b8b8, #fcfcfc);
+  font-weight: 700;
+}

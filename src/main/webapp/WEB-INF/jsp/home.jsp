@@ -141,7 +141,7 @@
         <div class="grid-container-3">
           <div class="col-logo">
             <a href="#" class="footer-logo">
-              <img src="logo.png" alt="" class="logo" />
+              <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
             </a>
             <ul class="socials">
               <li>
