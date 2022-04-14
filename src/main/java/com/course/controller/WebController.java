@@ -53,23 +53,30 @@ public class WebController {
 	}
 	
 	@RequestMapping(
-			path="/*",
+			path="/login",
 			method= {RequestMethod.GET, RequestMethod.POST}
 	)
 	@Scope("session")
-	public String getMainPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
-			System.out.println("username: " +username);
-			System.out.println("password: " +password);
-			System.out.println("session: " +session.getId());
+	public String getLoginPage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {	
+			System.out.println("U: " + username+ " - P: " + password + "- S: " + session.getId());
 			if (username != null && username != "" && password != null && password != ""){		
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(1000*60*20);
 				return "profile";  
 			} else {
-				session.invalidate();
-				return "login";
+				session.invalidate() ;
+				return "login" ;
 			}
+	}
+	
+	@RequestMapping(
+			path="/*",
+			method= {RequestMethod.GET, RequestMethod.POST}
+	)
+	@Scope("session")
+	public String getHomePage() {	
+		return "home";  
 	}
 	
 	@RequestMapping(
@@ -78,7 +85,6 @@ public class WebController {
 	)
 	@Scope("session")
 	public String insertTrain(HttpSession session) {
-		
 		return "insertTrain";
 	}
 	

@@ -5,7 +5,7 @@
  
 
 <hibernate-mapping>
-    <class name="com.course.config.hibernate.Country" table="countries">
+    <class name="com.course.dao.Country" table="countries">
         <id name="country" type="string" column="country">
             <generator class="assigned"></generator>
         </id>
