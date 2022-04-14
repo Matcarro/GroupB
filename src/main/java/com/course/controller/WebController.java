@@ -42,12 +42,14 @@ public class WebController {
 	@GetMapping("/admin")
 	public String getAdminPage(HttpSession session) {
 		if (isLogged(session)) {
-			return "admin";
+			return "controlPanel";
 		} else {
-			return "redirect:/";
+			return "redirect:/login";
 		}
 		
 	}
+	
+
 
 
 	@PostMapping("/login")
