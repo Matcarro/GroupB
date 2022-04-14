@@ -47,32 +47,36 @@
           />
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
+          <label for="date" class="form-label"
             >Data di nascita</label
           >
           <input
             type="date"
             class="form-control form-input"
             aria-describedby="emailHelp"
+            id="date"
+            name="date"
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Email</label>
+          <label for="email" class="form-label">Email</label>
           <input
             type="email"
             class="form-control form-input"
             aria-describedby="emailHelp"
+            id="email"
+            name="email"
           />
           <div id="emailHelp" class="form-text">
             Non condivideremo la tua email con altri.
           </div>
         </div>
         <div class="mb-5">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-control form-input" />
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control form-input" id="password" name="password"/>
         </div>
         <div class="buttons d-flex justify-content-between">
-          <button type="submit" class="btn btn-primary cl-back">Back</button>
+          <button type="reset" class="btn btn-primary cl-back">Back</button>
           <button type="submit" class="btn btn-primary cl-submit">
             Submit
           </button>
