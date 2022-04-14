@@ -48,6 +48,21 @@ public class DaoImpl implements Dao {
 
 		return result;
 	}
+	
+	public Collection<Train> getAllTrains() {
+		ArrayList<Train> result;
+
+		this.session = configuration.buildSessionFactory().openSession();
+
+		Query q = session.createQuery("FROM Train");
+		result = new ArrayList(q.list());
+		session.close();
+
+		if (result == null || result.size() == 0)
+			return null;
+
+		return result;
+	}
 
 	@Override
 	public String getCountryBySearch(String search) {
