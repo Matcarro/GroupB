@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
@@ -21,10 +22,12 @@ public class DaoImpl implements Dao {
 	private static Configuration configuration;
 	private static Session session;
 	private static Dao dao;
+	private SessionFactory factory;
 
 	private DaoImpl() {
 		configuration = new Configuration();
-		configuration.configure(hibernate);
+		configuration.configure();
+		factory=configuration.buildSessionFactory();
 
 	}
 
@@ -38,7 +41,7 @@ public class DaoImpl implements Dao {
 	public Collection<Train> getTrains(String username) {
 		ArrayList<Train> result;
 
-		this.session = configuration.buildSessionFactory().openSession();
+		this.session = factory.openSession();
 
 		Query q = session.createQuery("FROM Train WHERE ownerUsername= :username");
 		q.setParameter("username", username);
@@ -56,7 +59,7 @@ public class DaoImpl implements Dao {
 		if (isSearch(search) == false)
 			return null;
 
-		session = configuration.buildSessionFactory().openSession();
+		session = factory.openSession();
 		ArrayList<Search> result = null;
 		Query q = session.createQuery("FROM Search WHERE search=:search");
 		q.setParameter("search", search);
@@ -74,7 +77,7 @@ public class DaoImpl implements Dao {
 		ArrayList<Country> result = null;
 		Country c;
 
-		this.session = configuration.buildSessionFactory().openSession();
+		this.session = factory.openSession();
 
 		Query q = session.createQuery("FROM Country WHERE country=:country");
 		q.setParameter("country", country);
@@ -93,7 +96,7 @@ public class DaoImpl implements Dao {
 	public boolean verifyUser(String username, String password) {
 		ArrayList<User> result = null;
 
-		session = configuration.buildSessionFactory().openSession();
+		session = factory.openSession();
 		Query q = session.createQuery("FROM User WHERE username=:username AND password=:password");
 		q.setParameter("username", username);
 		q.setParameter("password", password);
@@ -112,7 +115,7 @@ public class DaoImpl implements Dao {
 		if (isSearch(search) == true || isCountry(country) == false)
 			return false;
 
-		session = configuration.buildSessionFactory().openSession();
+		session = factory.openSession();
 		session.beginTransaction();
 
 		Search s = new Search();
@@ -133,7 +136,7 @@ public class DaoImpl implements Dao {
 		ArrayList<Search> result = null;
 		Search s;
 
-		this.session = configuration.buildSessionFactory().openSession();
+		this.session = factory.openSession();
 
 		Query q = session.createQuery("FROM Search WHERE search=:search");
 		q.setParameter("search", search);
@@ -151,7 +154,7 @@ public class DaoImpl implements Dao {
 	public Search getSearch(String search) {
 		ArrayList<Search> result = null;
 		Search s;
-		this.session = configuration.buildSessionFactory().openSession();
+		this.session = factory.openSession();
 
 		Query q = session.createQuery("FROM Search WHERE search=:search");
 		q.setParameter("search", search);
@@ -171,7 +174,7 @@ public class DaoImpl implements Dao {
 		List<String> result = null;
 		List<Country> queryResult = null;
 
-		session = configuration.buildSessionFactory().openSession();
+		session = factory.openSession();
 		Query q = session.createQuery("FROM Country");
 
 		queryResult = new ArrayList<>(q.list());
@@ -186,5 +189,9 @@ public class DaoImpl implements Dao {
 			result.add(queryResult.get(i).getCountry());
 
 		return result;
+	}
+	
+	public void shutdown() {
+		factory.close();
 	}
 }

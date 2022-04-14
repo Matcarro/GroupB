@@ -18,5 +18,5 @@ public boolean verifyUser(String username, String password); /*verifica le crede
 public boolean insertSearch(String search, String country, String method); /*Inserisce una ricerca nel db*/
 public Search getSearch(String search); /* Restituisce un oggetto ricerca dal db compreso di standardCoutry, date, method, ecc...*/
 public List<String> getAllCountries();
-	
+public void shutdown();
 }
