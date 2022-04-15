@@ -34,6 +34,7 @@
               >Registrati
               </a>
           </li>
+          <!-- TODO if the user is logged show Profile -->
           <li><a class="button-heading" href="/CorsoSpringWeb/login">Log In</a></li>
         </ul>
       </nav>
