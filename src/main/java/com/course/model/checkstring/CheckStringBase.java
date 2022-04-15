@@ -11,11 +11,9 @@ import com.course.dao.impl.DaoImpl;
 
 public abstract class CheckStringBase implements CheckString {
 	private CheckString next = null;
-	private List<String> fixes;
+	private List<String> countries;
 	private Dao dao = DaoImpl.getInstance();
-	static Map<Integer, String> ratings = new HashMap<Integer, String>();
-	private static String readyFix ;
-	private Scanner in;
+
 	
 	public CheckStringBase() {
 		super();
@@ -23,42 +21,26 @@ public abstract class CheckStringBase implements CheckString {
 	
 	//     Interfaccia per i risultati dei singoli algoritmi
 	// -1 :: Per i casi binari negativi
-	// 0  :: Per i match
+	// 0  :: Per i match (binari positivi)
 	// 0+ :: Misura della distanza fra 'input' e 'standard'
 	protected abstract int internalCheck(String input, String standard);
 	
-	public String check(String word) {
-		in = new Scanner(System.in);
-		this.fixes = dao.getAllCountries();
-		if(fixes == null) return "dbERR";
-		for(int i = 0 ; i < fixes.size(); i++) {
-			if(fixes.get(i) != null ) {
-				int dist = internalCheck(word, fixes.get(i));
-				System.out.println(">> " + word + " w/"+ getName() + " VS " + fixes.get(i) + " = "+ dist);
-				ratings.put(dist, fixes.get(i));
-			}
+	public EsitoCheckString check(String word, EsitoCheckString esito) {
+		
+		esito.setSearch(word);
+		this.countries = dao.getAllCountries();
+		
+		// Distance comparison w/ local algorithm
+		for(int i = 0 ; i < countries.size(); i++) {
+			esito.addCase(getName(), countries.get(i), internalCheck(word, countries.get(i)));
 		}
+		
+		// Follows the queue & compute result
 		if(hasNext()) {
-			return next.check(word);
+			return next.check(word, esito);
 		} else {
-			List<String> topFive = new ArrayList<String>();
-			String correct = null;
-			int i = 0;
-			while (topFive.size()<2) {
-				if(ratings.get(i) != null) {
-					if(correct == null && i <= 2) { // Automatic threshold
-						correct = ratings.get(i);
-						System.out.println(">> FIX automatico : " + ratings.get(i));
-						break;
-					} else if (correct == null && i <= 4){ // Manual add
-						// TODO Save
-					}
-					topFive.add(ratings.get(i));
-				}
-				i++;
-			}
-			ratings.clear();
-			return correct;
+			esito.computerBestResult();
+			return esito;
 		}
 	}
 
