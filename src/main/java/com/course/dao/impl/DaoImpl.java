@@ -12,6 +12,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import com.course.dao.CountryDao;
 import com.course.dao.SearchDao;
@@ -23,11 +27,14 @@ public class DaoImpl implements Dao {
 	private static Session session;
 	private static Dao dao;
 	private SessionFactory factory;
+	private BeanFactory beans;
 
 	private DaoImpl() {
 		configuration = new Configuration();
 		configuration.configure();
 		factory=configuration.buildSessionFactory();
+		Resource r=new ClassPathResource("beans.xml");
+		beans=new XmlBeanFactory(r);
 	}
 
 	public static Dao getInstance() {
@@ -132,7 +139,8 @@ public class DaoImpl implements Dao {
 		session = factory.openSession();
 		session.beginTransaction();
 
-		SearchDao s = new SearchDao();
+		
+		SearchDao s=(SearchDao)beans.getBean("search");
 		s.setSearch(search);
 		s.setStandardCountry(country);
 		s.setMethod(method);
@@ -237,7 +245,8 @@ public class DaoImpl implements Dao {
 		session = factory.openSession();
 		session.beginTransaction();
 
-		UserDao u = new UserDao();
+		
+		UserDao u=(UserDao)beans.getBean("user");
 		u.setUsername(username);
 		u.setPassword(password);
 		u.setFirstName(firstName);
@@ -263,7 +272,8 @@ public class DaoImpl implements Dao {
 		session = factory.openSession();
 		session.beginTransaction();
 
-		TrainDao t = new TrainDao();
+		
+		TrainDao t=(TrainDao)beans.getBean("train");
 		t.setOwnerUsername(ownerUsername);
 		t.setBuildCountry(buildCountry);
 		t.setSigla(sigla);
