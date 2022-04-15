@@ -24,7 +24,7 @@
 <div>
     <div class="container d-flex justify-content-center">
 			<header	class="justify-content-center py-3 mb-4 border-bottom">
-				<a href="/"	class="logo justify-content-center">
+				<a href="./"	class="logo justify-content-center">
         			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
 				</a>
 				<ul class="nav nav-pills justify-content-center ">
