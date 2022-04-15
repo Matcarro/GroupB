@@ -153,18 +153,72 @@
 							<h5 class="col row justify-content-end m-3 ">Advanced options</h5>
 						</button>
 					</h2>
-					<div id="collapsePro" class="accordion-collapse collapse"
+					<div id="collapsePro" class="accordion-collapse collapse bg-warning"
 						aria-labelledby="headingPro" data-bs-parent="#accordionExample">
 						<div class="accordion-body">
 							<div class="d-grid gap-2">
-		  						<button class="btn btn-outline-warning " type="button">Load Demo DB</button>
-								<button class="btn btn-outline-danger " type="button">Format Database Schema</button>
+		  						<button class="btn btn-outline-danger " type="button" data-bs-toggle="modal" data-bs-target="#loadModal">Load Demo DB</button>
+								<button class="btn btn-danger " type="button" data-bs-toggle="modal" data-bs-target="#formatModal">Format Database Schema</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		
+<!-- Format Modal -->
+<div class="modal fade" id="formatModal" tabindex="-1" aria-labelledby="formatModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formatModalLabel">Dangerous operation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+		<div class="form-floating mb-3">
+		  <input class="form-control" type="text" value="${username}" aria-label="readonly input example" readonly>
+		  <label for="floatingInput">Username</label>
+		</div>
+		<p class="m-2">Please insert your password to confirm the operation: </p>
+		<div class="form-floating">
+		  <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+		  <label for="floatingPassword">Password</label>
+		</div>
+      </div>
+      <div class="alert alert-danger m-3" role="alert">
+	  		This operation can't be undone !
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger disabled">Format</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load Modal -->
+<div class="modal fade" id="loadModal" tabindex="-1" aria-labelledby="floadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="floadModalLabel">Dangerous operation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="alert alert-warning m-3" role="alert">
+	  		This operation can't be undone !
+	  </div>
+        <button class="btn btn-outline-danger disabled" type="button" data-bs-toggle="modal" data-bs-target="#loadModal">Try loading Demo Schema</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
 
 		<footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
