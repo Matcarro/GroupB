@@ -1,15 +1,22 @@
 package com.course.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.course.controller.test.StringListContainer;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
 import com.course.model.checkstring.Country;
@@ -17,6 +24,7 @@ import com.course.model.train.ConcreteBuilder;
 import com.course.model.train.Treno;
 import com.course.model.train.TrenoBuilder;
 import com.course.model.wagons.factory.BaseWagonFactory;
+
 
 @Controller
 @RequestMapping("/")
@@ -40,7 +48,7 @@ public class WebController {
 	}
 
 	@GetMapping("/admin")
-	public String getAdminPage(HttpSession session) {
+	public String getAdminPage(Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
 			session.setAttribute("countriesFull", dao.getAllCountries());
@@ -54,8 +62,7 @@ public class WebController {
 	}
 
 	@PostMapping("/login")
-	public String getProfilePage(@WebParam String username, @WebParam String password, Model model,
-			HttpSession session) {
+	public String getProfilePage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		System.out.println("U: " + username + " - P: " + password + "- S: " + session.getId());
 		if (dao.verifyUser(username, password)) {
@@ -78,6 +85,12 @@ public class WebController {
 		} else {
 			return "login";
 		}
+	}
+	
+	@GetMapping("/logout")
+	public String getLogoutAction(Model model, HttpSession session) {
+		session.invalidate();
+		return "redirect:/home";
 	}
 
 	@GetMapping("/profile")
@@ -147,8 +160,28 @@ public class WebController {
 	}
 
 	@GetMapping("/register")
-	public String getRegisterPage() {
+	public String getRegisterPage() { 
 		return "register";
+	}
+	
+	//ZONA TESTING
+	
+	@GetMapping("/test")
+	public String getTest() {
+		return "testPageRest";
+	}
+	
+	@RequestMapping(value = "/getString", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+	@ResponseBody
+	public StringListContainer getString() {
+		List<String> setOfString = new ArrayList<String>();
+		setOfString.add("ciao");
+		setOfString.add("test");
+		StringListContainer myString = new StringListContainer();
+		myString.setStringList(setOfString);
+		return myString;
 	}
 
 }
