@@ -144,21 +144,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="accordion-item">
+				<div class="accordion-item ">
 					<h2 class="accordion-header" id="headingPro">
-						<button class="accordion-button collapsed" type="button"
+						<button class="accordion-button collapsed text-danger" type="button"
 							data-bs-toggle="collapse" data-bs-target="#collapsePro"
 							aria-expanded="false" aria-controls="collapsePro">
-							<i class="col fas fa-exclamation-triangle fa-2x m-1"></i>
-							<h3 class="col row justify-content-end m-2">Advanced options</h3>
+							<i class="col fas fa-exclamation-triangle fa-2x m-1 text-warning"></i>
+							<h5 class="col row justify-content-end m-3 ">Advanced options</h5>
 						</button>
 					</h2>
 					<div id="collapsePro" class="accordion-collapse collapse"
 						aria-labelledby="headingPro" data-bs-parent="#accordionExample">
 						<div class="accordion-body">
 							<div class="d-grid gap-2">
-		  						<button class="btn btn-warning disabled" type="button">Reset Database Schema to Defaults</button>
-								<button class="btn btn-danger disabled" type="button">Format Database</button>
+		  						<button class="btn btn-outline-warning " type="button">Load Demo DB</button>
+								<button class="btn btn-outline-danger " type="button">Format Database Schema</button>
 							</div>
 						</div>
 					</div>
