@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -171,8 +172,11 @@ public class WebController {
 		return "testPageRest";
 	}
 	
-	@RequestMapping(value = "/getString", method = RequestMethod.GET,
+	@CrossOrigin(origins = "*")
+	@RequestMapping(
+			value = "/getString", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
+            
     )
 	@ResponseBody
 	public StringListContainer getString() {
