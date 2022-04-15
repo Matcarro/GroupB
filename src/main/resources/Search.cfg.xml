@@ -9,7 +9,8 @@
         <id name="search" type="string" column="search">
             <generator class="assigned"></generator>
         </id>
-        <property name="standardCountry" type="string" column="standard_country" />
+        <many-to-one name = "standardCountry" column = "standard_country" 
+         class="com.course.dao.CountryDao" not-null="true"/>
         <property name="insertDate" type="timestamp" column="insert_date" />
         <property name="method" type="string" column="method" />
     </class>

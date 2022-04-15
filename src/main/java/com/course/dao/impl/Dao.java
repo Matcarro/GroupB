@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.course.dao.SearchDao;
 import com.course.dao.TrainDao;
+import com.course.model.User;
 
 public interface Dao {
 
@@ -31,6 +32,7 @@ public boolean verifyUser(String username, String password); /*verifica le crede
 public boolean usernameExists(String username);
 public boolean insertUser(String username, String password, String firstName,String lastName, Date birthDate); /*Inserisce un user nel db*/
 
+public List<User> serviceUserView();
 
 public void shutdown();
 }

@@ -2,8 +2,8 @@ package com.course.dao;
 
 public class TrainDao {
 	private int id;
-	private String buildCountry;
-	private String ownerUsername;
+	private CountryDao buildCountry;
+	private UserDao owner;
 	private String sigla;
 
 	public int getId() {
@@ -14,20 +14,20 @@ public class TrainDao {
 		this.id = id;
 	}
 
-	public String getBuildCountry() {
+	public CountryDao getBuildCountry() {
 		return buildCountry;
 	}
 
-	public void setBuildCountry(String buildCountry) {
+	public void setBuildCountry(CountryDao buildCountry) {
 		this.buildCountry = buildCountry;
 	}
 
-	public String getOwnerUsername() {
-		return ownerUsername;
+	public UserDao getOwner() {
+		return owner;
 	}
 
-	public void setOwnerUsername(String ownerUsername) {
-		this.ownerUsername = ownerUsername;
+	public void setOwner(UserDao owner) {
+		this.owner = owner;
 	}
 
 	public String getSigla() {

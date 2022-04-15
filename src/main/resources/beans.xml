@@ -9,4 +9,5 @@
 	<bean id="country" class="com.course.dao.CountryDao"></bean>
 	<bean id="user" class="com.course.dao.UserDao"></bean>
 	<bean id="search" class="com.course.dao.SearchDao"></bean>
+	<bean id="modelUser" class="com.course.model.User"></bean>
 </beans>
