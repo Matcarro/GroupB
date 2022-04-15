@@ -10,6 +10,6 @@ public static void main(String[] args) {
 	//System.out.println(dao.isCountry("Italy"));
 	//System.out.println(dao.insertUser("FedericoCiao2", "Pippo123", "Pippo", "Sega",Date.valueOf("1980-04-22")));
 	
-	System.out.println(dao.insertTrain("OscarDeFilpo","Italy","LPPPPPRP"));
+	System.out.println(dao.insertTrain("GiuseppeIzzo","Pakistan","LPPPPPRP"));
 }
 }
