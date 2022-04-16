@@ -18,6 +18,7 @@
       crossorigin="anonymous"
     />
 <link  href="/CorsoSpringWeb/resources/css/register.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="container d-flex justify-content-center">
@@ -66,5 +67,6 @@
             </div>
 		</form>
 	</div>
+	
 </body>
 </html>
