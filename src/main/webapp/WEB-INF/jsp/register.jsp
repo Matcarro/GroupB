@@ -25,15 +25,21 @@
 
   </head>
   <body>
+  
     <div class="logo-img d-flex justify-content-center align-items-center">
       <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" />
     </div>
+    
     <div class="pt-1 col-12 d-flex align-items-center justify-content-center" >
-      <form id="form" action="/CorsoSpringWeb/login" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
+     
+
+
+
+	<form id="form" action="/CorsoSpringWeb/login" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <div class="d-flex align-items-center justify-content-between gap-2">
-          <input
+          <input 
             type="text"
             class="form-control form-input"
             id="name"
@@ -61,9 +67,7 @@
        		</div>
         </div>
         <div class="mb-3">
-          <label for="date" class="form-label"
-            >Birthday</label
-          >
+          <label for="date" class="form-label">Birthday</label>
           <div class="d-flex align-items-center justify-content-between gap-2">
           <input
             type="date"
@@ -122,6 +126,9 @@
           registerForm.date.$error.required || registerForm.date.$error.date" class="btn btn-primary cl-submit" >
         </div>
       </form>
+      
+      
+      
       <script>
 		var app = angular.module('regApp', []);
 		app.controller('controlRegApp', function($scope) {
@@ -130,8 +137,14 @@
 		    $scope.email = 'email@email.com';
 		});
 	</script>
+	
+	
     </div>
+    
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  
   </body>
 </html>

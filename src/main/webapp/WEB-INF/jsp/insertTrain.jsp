@@ -3,80 +3,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert Train</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
-	integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link  href="/CorsoSpringWeb/resources/css/style.css" rel="stylesheet">
-
+	<meta charset="ISO-8859-1">
+	<title>Insert Train</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="/CorsoSpringWeb/resources/css/style.css" rel="stylesheet">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
 </head>
 <body>
-<header
-		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
-		<a href="#"
-			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
-			alt="" class="logo" />
+
+	<header	class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
+		<a href="#"	class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
 		</a>
 
 		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 			<li><a href="./" class="nav-link pill">Home</a></li>
-					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+			<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
 		</ul>
 
 		<div class="col-md-3 text-end">
-			<button onclick="window.location.href='/CorsoSpringWeb/profile'"
-				type="button" class="btn btn-primary">Profile</button>
+			<button onclick="window.location.href='/CorsoSpringWeb/profile'" type="button" class="btn btn-primary">Profile</button>
 		</div>
 	</header>
 
 
 	<div class="d-flex justify-content-center align-items-center col-12">
-		<form id="form" action="/CorsoSpringWeb/train" method="post">
+	
+		<form id="form" action="/CorsoSpringWeb/train" method="post" ng-app="inserTrainFormApp" ng-controller="inserTrainFormController">
 
             <div class="mb-3">
-                <label for="train" class="form-label">Train</label>
+                <label for="train" class="form-label">Train code:</label>
+                
                 <br>
-                <input
-                  type="text"
-                  class="form-control form-input"
-                  aria-describedby="emailHelp"
-                  id="train"
-                  name="train"
-                />
+                
+                <input type="text" required class="form-control form-input" aria-describedby="trainCode" id="train" name="train" 
+                oninput="this.value = this.value.toUpperCase()"/>
             </div>
 
 			<div class="mb-3">
-                <label for="country" class="form-label">Country</label>
+                <label for="country" class="form-label">Train country:</label>
+                
                 <br>
-                <input
-                  type="text"
-                  class="form-control form-input"
-                  aria-describedby="emailHelp"
-                  id="country"
-                  name="country"
-                />
+                
+                <input type="text" required class="form-control form-input" aria-describedby="trainCountry" id="country" name="country"/>
             </div>
 
 			<div class="d-flex justify-content-center align-items-center pt-3">
-			<input id="submit" type="submit" value="Train preview" class="btn btn-primary cl-submit">
+				<input id="submit" type="submit" ng-disabled="registerForm.train.$dirty && registerForm.country.$dirty"  value="Train preview" class="btn btn-primary cl-submit">
             </div>
+            
 		</form>
 	</div>
 	
@@ -141,5 +125,23 @@
 			</footer>
 			<!-- Footer -->
 		</section>
-</body>
+		
+<script>
+
+
+
+var app = angular.module("inserTrainFormApp", []);
+
+app.controller("inserTrainFormController", function($scope) {
+   console.log("$scope.trainCode" + $scope);
+}
+
+);
+
+
+
+
+</script>
+		
+        </body>
 </html>
