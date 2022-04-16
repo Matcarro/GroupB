@@ -54,17 +54,19 @@
 		</div>
 	</header>
 <main class="container">
-	<h5 class="d-flex justify-content-center align-items-center">You selected the following train:</h5>
-	<div class="d-flex justify-content-center align-items-center" style="gap:1rem">
+	<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
+	<div class="d-flex flex-row-reverse justify-content-center align-items-center" >
 	<%
 		String str = (String) request.getAttribute("train");
 	
 		for(int i = 0; i < str.length(); i++){
 			
 			%>
-			<div class="d-flexjustify-content-center align-items-center ">
-  				<img src="/CorsoSpringWeb/resources/images/<%=str.charAt(i) %>.png" class="card-img-left" width="55" height="40" alt="">
-				<p style="text-align: center; font-size: 1.2rem;"><%=str.charAt(i) %></p>
+			<div class="d-flex justify-content-center align-items-center pb-3">
+				<div>
+  					<img src="/CorsoSpringWeb/resources/images/<%=str.charAt(i) %>.png" class="card-img-left pb-2" width="55" height="40" alt="">
+					<h3 style="text-align: center; font-size: 1.2rem;"><%=str.charAt(i) %></h3>
+				</div>
 			</div>
 			<%
 			
@@ -73,21 +75,28 @@
 	%>
 	</div>
 	<h5 class="d-flex justify-content-center align-items-center">From the country:</h5>
-	<a href="/CorsoSpringWeb/country" class="d-flex justify-content-center align-items-center display-6">${esito.correct}</a>
-		<div ng-app="myApp" ng-controller="customersCtrl" class="d-flex justify-content-center align-items-center m-3">
-			<img src="{{myData[0].flags['svg']}}" style="height:50px;"></img>
+	<div class="d-flex justify-content-center align-items-center pt-4 pb-4">
+		<div class="card bg-dark text-white w-25 h-25 ">
+			<div ng-app="myApp" ng-controller="customersCtrl">
+			<img class="card-img" src="{{myData[0].flags['svg']}}" alt="Card image">
+				<div class="card-img-overlay d-flex justify-content-center align-items-center">
+					<a class="card-title btn btn-primary " href="/CorsoSpringWeb/country" >${esito.correct}</a>	
+				</div>
+			</div>
+		</div>
 	</div>
+	<h5 class="d-flex justify-content-center align-items-center">Wagon's carousel:</h5>
 	
-	<section class="pt-5 pb-5">
-		<div class="container">
+	<section class="pt-3 pb-3">
+		<div class="container w-50">
 	        	<div id="carouselExampleIndicators2" class="carousel slide carousel-fade " data-ride="carousel">
 	        		<div class="carousel-inner" role="listbox">
 						<c:forEach items="${trainWagons}" var="wagon">
 							<c:choose>
 							    <c:when test="${wagon.getClass().getSimpleName() == \"Locomotiva\"}">
 							         <div class="carousel-item active">
-							        	<div class="card d-blok">
-								  			<img class="d-block w-50 h-50"  src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+							        	<div class="card d-blok border-primary mb-3">
+								  			<img class="d-block w-100"  src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
 											<div class="card-body">
 												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
 												<p class="card-text">${wagon.toString()}</p>
@@ -97,8 +106,8 @@
 							    </c:when>
 							    <c:otherwise>
 							       <div class="carousel-item">
-							        	<div class="card d-blok">
-								  			<img class="d-block w-50 h-50" src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+							        	<div class="card d-blok border-primary mb-3">
+								  			<img class="d-block w-100" src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
 											<div class="card-body">
 												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
 												<p class="card-text">${wagon.toString()}</p>
