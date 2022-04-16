@@ -55,14 +55,75 @@
 	</header>
 <main class="container">
 	<h5 class="d-flex justify-content-center align-items-center">You selected the following train:</h5>
-	<p class="d-flex justify-content-center align-items-center fs-3">${train}</p>
+	<div class="d-flex justify-content-center align-items-center" style="gap:1rem">
+	<%
+		String str = (String) request.getAttribute("train");
+	
+		for(int i = 0; i < str.length(); i++){
+			
+			%>
+			<div class="d-flexjustify-content-center align-items-center ">
+  				<img src="/CorsoSpringWeb/resources/images/<%=str.charAt(i) %>.png" class="card-img-left" width="55" height="40" alt="">
+				<p style="text-align: center; font-size: 1.2rem;"><%=str.charAt(i) %></p>
+			</div>
+			<%
+			
+		}
+		
+	%>
+	</div>
 	<h5 class="d-flex justify-content-center align-items-center">From the country:</h5>
 	<a href="/CorsoSpringWeb/country" class="d-flex justify-content-center align-items-center display-6">${esito.correct}</a>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<div ng-app="myApp" ng-controller="customersCtrl" class="d-flex justify-content-center align-items-center m-3">
+		<div ng-app="myApp" ng-controller="customersCtrl" class="d-flex justify-content-center align-items-center m-3">
 			<img src="{{myData[0].flags['svg']}}" style="height:50px;"></img>
 	</div>
+	
+	<section class="pt-5 pb-5">
+		<div class="container">
+	        	<div id="carouselExampleIndicators2" class="carousel slide carousel-fade " data-ride="carousel">
+	        		<div class="carousel-inner" role="listbox">
+						<c:forEach items="${trainWagons}" var="wagon">
+							<c:choose>
+							    <c:when test="${wagon.getClass().getSimpleName() == \"Locomotiva\"}">
+							         <div class="carousel-item active">
+							        	<div class="card d-blok">
+								  			<img class="d-block w-50 h-50"  src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+											<div class="card-body">
+												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
+												<p class="card-text">${wagon.toString()}</p>
+											</div>
+										</div>
+									</div>
+							    </c:when>
+							    <c:otherwise>
+							       <div class="carousel-item">
+							        	<div class="card d-blok">
+								  			<img class="d-block w-50 h-50" src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+											<div class="card-body">
+												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
+												<p class="card-text">${wagon.toString()}</p>
+											</div>
+										</div>
+									</div>
+							    </c:otherwise>
+							</c:choose>
+								
+						</c:forEach>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Previous</span>
+					 </a>
+					 <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="sr-only">Next</span>
+					</a>
+				</div>
+		</div>
+	</section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 	<script type="text/javascript">
 		var app = angular.module('myApp', []);
 		app.controller('customersCtrl', function($scope, $http) {
@@ -72,21 +133,11 @@
 					});
 		});
 	</script>
-	
-	<div class="d-flex justify-content-center align-items-center">
-		<h3>Wagon list:</h3>
-	</div>
-	
-		<div class="d-flex justify-content-center align-items-center flex-row-reverse pr-5 pl-5 pt-5">
-			<c:forEach items="${trainWagons}" var="wagon">
-				<div class=" d-flex flex-column justify-content-center align-items-center">
-					<span class="tt card " data-bs-placement="bottom" title="${wagon.getClass().getSimpleName() }">
-  						<img src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.png" class="card-img-left" width="55" height="40" alt="">
-  					</span>
-			   </div>
-			</c:forEach>
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<script>
 			const tooltips = document.querySelectorAll('.tt')
 			tooltips.forEach(t => {
