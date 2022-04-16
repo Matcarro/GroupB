@@ -28,8 +28,8 @@
 <body>
 
 	<header
-		class="navbar  d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
-		<a href="/"
+		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
+		<a href="#"
 			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
 			alt="" class="logo" />

@@ -17,23 +17,35 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-<link  href="/CorsoSpringWeb/resources/css/register.css" rel="stylesheet">
+    <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+	integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link  href="/CorsoSpringWeb/resources/css/style.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="container d-flex justify-content-center">
-			<header	class="justify-content-center py-3 mb-4 border-bottom">
-				<a href="./"	class="logo justify-content-center">
-        			<img src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo-img" />
-				</a>
-				<ul class="nav nav-pills justify-content-center ">
-					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="./profile" class="nav-link">Profile</a></li>
-					
+<header
+		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
+		<a href="#"
+			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
+			alt="" class="logo" />
+		</a>
+
+		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+			<li><a href="./" class="nav-link pill">Home</a></li>
 					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
-				</ul>
-			</header>
+		</ul>
+
+		<div class="col-md-3 text-end">
+			<button onclick="window.location.href='/CorsoSpringWeb/profile'"
+				type="button" class="btn btn-primary">Profile</button>
 		</div>
+	</header>
+
 
 	<div class="d-flex justify-content-center align-items-center col-12">
 		<form id="form" action="/CorsoSpringWeb/train" method="post">
@@ -68,5 +80,64 @@
 		</form>
 	</div>
 	
+		<section class="mt-5">
+			<!-- Footer -->
+			<footer class="text-center text-white"
+				style="background-color: #0a4275;">
+
+
+				<!-- Grid container -->
+				<div class="container pt-4">
+					<!-- Section: Social media -->
+					<section class="mb-4">
+						<!-- Facebook -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-facebook-f"></i></a>
+
+						<!-- Twitter -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-twitter"></i></a>
+
+						<!-- Google -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-google"></i></a>
+
+						<!-- Instagram -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-instagram"></i></a>
+
+						<!-- Linkedin -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-linkedin"></i></a>
+						<!-- Github -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-github"></i></a>
+					</section>
+					<!-- Section: Social media -->
+				</div>
+				<!-- Grid container -->
+
+				<!-- Copyright -->
+				 <ul class="nav justify-content-center pb-3 mb-3">
+      <li class="nav-item"><a href="./home" class="nav-link px-2 text-light">Home</a></li>
+      <li class="nav-item"><a href="./home#how" class="nav-link px-2 text-light">Features</a></li>
+      <li class="nav-item"><a href="./home#contact" class="nav-link px-2 text-light">Contacts</a></li>
+      <li class="nav-item"><a href="./home#who" class="nav-link px-2 text-light">About the developers</a></li>
+    </ul>
+    <a href="./home" class="logo justify-content-center"> <img
+					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
+					class="logo-img small" />
+				</a>
+    <div class="text-center text-muted pb-5">© 2022 DecHit-Trains, Inc</div>
+				<!-- Copyright -->
+			</footer>
+			<!-- Footer -->
+		</section>
 </body>
 </html>
