@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.course.controller.test.StringListContainer;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
+import com.course.exceptions.LocomotivaNonInTestaException;
 import com.course.model.checkstring.CheckStringFactory;
 import com.course.model.checkstring.EsitoCheckString;
 import com.course.model.train.ConcreteBuilder;
@@ -142,7 +143,9 @@ public class WebController {
 				}
 
 				model.addAttribute("esito", esito);	
-				
+				if(model.getAttribute("train") == null) {
+					throw new LocomotivaNonInTestaException("NO TRAIN","NOO TRAIN");
+				}
 				System.out.println("<<< Algoritms chain \n\nWeb > Model - trainWagons: " + treno.getVagoni());
 				System.out.println("Web > Model - train      : " + train);
 				System.out.println("Web > Model - country    : " + esito.getCorrect());

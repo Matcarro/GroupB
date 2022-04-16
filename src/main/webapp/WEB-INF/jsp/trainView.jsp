@@ -54,11 +54,15 @@
 		</div>
 	</header>
 <main class="container">
-	<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
-	<div class="d-flex overflow-auto" >
+	
 	<%
 		String str = (String) request.getAttribute("train");
-	
+	if(str != null) {
+		%>
+		<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
+		<div class="d-flex overflow-auto mb-4" >
+		<%
+		
 		for(int i = 0; i < str.length(); i++){
 			
 			%>
@@ -71,13 +75,16 @@
 			
 		}
 		
-	%>
+%>
+
+
+
 	</div>
 	<h5 class="d-flex justify-content-center align-items-center">From the country:</h5>
 	<div class="d-flex justify-content-center align-items-center pt-4 pb-4">
 		<div class="card bg-dark text-white w-25 h-25 ">
 			<div ng-app="myApp" ng-controller="customersCtrl">
-			<img class="card-img" src="{{myData[0].flags['svg']}}" alt="Card image">
+			<img class="card-img" src="{{myData[0].flags['svg']}}" alt="Country not found">
 				<div class="card-img-overlay d-flex justify-content-center align-items-center">
 					<a class="card-title btn btn-dark " href="/CorsoSpringWeb/country" >${esito.correct}</a>	
 				</div>
@@ -129,6 +136,21 @@
 				</div>
 		</div>
 	</section>
+	
+	<%
+	} else {
+		String err = (String) request.getAttribute("error");
+	%>
+	<h5 class="d-flex justify-content-center align-items-center pb-3">Error</h5>
+	<div class="card">
+	<div class="alert alert-danger" role="alert">
+	  <%=err %>
+	</div>
+	<a class="btn btn-primary "  onclick="history.back()" >Go back</a>
+	</div>
+	<%
+	}
+	%>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
