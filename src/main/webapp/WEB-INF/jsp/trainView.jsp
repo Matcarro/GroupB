@@ -42,21 +42,19 @@
 		</header>
 	</div>
 
-	<h3 class="d-flex justify-content-center align-items-center">You selected the following train:</h3>
-	 <p class="d-flex justify-content-center align-items-center">${train}</p>
-	<h3 class="d-flex justify-content-center align-items-center">From the Country:</h3>
-	 <p class="d-flex justify-content-center align-items-center">${esito.correct}</p>
-
+	<h5 class="d-flex justify-content-center align-items-center">You selected the following train:</h5>
+	<p class="d-flex justify-content-center align-items-center fs-3">${train}</p>
+	<h5 class="d-flex justify-content-center align-items-center">From the country:</h5>
+	<a href="/CorsoSpringWeb/country" class="d-flex justify-content-center align-items-center display-6">${esito.correct}</a>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<div ng-app="myApp" ng-controller="customersCtrl">
-		<ul>
-			<li ng-repeat="x in myData"> {{ x.search }} </li>
-		</ul>
+	<div ng-app="myApp" ng-controller="customersCtrl" class="d-flex justify-content-center align-items-center m-3">
+			<img src="{{myData[0].flags['svg']}}" style="height:50px;"></img>
 	</div>
 	<script type="text/javascript">
 		var app = angular.module('myApp', []);
 		app.controller('customersCtrl', function($scope, $http) {
-			$http.get("http://localhost:8008/sinonimi/${country}").then(
+			$http.get("https://restcountries.com/v3.1/name/${esito.correct}").then(
 					function(response) {
 						$scope.myData = response.data;
 					});

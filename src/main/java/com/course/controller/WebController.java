@@ -171,6 +171,15 @@ public class WebController {
 		return "register";
 	}
 	
+	@GetMapping("/country")
+	public String getCountryPage(@WebParam String country, Model model, HttpSession session) {
+		if(isLogged(session)) {
+			model.addAttribute("country", country);
+			return "country";
+		}
+		return "redirect:/";
+	}
+	
 	//ZONA TESTING
 	
 	@GetMapping("/test")
