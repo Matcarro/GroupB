@@ -29,7 +29,7 @@
       <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" />
     </div>
     <div class="pt-1 col-12 d-flex align-items-center justify-content-center" >
-      <form id="form" action="/CorsoSpringWeb/login" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
+      <form id="form" action="/CorsoSpringWeb/register" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <div class="d-flex align-items-center justify-content-between gap-2">
@@ -99,6 +99,9 @@
 		</div>
 		<div id="emailHelp" class="form-text">
             We will not share your email.
+          </div>
+          <div id="emailError" style="color:red">
+          	${emailError}
           </div>
         </div>
         <div class="mb-5">

@@ -1,5 +1,6 @@
 package com.course.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,10 +89,21 @@ public class WebController {
 		}
 	}
 	
+	
 	@GetMapping("/logout")
 	public String getLogoutAction(Model model, HttpSession session) {
 		session.invalidate();
 		return "redirect:/home";
+	}
+	
+	@PostMapping("/register")
+	public String getLoginFormPage(@WebParam String name, @WebParam String surname, @WebParam Date date, @WebParam String email,@WebParam String password,Model model) {
+		System.out.println(name+" "+surname+" "+email+" "+password+" "+date.toString());
+		Dao dao=DaoImpl.getInstance();
+		if(dao.insertUser(email, password, name, surname, date)==true)
+			return "login";
+		model.addAttribute("emailError","You're already registered");
+		return "register";
 	}
 
 	@GetMapping("/profile")
