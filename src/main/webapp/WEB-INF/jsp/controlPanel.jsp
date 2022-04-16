@@ -106,8 +106,8 @@
 									<tr>
 
 										<td><c:out value="${train.sigla}" /></td>
-										<td><c:out value="${train.owner}" /></td>
-										<td><c:out value="${train.buildCountry}" /></td>
+										<td><c:out value="${train.owner.username}" /></td>
+										<td><c:out value="${train.buildCountry.country}" /></td>
 									</tr>
 								</c:forEach>
 							</table>
