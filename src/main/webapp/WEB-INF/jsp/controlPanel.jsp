@@ -106,7 +106,7 @@
 									<tr>
 
 										<td><c:out value="${train.sigla}" /></td>
-										<td><c:out value="${train.ownerUsername}" /></td>
+										<td><c:out value="${train.owner}" /></td>
 										<td><c:out value="${train.buildCountry}" /></td>
 									</tr>
 								</c:forEach>
