@@ -35,7 +35,7 @@
 <body>
 <header
 		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
-		<a href="#"
+		<a href="./"
 			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
 			alt="" class="logo" />
@@ -55,18 +55,17 @@
 	</header>
 <main class="container">
 	<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
-	<div class="d-flex flex-row-reverse justify-content-center align-items-center" >
+	<div class="d-flex overflow-auto" >
 	<%
 		String str = (String) request.getAttribute("train");
 	
 		for(int i = 0; i < str.length(); i++){
 			
 			%>
-			<div class="d-flex justify-content-center align-items-center pb-3">
-				<div>
-  					<img src="/CorsoSpringWeb/resources/images/<%=str.charAt(i) %>.png" class="card-img-left pb-2" width="55" height="40" alt="">
+			<div class="col">
 					<h3 style="text-align: center; font-size: 1.2rem;"><%=str.charAt(i) %></h3>
-				</div>
+  					<img src="/CorsoSpringWeb/resources/images/<%=str.charAt(i) %>.png" class="card-img-left pb-2"  height="80">
+					
 			</div>
 			<%
 			
@@ -80,7 +79,7 @@
 			<div ng-app="myApp" ng-controller="customersCtrl">
 			<img class="card-img" src="{{myData[0].flags['svg']}}" alt="Card image">
 				<div class="card-img-overlay d-flex justify-content-center align-items-center">
-					<a class="card-title btn btn-primary " href="/CorsoSpringWeb/country" >${esito.correct}</a>	
+					<a class="card-title btn btn-dark " href="/CorsoSpringWeb/country" >${esito.correct}</a>	
 				</div>
 			</div>
 		</div>
