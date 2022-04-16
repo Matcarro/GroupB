@@ -38,27 +38,33 @@
 
 	<div class="d-flex justify-content-center align-items-center col-12">
 	
-		<form id="form" action="/CorsoSpringWeb/train" method="post" ng-app="inserTrainFormApp" ng-controller="inserTrainFormController">
+		<form id="form" action="/CorsoSpringWeb/train" method="post" ng-app="inserTrainFormApp" name="trainForm" ng-controller="inserTrainFormController">
 
             <div class="mb-3">
                 <label for="train" class="form-label">Train code:</label>
                 
                 <br>
-                
-                <input type="text" required class="form-control form-input" aria-describedby="trainCode" id="train" name="train" 
-                oninput="this.value = this.value.toUpperCase()"/>
+                <div class="d-flex align-items-center justify-content-between gap-2">
+                	<input type="text" required class="form-control form-input" aria-describedby="trainCode" id="train" name="train" 
+                	oninput="this.value = this.value.toUpperCase()" ng-model="train" ng-pattern="/L[RCP]*$/" required/>
+                	<ion-icon style="color:green" name="checkmark-circle-outline" ng-show="trainForm.train.$valid"></ion-icon>
+					<ion-icon style="color:red"  name="alert-circle-outline" ng-show="trainForm.train.$error.required || trainForm.train.$error.pattern" ></ion-icon>
+                </div>
             </div>
 
 			<div class="mb-3">
                 <label for="country" class="form-label">Train country:</label>
                 
                 <br>
-                
-                <input type="text" required class="form-control form-input" aria-describedby="trainCountry" id="country" name="country"/>
+                <div class="d-flex align-items-center justify-content-between gap-2">
+                	<input type="text" required class="form-control form-input" aria-describedby="trainCountry" id="country" name="country" ng-model="country" required/>
+           		    <ion-icon style="color:green" name="checkmark-circle-outline" ng-show="trainForm.country.$valid"></ion-icon>
+					<ion-icon style="color:red"  name="alert-circle-outline" ng-show="trainForm.country.$error.required && trainForm.country.$dirty && trainForm.country.$invalid" ></ion-icon>
+           		</div>
             </div>
 
 			<div class="d-flex justify-content-center align-items-center pt-3">
-				<input id="submit" type="submit" ng-disabled="registerForm.train.$dirty && registerForm.country.$dirty"  value="Train preview" class="btn btn-primary cl-submit">
+				<input id="submit" type="submit" ng-disabled="trainForm.train.$error.pattern || trainForm.train.$error.required || trainForm.country.$dirty && trainForm.country.$invalid"  value="Train preview" class="btn btn-primary cl-submit">
             </div>
             
 		</form>
@@ -126,22 +132,15 @@
 			<!-- Footer -->
 		</section>
 		
-<script>
-
-
-
-var app = angular.module("inserTrainFormApp", []);
-
-app.controller("inserTrainFormController", function($scope) {
-   console.log("$scope.trainCode" + $scope);
-}
-
-);
-
-
-
-
-</script>
-		
+      <script>
+		var app = angular.module('inserTrainFormApp', []);
+		app.controller('inserTrainFormController', function($scope) {
+		    $scope.train = '';
+		    $scope.country = 'Italy';
+		});
+	</script>
+		    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         </body>
 </html>
