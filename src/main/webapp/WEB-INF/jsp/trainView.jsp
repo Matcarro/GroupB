@@ -60,7 +60,7 @@
 	if(str != null) {
 		%>
 		<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
-		<div class="d-flex overflow-auto mb-4" >
+		<div class="d-flex overflow-auto mb-4 p-5" >
 		<%
 		
 		for(int i = 0; i < str.length(); i++){
