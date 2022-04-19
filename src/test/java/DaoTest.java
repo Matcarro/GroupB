@@ -12,12 +12,6 @@ public class DaoTest {
 public static void main(String[] args) {
 	Dao dao=DaoImpl.getInstance();
 	
- ArrayList<SearchDao> searches=new ArrayList<>(dao.getAllSearches());
-	
-	for(SearchDao s: searches)
-		System.out.println(s.getSearch()+" "+s.getStandardCountry().getCountry()+" "+s.getMethod()+" "+s.getInsertDate());
-	
-	
-
+ System.out.println(dao.deleteUser("FedericoCiao2"));
 }
 }

@@ -25,7 +25,6 @@ import com.course.model.User;
 
 public class DaoImpl implements Dao {
 	private static Configuration configuration;
-	private static Session session;
 	private static Dao dao;
 	private SessionFactory factory;
 	private BeanFactory beans;
@@ -48,7 +47,7 @@ public class DaoImpl implements Dao {
 	public Collection<TrainDao> getTrains(String username) {
 		ArrayList<TrainDao> result;
 
-		this.session = factory.openSession();
+		Session session = factory.openSession();
 
 		Query q = session.createQuery("FROM TrainDao WHERE owner=:owner");
 		UserDao u = (UserDao) beans.getBean("user");
@@ -66,7 +65,7 @@ public class DaoImpl implements Dao {
 	public Collection<TrainDao> getAllTrains() {
 		ArrayList<TrainDao> result;
 
-		this.session = factory.openSession();
+		Session session = factory.openSession();
 
 		Query q = session.createQuery("FROM TrainDao");
 		result = new ArrayList(q.list());
@@ -83,7 +82,7 @@ public class DaoImpl implements Dao {
 		if (isSearch(search) == false)
 			return null;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		ArrayList<SearchDao> result = null;
 		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
@@ -101,7 +100,7 @@ public class DaoImpl implements Dao {
 		ArrayList<CountryDao> result = null;
 		CountryDao c;
 
-		this.session = factory.openSession();
+		Session session = factory.openSession();
 
 		Query q = session.createQuery("FROM CountryDao WHERE country=:country");
 		q.setParameter("country", country);
@@ -120,7 +119,7 @@ public class DaoImpl implements Dao {
 	public boolean verifyUser(String username, String password) {
 		ArrayList<UserDao> result = null;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		Query q = session.createQuery("FROM UserDao WHERE username=:username AND password=:password");
 		q.setParameter("username", username);
 		q.setParameter("password", password);
@@ -139,7 +138,7 @@ public class DaoImpl implements Dao {
 		if (isSearch(search) == true || isCountry(country) == false)
 			return false;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		session.beginTransaction();
 
 		SearchDao s = (SearchDao) beans.getBean("search");
@@ -163,7 +162,7 @@ public class DaoImpl implements Dao {
 		ArrayList<SearchDao> result = null;
 		SearchDao s;
 
-		this.session = factory.openSession();
+		Session session = factory.openSession();
 
 		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
@@ -181,7 +180,7 @@ public class DaoImpl implements Dao {
 	public SearchDao getSearch(String search) {
 		ArrayList<SearchDao> result = null;
 		SearchDao s;
-		this.session = factory.openSession();
+		Session session = factory.openSession();
 
 		Query q = session.createQuery("FROM SearchDao WHERE search=:search");
 		q.setParameter("search", search);
@@ -201,7 +200,7 @@ public class DaoImpl implements Dao {
 		List<String> result = null;
 		List<CountryDao> queryResult = null;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		Query q = session.createQuery("FROM CountryDao");
 
 		queryResult = new ArrayList<>(q.list());
@@ -247,7 +246,7 @@ public class DaoImpl implements Dao {
 		if (usernameExists(username) == true)
 			return false;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		session.beginTransaction();
 
 		UserDao u = (UserDao) beans.getBean("user");
@@ -273,7 +272,7 @@ public class DaoImpl implements Dao {
 		if (ownerUsername == null || buildCountry == null || sigla == null)
 			return false;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		session.beginTransaction();
 
 		TrainDao t = (TrainDao) beans.getBean("train");
@@ -342,6 +341,63 @@ public class DaoImpl implements Dao {
 		}
 
 		return result;
+	}
+
+	@Override
+	public boolean deleteTrain(int id) {
+		int affected;
+		
+		Session session=factory.openSession();
+		session.beginTransaction();
+		Query q=session.createQuery("DELETE FROM TrainDao WHERE id=:id");
+		q.setParameter("id", id);
+		affected=q.executeUpdate();
+		
+		session.getTransaction().commit();
+		session.close();
+
+		if(affected<= 0) return false;
+		
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteSearch(String search) {
+		int affected;
+		
+		Session session=factory.openSession();
+		session.beginTransaction();
+		Query q=session.createQuery("DELETE FROM SearchDao WHERE search=:search");
+		q.setParameter("search",search);
+		affected=q.executeUpdate();
+		
+		session.getTransaction().commit();
+		session.close();
+
+		if(affected<= 0) return false;
+		
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteUser(String username) {
+		int affected;
+		
+		Session session=factory.openSession();
+		session.beginTransaction();
+		Query q=session.createQuery("DELETE FROM UserDao WHERE username=:username");
+		q.setParameter("username", username);
+		affected=q.executeUpdate();
+		
+		session.getTransaction().commit();
+		session.close();
+
+		if(affected<= 0) return false;
+		
+		
+		return true;
 	}
 
 }
