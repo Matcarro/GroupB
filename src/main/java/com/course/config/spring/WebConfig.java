@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.course.dao.impl.DaoImpl;
+
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages={"com.course.controller"})
@@ -21,6 +23,7 @@ public class WebConfig implements WebMvcConfigurer{
 	
 	@Bean
 	public ViewResolver viewResolver() {
+		DaoImpl.getInstance();
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/jsp/");
 		resolver.setSuffix(".jsp"); 
