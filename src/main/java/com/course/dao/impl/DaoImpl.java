@@ -331,7 +331,7 @@ public class DaoImpl implements Dao {
 	public List<SearchDao> getAllSearches() {
 		List<SearchDao> result = null;
 
-		session = factory.openSession();
+		Session session = factory.openSession();
 		Query q = session.createQuery("FROM SearchDao");
 
 		result = new ArrayList<>(q.list());
