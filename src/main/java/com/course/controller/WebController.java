@@ -53,6 +53,20 @@ public class WebController {
 		return "home";
 	}
 
+	@PostMapping("/admin") 
+	public String getAdminPagePost(@WebParam String deleteUser, @WebParam String deleteTrain, @WebParam String deleteCorrection, Model model, HttpSession session) {
+		Dao dao = DaoImpl.getInstance();
+		if (deleteUser != null) {
+			System.out.println(deleteUser);
+		} else if (deleteTrain != null) {
+			System.out.println(deleteTrain);
+		} else {
+			System.out.println(deleteCorrection);
+		}
+		System.out.println("response: "+deleteUser+" "+deleteTrain+" "+deleteCorrection);
+		return "controlPanel";
+	}
+	
 	@GetMapping("/admin")
 	public String getAdminPage(Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
@@ -136,7 +150,6 @@ public class WebController {
 	@PostMapping("/train")
 	@Scope("session")
 	public String getTrain(@WebParam String train, @WebParam String country, Model model, HttpSession session) {
-		if (isLogged(session)) {
 			Dao dao = DaoImpl.getInstance();
 			BaseWagonFactory vf = new BaseWagonFactory();
 			TrenoBuilder tb = new ConcreteBuilder(vf);
@@ -179,11 +192,6 @@ public class WebController {
 				
 			}
 			
-		} else {
-			
-			return "redirect:/";
-			
-		}
 	}
 
 	@GetMapping("/register")
@@ -202,12 +210,15 @@ public class WebController {
 	
 	//ZONA TESTING
 	
+	//Pagina di testing 
 	@GetMapping("/test")
 	public String getTest() {
 		return "testPageRest";
 	}
 	
+	//Rende disponibile il servizio a tutti gli url
 	@CrossOrigin(origins = "*")
+	//Servizio rest per l'oggetto
 	@RequestMapping(
 			value = "/getString", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
