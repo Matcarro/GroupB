@@ -44,10 +44,9 @@ public class WebController {
 		} else {
 			return false;
 		}
-
 	}
 
-	@GetMapping("/*")
+	@GetMapping("*")
 	public String getHomePage(Model model, HttpSession session) {
 		model.addAttribute("UserLogged", isLogged(session));
 		return "home";
@@ -57,14 +56,14 @@ public class WebController {
 	public String getAdminPagePost(@WebParam String deleteUser, @WebParam String deleteTrain, @WebParam String deleteCorrection, Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		if (deleteUser != null) {
-			System.out.println(deleteUser);
+			dao.deleteUser(deleteUser);
 		} else if (deleteTrain != null) {
-			System.out.println(deleteTrain);
-		} else {
+			dao.deleteTrain(Integer.parseInt(deleteTrain));
+		} else if (deleteCorrection != null) {
 			System.out.println(deleteCorrection);
+			dao.deleteSearch(deleteCorrection);
 		}
-		System.out.println("response: "+deleteUser+" "+deleteTrain+" "+deleteCorrection);
-		return "controlPanel";
+		return "redirect:/admin";
 	}
 	
 	@GetMapping("/admin")
@@ -87,7 +86,6 @@ public class WebController {
 	@PostMapping("/login")
 	public String getProfilePage(@WebParam String username, @WebParam String password, Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
-		System.out.println("U: " + username + " - P: " + password + "- S: " + session.getId());
 		if (dao.verifyUser(username, password)) {
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
@@ -125,10 +123,15 @@ public class WebController {
 		model.addAttribute("emailError","You're already registered");
 		return "register";
 	}
+	
+	@PostMapping("/profile")
+	public String getProfilePost(@WebParam String deleteTrain, Model model, HttpSession session) {
+		Dao dao=DaoImpl.getInstance();
+		return "profile";
+	}
 
 	@GetMapping("/profile")
 	public String getProfileFormPage(Model model, HttpSession session) {
-
 		Collection<TrainDao> userTrains =  DaoImpl.getInstance().getTrains((String) session.getAttribute("username"));
 		if( userTrains != null) {
 			model.addAttribute("usersTrains", userTrains);
@@ -157,7 +160,6 @@ public class WebController {
 			BaseWagonFactory vf = new BaseWagonFactory();
 			TrenoBuilder tb = new ConcreteBuilder(vf);
 			try {
-				
 				Treno treno = tb.buildTreno(train);
 				model.addAttribute("train", train);
 				model.addAttribute("trainWagons", treno.getVagoni());
@@ -176,23 +178,17 @@ public class WebController {
 				}
 
 				model.addAttribute("esito", esito);	
-				if(model.getAttribute("train") == null) {
-					throw new LocomotivaNonInTestaException("NO TRAIN","NOO TRAIN");
-				}
+				
 				System.out.println("<<< Algoritms chain \n\nWeb > Model - trainWagons: " + treno.getVagoni());
 				System.out.println("Web > Model - train      : " + train);
 				System.out.println("Web > Model - country    : " + esito.getCorrect());
 				System.out.println("Web > Model - session    : " + session.getId());
 				
-				return "trainView";
-				
+				return "trainView";	
 			} catch (Exception e) {
-				
 				System.out.println("error: " + e.getMessage());
 				model.addAttribute("error", e.getMessage());
-				
 				return "trainView";
-				
 			}
 			
 	}
