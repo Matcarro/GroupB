@@ -32,7 +32,7 @@
 <body>
 	<header
 		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
-		<a href="#"
+		<a href="./"
 			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
 			alt="" class="logo" />
@@ -223,19 +223,70 @@
 </div>
 		
 
-		<footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="./home" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="./home#how" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="./profile" class="nav-link px-2 text-muted">Profile</a></li>
-      <li class="nav-item"><a href="./home#who" class="nav-link px-2 text-muted">About the developers</a></li>
-    </ul>
-    <a href="./home" class="logo justify-content-center"> <img
-					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
-					class="logo-img small" />
-				</a>
-    <p class="text-center text-muted">© 2022 DecHit-Trains, Inc</p>
-  </footer>
+		 <footer class="text-center text-white"
+				style="background-color: #0a4275;">
+
+
+				<!-- Grid container -->
+				<div class="container pt-4">
+					<!-- Section: Social media -->
+					<section class="mb-4">
+						<!-- Facebook -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-facebook-f"></i></a>
+
+						<!-- Twitter -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-twitter"></i></a>
+
+						<!-- Google -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-google"></i></a>
+
+						<!-- Instagram -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-instagram"></i></a>
+
+						<!-- Linkedin -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-linkedin"></i></a>
+						<!-- Github -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-github"></i></a>
+					</section>
+					<!-- Section: Social media -->
+				</div>
+				<!-- Grid container -->
+				<ul class="nav justify-content-center pb-3 mb-3">
+				<li class="nav-item"><a href="./home"
+					class="nav-link px-2 text-light">Home</a></li>
+				<li class="nav-item"><a href="./home#how"
+					class="nav-link px-2 text-light">Features</a></li>
+				<li class="nav-item"><a href="./home#contact"
+					class="nav-link px-2 text-light">Contacts</a></li>
+				<li class="nav-item"><a href="./home#who"
+					class="nav-link px-2 text-light">About the developers</a></li>
+					<li class="nav-item"><a href=".#"
+					class="nav-link px-2 fw-bold text-light">Log-out</a></li>
+
+			</ul>
+				<!-- Copyright -->
+				<div class="text-center p-3"
+					style="background-color: rgba(0, 0, 0, 0.2);">
+					<a href="./home" class="logo justify-content-center"> <img
+						src="/CorsoSpringWeb/resources/images/logo.png" alt=""
+						class="logo-img small" />
+					</a>
+					<p class="text-center text-muted">© 2022 DecHit-Trains, Inc</p>
+				</div>
+				<!-- Copyright -->
+			</footer>
 	</main>
 
 	<script

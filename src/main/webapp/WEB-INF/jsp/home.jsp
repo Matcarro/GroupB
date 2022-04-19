@@ -95,13 +95,9 @@
 
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/trainCode.png"
-<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
-
 											class="img-fluid container p-4" alt="" style="width:500px;"/>
 
-=======
-											class="img-fluid container p-3 col-lg-6" alt="" />
->>>>>>> c130b0f Bootstraped Login & Register + unified style.css
+
 									</div>
 
 								</li>
@@ -117,13 +113,10 @@
 											<div class="col">Insert train country: you'll receive information about it</div>
 
 										</div>
-<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
-										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"	class="img-fluid container p-4" alt="" style="width:500px;"/>
-=======
+
 										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"
 											class="img-fluid container p-3 col-lg-6" alt="" />
 									</div>
->>>>>>> c130b0f Bootstraped Login & Register + unified style.css
 								</li>
 
 								<!-- STEP 3-->
