@@ -12,6 +12,6 @@ public class DaoTest {
 public static void main(String[] args) {
 	Dao dao=DaoImpl.getInstance();
 	
- System.out.println(dao.deleteUser("FedericoCiao2"));
+ System.out.println(dao.insertUser("Emanueeee","Password123","Francesco","DeSalvador",Date.valueOf("1998-11-04")));
 }
 }

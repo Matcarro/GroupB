@@ -71,10 +71,14 @@ public class WebController {
 	public String getAdminPage(Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
+			if(dao.isAdmin((String)session.getAttribute("username"))==true) {
 			session.setAttribute("countriesFull", dao.getAllCountries());
 			session.setAttribute("trainsFull", dao.getAllTrains());
 			session.setAttribute("usersFull", dao.serviceUserView()); 
 			return "controlPanel";
+			}else {
+				return "profile";
+			}
 		} else {
 			return "redirect:/login";
 		}
@@ -115,7 +119,6 @@ public class WebController {
 	
 	@PostMapping("/register")
 	public String getLoginFormPage(@WebParam String name, @WebParam String surname, @WebParam Date date, @WebParam String email,@WebParam String password,Model model) {
-		System.out.println(name+" "+surname+" "+email+" "+password+" "+date.toString());
 		Dao dao=DaoImpl.getInstance();
 		if(dao.insertUser(email, password, name, surname, date)==true)
 			return "login";

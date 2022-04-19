@@ -23,6 +23,8 @@ import com.course.dao.TrainDao;
 import com.course.dao.UserDao;
 import com.course.model.User;
 
+import jakarta.persistence.criteria.CriteriaQuery;
+
 public class DaoImpl implements Dao {
 	private static Configuration configuration;
 	private static Dao dao;
@@ -255,6 +257,7 @@ public class DaoImpl implements Dao {
 		u.setFirstName(firstName);
 		u.setLastName(lastName);
 		u.setBirthDate(birthDate);
+		u.setAdmin(false);
 
 		session.save(u);
 		session.getTransaction().commit();
@@ -398,6 +401,21 @@ public class DaoImpl implements Dao {
 		
 		
 		return true;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isAdmin(String username) {
+		ArrayList<UserDao> result=null;
+		UserDao u=null;
+		
+		Session session=factory.openSession();
+		Query q=session.createQuery("FROM UserDao WHERE username=:username");
+		q.setParameter("username", username);
+		result=new ArrayList<UserDao>(q.list());
+		u=result.get(0);
+		
+		return u.isAdmin();
 	}
 
 }

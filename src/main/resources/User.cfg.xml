@@ -13,5 +13,6 @@
 		<property name="firstName" type="string" column="first_name" />
 		<property name="lastName" type="string" column="last_name" />
 		<property name="birthDate" type="date" column="birth_date" />
+		<property name="admin" type="boolean" column="admin" />
 	</class>
 </hibernate-mapping>

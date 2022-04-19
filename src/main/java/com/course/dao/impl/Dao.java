@@ -35,6 +35,7 @@ public boolean verifyUser(String username, String password); /*verifica le crede
 public boolean usernameExists(String username);
 public boolean insertUser(String username, String password, String firstName,String lastName, Date birthDate); /*Inserisce un user nel db*/
 public boolean deleteUser(String username);
+public boolean isAdmin(String username);
 
 public List<User> serviceUserView();
 

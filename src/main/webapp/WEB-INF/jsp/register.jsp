@@ -41,7 +41,7 @@
     
     <div class="pt-5 pb-5 col-12 d-flex align-items-center justify-content-center" >
 
-	<form id="form" class="card p-4 col-5" action="/CorsoSpringWeb/login" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
+	<form id="form" class="card p-4 col-5" action="/CorsoSpringWeb/register" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
 
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
