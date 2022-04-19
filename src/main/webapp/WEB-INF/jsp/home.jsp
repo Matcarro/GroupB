@@ -87,7 +87,7 @@
 								<!-- STEP 1-->
 								<li class="list-group-item  justify-content-between ">
 
-									<div class="container">
+									<div class="container text-center ">
 										<h2>Insert train code</h2>
 										<div class="d-flex">
 											<div class="col">Write your train code: choose between Locomotive (L), Passengers(P), Cargo(C) 
@@ -95,9 +95,13 @@
 
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/trainCode.png"
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
 
 											class="img-fluid container p-4" alt="" style="width:500px;"/>
 
+=======
+											class="img-fluid container p-3 col-lg-6" alt="" />
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
 									</div>
 
 								</li>
@@ -107,13 +111,19 @@
 									class="list-group-item d-flex justify-content-between align-items-start">
 
 
-									<div class="container">
+									<div class="container text-center">
 										<h2>Insert country</h2>
 										<div class="d-flex">
 											<div class="col">Insert train country: you'll receive information about it</div>
 
 										</div>
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
 										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"	class="img-fluid container p-4" alt="" style="width:500px;"/>
+=======
+										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"
+											class="img-fluid container p-3 col-lg-6" alt="" />
+									</div>
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
 								</li>
 
 								<!-- STEP 3-->
@@ -121,14 +131,14 @@
 									class="list-group-item d-flex justify-content-between align-items-start">
 
 
-									<div class="container">
+									<div class="container text-center">
 										<h2>Create your train</h2>
 										<div class="d-flex">
 											<div class="col">Your train will be created using the chosen wagons and country</div>
 
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/selectedTrain.png"
-											class="img-fluid container p-4" alt="" />
+											class="img-fluid container p-2" alt="" />
 									</div>
 								</li>
 

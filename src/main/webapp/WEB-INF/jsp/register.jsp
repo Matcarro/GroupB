@@ -18,20 +18,47 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
     <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/register.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+=======
+    <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+	integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Registrazione</title>
 
   </head>
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
   <body>
 
     <div class="logo-img d-flex justify-content-center align-items-center">
+=======
+  <body style="margin-top:10px">
+  
+    <div class="logo-img d-flex justify-content-center align-items-center p-4">
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
       <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" />
     </div>
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
 
     <div class="pt-1 col-12 d-flex align-items-center justify-content-center" >
       <form id="form" action="/CorsoSpringWeb/register" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
+=======
+    
+    <div class="pt-5 pb-5 col-12 d-flex align-items-center justify-content-center" >
+     
+
+
+
+	<form id="form" class="card p-4 col-5" action="/CorsoSpringWeb/login" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <div class="d-flex align-items-center justify-content-between gap-2">
@@ -139,8 +166,78 @@
 
 
     </div>
+<<<<<<< Upstream, based on branch 'main' of git@github.com:Matcarro/GroupB.git
 
 
+=======
+    <footer class="text-center text-white"
+				style="background-color: #0a4275;">
+
+
+				<!-- Grid container -->
+				<div class="container pt-4">
+					<!-- Section: Social media -->
+					<section class="mb-4">
+						<!-- Facebook -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-facebook-f"></i></a>
+
+						<!-- Twitter -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-twitter"></i></a>
+
+						<!-- Google -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-google"></i></a>
+
+						<!-- Instagram -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-instagram"></i></a>
+
+						<!-- Linkedin -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-linkedin"></i></a>
+						<!-- Github -->
+						<a class="btn btn-link btn-floating btn-lg text-light m-1"
+							href="#!" role="button" data-mdb-ripple-color="dark"><i
+							class="fab fa-github"></i></a>
+					</section>
+					<!-- Section: Social media -->
+				</div>
+				<!-- Grid container -->
+				<ul class="nav justify-content-center pb-3 mb-3">
+				<li class="nav-item"><a href="./home"
+					class="nav-link px-2 text-light">Home</a></li>
+				<li class="nav-item"><a href="./home#how"
+					class="nav-link px-2 text-light">Features</a></li>
+				<li class="nav-item"><a href="./home#contact"
+					class="nav-link px-2 text-light">Contacts</a></li>
+				<li class="nav-item"><a href="./home#who"
+					class="nav-link px-2 text-light">About the developers</a></li>
+
+			</ul>
+				<!-- Copyright -->
+				<div class="text-center p-3"
+					style="background-color: rgba(0, 0, 0, 0.2);">
+					<a href="./home" class="logo justify-content-center"> <img
+						src="/CorsoSpringWeb/resources/images/logo.png" alt=""
+						class="logo-img small" />
+					</a>
+					<p class="text-center text-muted">© 2022 DecHit-Trains, Inc</p>
+				</div>
+				<!-- Copyright -->
+			</footer>
+    
+    <script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous" type="text/javascript"></script>
+>>>>>>> c130b0f Bootstraped Login & Register + unified style.css
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

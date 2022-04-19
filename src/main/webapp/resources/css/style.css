@@ -1,3 +1,8 @@
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+
 body {
 	background-color: #ecf3fc;
 	margin-top: 150px;
@@ -101,5 +106,37 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.form-input {
+  background-color: #ecf3fc;
+}
+
+.cl-submit {
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(#1845ad, #23a2f6);
+  font-weight: 700;
+}
+
+.cl-back {
+  border-radius: 9px;
+  color: #222e50;
+  background: linear-gradient(#b8b8b8, #fcfcfc);
+  font-weight: 700;
+}
+
+.button-heading {
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(#1845ad, #23a2f6);
+}
+
+.reg-btn {
+  color: #222e50;
+  background: linear-gradient(#ffffff, #92d4ff);
 }
 
