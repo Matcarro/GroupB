@@ -225,7 +225,7 @@
       <li class="nav-item"><a href="./home#contact" class="nav-link px-2 text-light">Contacts</a></li>
       <li class="nav-item"><a href="./home#who" class="nav-link px-2 text-light">About the developers</a></li>
       
-      <li class="nav-item"><a href=".#" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
+      <li class="nav-item"><a href="./logout" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
     </ul>
     <a href="./home" class="logo justify-content-center"> <img
 					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
