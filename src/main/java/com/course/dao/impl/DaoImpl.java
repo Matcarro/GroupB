@@ -301,7 +301,7 @@ public class DaoImpl implements Dao {
 		User modelUser = (User) beans.getBean("modelUser");
 
 		Session session = factory.openSession();
-		Query q = session.createQuery("SELECT u.username, u.firstName, u.lastName, sum(t.id) FROM UserDao AS u INNER JOIN TrainDao AS t GROUP BY u.username");
+		Query q = session.createQuery("SELECT u.username, u.firstName, u.lastName, count(t.id) FROM UserDao AS u INNER JOIN TrainDao AS t ON u.username = t.owner GROUP BY u.username");
 
 		queryResult = new ArrayList<>(q.list());
 		session.close();
@@ -313,6 +313,7 @@ public class DaoImpl implements Dao {
 		
 		for(int i=0; i<queryResult.size(); i++) {
 			Object[] row = (Object[]) queryResult.get(i);
+			modelUser=new User();
 			modelUser.setUsername(""+row[0]);
 			modelUser.setFirstName(""+row[1]);
 			modelUser.setLastName(""+row[2]);
@@ -323,6 +324,23 @@ public class DaoImpl implements Dao {
 		if (result == null || result.size() == 0)
 			return null;
 		
+		return result;
+	}
+
+	@Override
+	public List<SearchDao> getAllSearches() {
+		List<SearchDao> result = null;
+
+		session = factory.openSession();
+		Query q = session.createQuery("FROM SearchDao");
+
+		result = new ArrayList<>(q.list());
+		session.close();
+
+		if (result == null || result.size() == 0) {
+			return null;
+		}
+
 		return result;
 	}
 

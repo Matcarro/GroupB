@@ -23,6 +23,7 @@ public boolean isCountry(String country); /*verifica che un paese sia gi� stan
 public List<String> getAllCountries();
 
 //search table
+public List<SearchDao> getAllSearches();
 public boolean isSearch(String search); /*verifica che la ricerca esista gi� nel db*/
 public boolean insertSearch(String search, String country, String method); /*Inserisce una ricerca nel db*/
 public SearchDao getSearch(String search); /* Restituisce un oggetto ricerca dal db compreso di standardCoutry, date, method, ecc...*/
