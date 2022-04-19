@@ -97,6 +97,8 @@
 		<div class="col-md-3 text-end">
 			<button onclick="window.location.href='/CorsoSpringWeb/insertTrain'"
 				type="button" class="btn btn-primary">New Train</button>
+			<button onclick="window.location.href='/CorsoSpringWeb/logout'"
+						type="button" class="btn btn-outline-primary me-2">Logout</button>
 		</div>
 	</header>
 
