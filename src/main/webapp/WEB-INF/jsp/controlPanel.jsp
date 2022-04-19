@@ -46,6 +46,8 @@
 		<div class="col-md-3 text-end">
 			<button onclick="window.location.href='/CorsoSpringWeb/profile'"
 				type="button" class="btn btn-primary">Profile</button>
+				<button onclick="window.location.href='/CorsoSpringWeb/logout'"
+						type="button" class="btn btn-outline-primary me-2">Logout</button>
 		</div>
 	</header>
 
@@ -81,7 +83,7 @@
 										<td><c:out value="${usr.trainNumber}" /></td>
 										<td>
 											<form action="./admin" method="post">
-												<input type="hidden" value="${usr.username}" id="deleteUser"></input>
+												<input type="hidden" value="${usr.username}" id="deleteUser" name="deleteUser"></input>
 												<button type="submit" class="btn btn-sm btn-danger">X</button>
 											</form>
 										</td>
@@ -119,7 +121,7 @@
 										<td><c:out value="${train.buildCountry.country}" /></td>
 										<td>
 											<form action="./admin" method="post">
-												<input type="hidden" value="${train.id}" id="deleteTrain"></input>
+												<input type="hidden" value="${train.id}" id="deleteTrain" name="deleteTrain"></input>
 												<button type="submit" class="btn btn-sm btn-danger">X</button>
 											</form>
 										</td>
@@ -155,7 +157,7 @@
 										<td><c:out value="WIP" /></td>
 										<td>
 											<form action="./admin" method="post">
-												<input type="hidden" value="${country}" id="deleteCorrection"></input>
+												<input type="hidden" value="${country}" id="deleteCorrection" name="deleteCorrection"></input>
 												<button type="submit" class="btn btn-sm btn-danger">X</button>
 											</form>
 										</td>

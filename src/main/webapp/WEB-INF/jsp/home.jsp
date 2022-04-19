@@ -326,7 +326,7 @@
 				<!-- Grid container -->
 				
 				
-      <li class="nav-item"><a href=".#" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
+      <li class="nav-item"><a href="/CorsoSpringWeb/logout" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
 
 				<!-- Copyright -->
 				<div class="text-center p-3"
