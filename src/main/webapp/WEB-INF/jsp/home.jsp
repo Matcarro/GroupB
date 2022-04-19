@@ -23,7 +23,7 @@
 	integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/style.css" />
-<title>TrainLine - costruisci il tuo treno</title>
+<title>TrainLine - build your train</title>
 </head>
 <body>
 
@@ -95,7 +95,9 @@
 
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/trainCode.png"
-											class="img-fluid container p-4" alt="" />
+
+											class="img-fluid container p-4" alt="" style="width:500px;"/>
+
 									</div>
 
 								</li>
@@ -111,9 +113,7 @@
 											<div class="col">Insert train country: you'll receive information about it</div>
 
 										</div>
-										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"
-											class="img-fluid container p-4" alt="" />
-									</div>
+										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"	class="img-fluid container p-4" alt="" style="width:500px;"/>
 								</li>
 
 								<!-- STEP 3-->
