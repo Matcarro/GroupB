@@ -82,6 +82,11 @@
 
 
 	</div>
+	
+	
+	<c:choose>
+         <c:when test = "${esito.correct != null}">
+            	
 	<h5 class="d-flex justify-content-center align-items-center">From the country:</h5>
 	<div class="d-flex justify-content-center align-items-center pt-4 pb-4">
 		<div class="card bg-dark text-white w-25 h-25 ">
@@ -93,6 +98,32 @@
 			</div>
 		</div>
 	</div>
+         </c:when>
+         
+         <c:otherwise>
+            
+	<div class="container card p-3">
+	<div class="alert alert-warning" role="alert">
+	  ${esito.search} not found. 
+	</div>
+	<h5 class="d-flex justify-content-center align-items-center">Suggestions</h5>
+	<div class="d-flex justify-content-center align-items-center pt-4 pb-4">
+	
+		<c:forEach var="suggestion" items="${esito.getOrderedSuggestions()}">
+	        <div class="btn btn-warning">
+	        	<c:out value="${suggestion}"/>
+	        </div>
+	    </c:forEach>
+	</div>
+         </c:otherwise>
+      </c:choose>
+	</div>
+	
+	
+	
+	
+	
+	
 	<h5 class="d-flex justify-content-center align-items-center">Wagon's carousel:</h5>
 	
 	<section class="pt-3 pb-3">
@@ -144,7 +175,7 @@
 		String err = (String) request.getAttribute("error");
 	%>
 	<h5 class="d-flex justify-content-center align-items-center pb-3">Error</h5>
-	<div class="card">
+	<div class="card p-5">
 	<div class="alert alert-danger" role="alert">
 	  <%=err %>
 	</div>

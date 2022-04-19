@@ -1,6 +1,12 @@
 package com.course.model.checkstring;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EsitoCheckString {
@@ -15,6 +21,10 @@ public class EsitoCheckString {
 			computerBestResult();
 		}
 		return correct;
+	}
+	
+	public List<String> getOrderedSuggestions(){
+		return new ArrayList<String>(bmResults.values());
 	}
 	
 	protected boolean computerBestResult() {

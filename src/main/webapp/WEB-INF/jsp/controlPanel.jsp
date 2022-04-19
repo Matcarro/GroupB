@@ -148,16 +148,19 @@
 							<table class="container">
 								<!-- here should go some titles... -->
 								<tr>
-									<th>Country</th>
-									<th># Corrections</th>
+								
+									<th>Correction</th>
+									<th>Wrong</th>
+									<th>Solve method</th>
 								</tr>
-								<c:forEach items="${countriesFull}" var="country">
+								<c:forEach items="${countriesFull}" var="str">
 									<tr>
-										<td><c:out value="${country}" /></td>
-										<td><c:out value="WIP" /></td>
+										<td><c:out value="${str.standardCountry.country}" /></td>
+										<td><c:out value="${str.search}" /></td>
+										<td><c:out value="${str.method}" /></td>
 										<td>
 											<form action="./admin" method="post">
-												<input type="hidden" value="${country}" id="deleteCorrection" name="deleteCorrection"></input>
+												<input type="hidden" value="${str.search}" id="deleteCorrection" name="deleteCorrection"></input>
 												<button type="submit" class="btn btn-sm btn-danger">X</button>
 											</form>
 										</td>
@@ -169,9 +172,7 @@
 				</div>
 				<div class="accordion-item ">
 					<h2 class="accordion-header" id="headingPro">
-						<button class="accordion-button collapsed text-danger" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsePro"
-							aria-expanded="false" aria-controls="collapsePro">
+						<button class="accordion-button collapsed text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePro" aria-expanded="false" aria-controls="collapsePro">
 							<i class="col fas fa-exclamation-triangle fa-2x m-1 text-warning"></i>
 							<h5 class="col row justify-content-end m-3 ">Advanced options</h5>
 						</button>

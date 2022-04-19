@@ -23,7 +23,6 @@ import com.course.controller.test.StringListContainer;
 import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
-import com.course.exceptions.LocomotivaNonInTestaException;
 import com.course.model.checkstring.CheckStringFactory;
 import com.course.model.checkstring.EsitoCheckString;
 import com.course.model.train.ConcreteBuilder;
@@ -71,11 +70,11 @@ public class WebController {
 		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
 			if(dao.isAdmin((String)session.getAttribute("username"))==true) {
-			session.setAttribute("countriesFull", dao.getAllCountries());
-			session.setAttribute("trainsFull", dao.getAllTrains());
-			session.setAttribute("usersFull", dao.serviceUserView()); 
-			return "controlPanel";
-			}else {
+				session.setAttribute("countriesFull", dao.getAllCountries());
+				session.setAttribute("trainsFull", dao.getAllTrains());
+				session.setAttribute("usersFull", dao.serviceUserView()); 
+				return "controlPanel";
+			} else {
 				return "profile";
 			}
 		} else {

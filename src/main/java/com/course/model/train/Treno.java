@@ -17,17 +17,6 @@ public class Treno {
 		}
 
 
-
-/*	public void invertiDirezione() {
-		String s = "";
-		for(int i=sequenza.length(); i>0;i--) {
-			s += sequenza.charAt(i);
-		}
-		this.sequenza = s;
-		this.vagoni = TrenoBuilder.getTreno(sequenza,builder);
-	}
-*/	
-	
 	public Collection<Vagone> getVagoni() {
 		return vagoni;
 	}

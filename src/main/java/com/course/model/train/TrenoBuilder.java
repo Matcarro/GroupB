@@ -22,39 +22,61 @@ public abstract class TrenoBuilder {
 				throw new LocomotivaNonInTestaException(sequenza, "Locomotiva non presente in testa");
 			} else {
 				switch (sequenza.toLowerCase().charAt(i)) {
-				case 'l':
-						Locomotiva l = buildLocomotiva();
-						vagoni.add(l);
-						vagoniSimple.add(l.toStringSimple());
-					break;
-				case 'r':
-					count++;
-					if (count == 1) {
-						Ristorante r = buildRistorante();
-						vagoni.add(r);
-						vagoniSimple.add(r.toStringSimple());
-					} else
-						throw new TroppiRistorantiException(sequenza, "Troppi ristoranti presenti,");
-					break;
-				case 'p':
-					if (!sequenza.contains("c")) {
-						Passeggeri p = buildPasseggeri();
-						vagoni.add(p);
-						vagoniSimple.add(p.toStringSimple());
-					} else
-						throw new TipoVagoneInattesoException(sequenza, "Tipo vagone inatteso,");
-					;
-					break;
-				case 'c':
-					if (!sequenza.contains("p")) {
-						Cargo c = buildCargo();
-						vagoni.add(c);
-						vagoniSimple.add(c.toStringSimple());
-					} else
-						stampaErrore();
-					break;
-				default:
-					throw new LocomotivaNonInTestaException(sequenza, "Locomotiva non presente in testa,");
+					
+					case 'l':
+							Locomotiva l = buildLocomotiva();
+							vagoni.add(l);
+							vagoniSimple.add(l.toStringSimple());
+						break;
+						
+					case 'r':
+						if (!sequenza.toLowerCase().contains("c")) {
+							count++;
+							if (count == 1) {
+								Ristorante r = buildRistorante();
+								vagoni.add(r);
+								vagoniSimple.add(r.toStringSimple());
+							} else {
+								throw new TroppiRistorantiException(sequenza, "Troppi ristoranti presenti,");
+							}
+						} else {
+							throw new TipoVagoneInattesoException(sequenza, "Composizione Ristorante-Cargo non ammessa,");
+						}
+						break;
+						
+						
+						
+					case 'p':
+						if (!sequenza.toLowerCase().contains("c")) {
+							Passeggeri p = buildPasseggeri();
+							vagoni.add(p);
+							vagoniSimple.add(p.toStringSimple());
+						} else {
+							throw new TipoVagoneInattesoException(sequenza, "Composizione Passeggeri-Cargo non ammessa,");
+						}
+						
+						break;
+						
+						
+						
+					case 'c':
+						if ( (!sequenza.toLowerCase().contains("p")) || (!sequenza.toLowerCase().contains("r")) ) {
+							Cargo c = buildCargo();
+							vagoni.add(c);
+							vagoniSimple.add(c.toStringSimple());
+						} else {
+							throw new TipoVagoneInattesoException(sequenza, "Composizione Cargo-Passeggeri non ammessa,");
+						}
+						break;
+						
+						
+						
+						
+					default:
+						throw new LocomotivaNonInTestaException(sequenza, "Locomotiva non presente in testa,");
+						
+					
+					
 				}
 			}
 		}
