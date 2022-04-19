@@ -157,7 +157,7 @@
 				<li class="nav-item"><a href="./home#who"
 					class="nav-link px-2 text-light">About the developers</a></li>
 
-				<li class="nav-item"><a href=".#"
+				<li class="nav-item"><a href="./logout"
 					class="nav-link px-2 fw-bold text-light">Log-out</a></li>
 			</ul>
 			<a href="./home" class="logo justify-content-center"> <img

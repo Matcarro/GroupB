@@ -59,8 +59,7 @@ public class WebController {
 		if (isLogged(session)) {
 			session.setAttribute("countriesFull", dao.getAllCountries());
 			session.setAttribute("trainsFull", dao.getAllTrains());
-			// session.setAttribute("trainsFull", dao.getUsersView()); //TODO: match with
-			// Persistance
+			session.setAttribute("usersFull", dao.serviceUserView()); 
 			return "controlPanel";
 		} else {
 			return "redirect:/login";

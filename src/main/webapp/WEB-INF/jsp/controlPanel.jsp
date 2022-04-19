@@ -75,10 +75,10 @@
 								</tr>
 								<c:forEach items="${usersFull}" var="usr">
 									<tr>
-										<td><c:out value="${usr.usrname}" /></td>
-										<td><c:out value="${usr.name}" /></td>
-										<td><c:out value="${usr.surname}" /></td>
-										<td><c:out value="${usr.trainsnum}" /></td>
+										<td><c:out value="${usr.username}" /></td>
+										<td><c:out value="${usr.firstName}" /></td>
+										<td><c:out value="${usr.lastName}" /></td>
+										<td><c:out value="${usr.trainNumber}" /></td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -272,7 +272,7 @@
 					class="nav-link px-2 text-light">Contacts</a></li>
 				<li class="nav-item"><a href="./home#who"
 					class="nav-link px-2 text-light">About the developers</a></li>
-					<li class="nav-item"><a href=".#"
+					<li class="nav-item"><a href="./logout"
 					class="nav-link px-2 fw-bold text-light">Log-out</a></li>
 
 			</ul>
