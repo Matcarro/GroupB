@@ -36,9 +36,9 @@
 		</a>
 
 		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-			<li><a href="#how" class="nav-link">How it works</a></li>
-			<li><a href="#who" class="nav-link">Who we are</a></li>
-			<li><a href="#contact" class="nav-link">Contact us</a></li>
+			<li><a href="#how" class="nav-link">How to</a></li>
+			<li><a href="#who" class="nav-link">About</a></li>
+			<li><a href="#contact" class="nav-link">Contacts</a></li>
 		</ul>
 
 		<div class="col-md-3 text-end">
@@ -56,7 +56,7 @@
 			<div
 				class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
 				<div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-					<h1 class="display-4 fw-bold lh-1">Build your train in a few simple steps</h1>
+					<h1 class="display-4 fw-bold lh-1">Your train in just a few steps</h1>
 					<p class="lead">Log in to build your dream train: it's quick and easy. Try it today.</p>
 					<div
 						class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
@@ -87,7 +87,7 @@
 								<!-- STEP 1-->
 								<li class="list-group-item  justify-content-between ">
 
-									<div class="container">
+									<div class="container text-center ">
 										<h2>Insert train code</h2>
 										<div class="d-flex">
 											<div class="col">Write your train code: choose between Locomotive (L), Passengers(P), Cargo(C) 
@@ -96,6 +96,8 @@
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/trainCode.png"
 											class="img-fluid container p-4" alt="" style="width:500px;"/>
+
+
 									</div>
 
 								</li>
@@ -105,14 +107,15 @@
 									class="list-group-item d-flex justify-content-between align-items-start">
 
 
-									<div class="container">
+									<div class="container text-center">
 										<h2>Insert country</h2>
 										<div class="d-flex">
 											<div class="col">Insert train country: you'll receive information about it</div>
 
 										</div>
+
 										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"
-											class="img-fluid container p-4" alt="" style="width:500px;"/>
+											class="img-fluid container p-3 col-lg-6" alt="" />
 									</div>
 								</li>
 
@@ -121,14 +124,14 @@
 									class="list-group-item d-flex justify-content-between align-items-start">
 
 
-									<div class="container">
+									<div class="container text-center">
 										<h2>Create your train</h2>
 										<div class="d-flex">
 											<div class="col">Your train will be created using the chosen wagons and country</div>
 
 										</div>
 										<img src="/CorsoSpringWeb/resources/images/selectedTrain.png"
-											class="img-fluid container p-4" alt="" />
+											class="img-fluid container p-2" alt="" />
 									</div>
 								</li>
 

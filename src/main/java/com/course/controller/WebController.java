@@ -1,6 +1,8 @@
 package com.course.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.jws.WebParam;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.course.controller.test.StringListContainer;
+import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
 import com.course.exceptions.LocomotivaNonInTestaException;
@@ -90,16 +93,30 @@ public class WebController {
 		}
 	}
 	
+	
 	@GetMapping("/logout")
 	public String getLogoutAction(Model model, HttpSession session) {
 		session.invalidate();
 		return "redirect:/home";
 	}
+	
+	@PostMapping("/register")
+	public String getLoginFormPage(@WebParam String name, @WebParam String surname, @WebParam Date date, @WebParam String email,@WebParam String password,Model model) {
+		System.out.println(name+" "+surname+" "+email+" "+password+" "+date.toString());
+		Dao dao=DaoImpl.getInstance();
+		if(dao.insertUser(email, password, name, surname, date)==true)
+			return "login";
+		model.addAttribute("emailError","You're already registered");
+		return "register";
+	}
 
 	@GetMapping("/profile")
 	public String getProfileFormPage(Model model, HttpSession session) {
-		model.addAttribute("usersTrains",
-				DaoImpl.getInstance().getTrains((String) session.getAttribute("username")).toArray());
+
+		Collection<TrainDao> userTrains =  DaoImpl.getInstance().getTrains((String) session.getAttribute("username"));
+		if( userTrains != null) {
+			model.addAttribute("usersTrains", userTrains);
+		}
 		if (isLogged(session)) {
 			return "profile";
 		} else {
