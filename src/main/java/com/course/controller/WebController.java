@@ -1,6 +1,7 @@
 package com.course.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.jws.WebParam;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.course.controller.test.StringListContainer;
+import com.course.dao.TrainDao;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
 import com.course.exceptions.LocomotivaNonInTestaException;
@@ -97,8 +99,11 @@ public class WebController {
 
 	@GetMapping("/profile")
 	public String getProfileFormPage(Model model, HttpSession session) {
-		model.addAttribute("usersTrains",
-				DaoImpl.getInstance().getTrains((String) session.getAttribute("username")).toArray());
+
+		Collection<TrainDao> userTrains =  DaoImpl.getInstance().getTrains((String) session.getAttribute("username"));
+		if( userTrains != null) {
+			model.addAttribute("usersTrains", userTrains);
+		}
 		if (isLogged(session)) {
 			return "profile";
 		} else {
