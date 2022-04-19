@@ -79,6 +79,12 @@
 										<td><c:out value="${usr.firstName}" /></td>
 										<td><c:out value="${usr.lastName}" /></td>
 										<td><c:out value="${usr.trainNumber}" /></td>
+										<td>
+											<form action="./admin" method="post">
+												<input type="hidden" value="${usr.username}" id="deleteUser"></input>
+												<button type="submit" class="btn btn-sm btn-danger">X</button>
+											</form>
+										</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -111,6 +117,12 @@
 										<td><c:out value="${train.sigla}" /></td>
 										<td><c:out value="${train.owner.username}" /></td>
 										<td><c:out value="${train.buildCountry.country}" /></td>
+										<td>
+											<form action="./admin" method="post">
+												<input type="hidden" value="${train.id}" id="deleteTrain"></input>
+												<button type="submit" class="btn btn-sm btn-danger">X</button>
+											</form>
+										</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -141,6 +153,12 @@
 									<tr>
 										<td><c:out value="${country}" /></td>
 										<td><c:out value="WIP" /></td>
+										<td>
+											<form action="./admin" method="post">
+												<input type="hidden" value="${country}" id="deleteCorrection"></input>
+												<button type="submit" class="btn btn-sm btn-danger">X</button>
+											</form>
+										</td>
 									</tr>
 								</c:forEach>
 							</table>
