@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
 import com.course.model.User;
+import com.course.dao.SearchDao;
 import com.course.dao.TrainDao;
 
 public class DaoTest {
 public static void main(String[] args) {
 	Dao dao=DaoImpl.getInstance();
 	
-	ArrayList<User> users=new ArrayList<>(dao.serviceUserView());
+	ArrayList<SearchDao> searches=new ArrayList<>(dao.getAllSearches());
 	
-	for(User u: users)
-		System.out.println(u.getUsername()+" "+u.getFirstName()+" "+u.getLastName()+" "+u.getTrainNumber());
+	for(SearchDao s: searches)
+		System.out.println(s.getSearch()+" "+);
 	
 }
 }
