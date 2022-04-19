@@ -23,7 +23,7 @@
 	integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/style.css" />
-<title>TrainLine - costruisci il tuo treno</title>
+<title>TrainLine - build your train</title>
 </head>
 <body>
 
@@ -36,9 +36,9 @@
 		</a>
 
 		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-			<li><a href="#how" class="nav-link">Come funziona</a></li>
-			<li><a href="#who" class="nav-link">Chi siamo</a></li>
-			<li><a href="#contact" class="nav-link">Contattaci</a></li>
+			<li><a href="#how" class="nav-link">How to</a></li>
+			<li><a href="#who" class="nav-link">About</a></li>
+			<li><a href="#contact" class="nav-link">Contacts</a></li>
 		</ul>
 
 		<div class="col-md-3 text-end">
@@ -56,10 +56,8 @@
 			<div
 				class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
 				<div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-					<h1 class="display-4 fw-bold lh-1">Costruisci il tuo treno in
-						pochi semplici passi</h1>
-					<p class="lead">Effettua il log in per poter costruire il treno
-						dei tuoi sogni, in maniera facile e veloce. Provalo oggi.</p>
+					<h1 class="display-4 fw-bold lh-1">Your train in just a few steps</h1>
+					<p class="lead">Log in to build your dream train: it's quick and easy. Try it today.</p>
 					<div
 						class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 						<button
@@ -82,8 +80,7 @@
 				<div class="rounded-3">
 
 					<div class="container-fluid py-5" id="how">
-						<h1 class="display-4 fw-bold">Come funziona la costruzione
-							del treno</h1>
+						<h1 class="display-4 fw-bold">Here's how we build trains</h1>
 						<div class="grid-container">
 							<ol class="list-group">
 
@@ -91,15 +88,16 @@
 								<li class="list-group-item  justify-content-between ">
 
 									<div class="container">
-										<h2>Inserisci la sigla</h2>
+										<h2>Insert train code</h2>
 										<div class="d-flex">
-											<div class="col">Scrivi la sigla del tuo treno tra
-												vagoni Locomotiva (L), Passeggeri (P), Cargo (C) e
-												Ristorante (R)</div>
+											<div class="col">Write your train code: choose between Locomotive (L), Passengers(P), Cargo(C) 
+											and Restaurant(R)</div>
 
 										</div>
-										<img src="/CorsoSpringWeb/resources/images/01.png"
-											class="img-fluid container p-4" alt="" />
+										<img src="/CorsoSpringWeb/resources/images/trainCode.png"
+
+											class="img-fluid container p-4" alt="" style="width:500px;"/>
+
 									</div>
 
 								</li>
@@ -110,15 +108,12 @@
 
 
 									<div class="container">
-										<h2>Inserisci il paese</h2>
+										<h2>Insert country</h2>
 										<div class="d-flex">
-											<div class="col">Inserisci il paese del treno,
-												riceverai informazioni riguardanti il paese scelto</div>
+											<div class="col">Insert train country: you'll receive information about it</div>
 
 										</div>
-										<img src="/CorsoSpringWeb/resources/images/02.png"
-											class="img-fluid container p-4" alt="" />
-									</div>
+										<img src="/CorsoSpringWeb/resources/images/trainCountry.png"	class="img-fluid container p-4" alt="" style="width:500px;"/>
 								</li>
 
 								<!-- STEP 3-->
@@ -127,13 +122,12 @@
 
 
 									<div class="container">
-										<h2>Crea il tuo treno</h2>
+										<h2>Create your train</h2>
 										<div class="d-flex">
-											<div class="col">Il tuo treno verrà  creato con i
-												vagoni scelti ed il suo paese</div>
+											<div class="col">Your train will be created using the chosen wagons and country</div>
 
 										</div>
-										<img src="/CorsoSpringWeb/resources/images/03.png"
+										<img src="/CorsoSpringWeb/resources/images/selectedTrain.png"
 											class="img-fluid container p-4" alt="" />
 									</div>
 								</li>
@@ -304,6 +298,9 @@
 					<!-- Section: CTA -->
 				</div>
 				<!-- Grid container -->
+				
+				
+      <li class="nav-item"><a href=".#" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
 
 				<!-- Copyright -->
 				<div class="text-center p-3"

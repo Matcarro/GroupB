@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,15 +19,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/register.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Registrazione</title>
 
   </head>
   <body>
+
     <div class="logo-img d-flex justify-content-center align-items-center">
       <img src="/CorsoSpringWeb/resources/images/logo.png" alt="" />
     </div>
+
     <div class="pt-1 col-12 d-flex align-items-center justify-content-center" >
       <form id="form" action="/CorsoSpringWeb/register" method="post" ng-app="regApp" ng-controller="controlRegApp" name="registerForm" novalidate>
         <div class="mb-3">
@@ -61,9 +63,7 @@
        		</div>
         </div>
         <div class="mb-3">
-          <label for="date" class="form-label"
-            >Birthday</label
-          >
+          <label for="date" class="form-label">Birthday</label>
           <div class="d-flex align-items-center justify-content-between gap-2">
           <input
             type="date"
@@ -79,10 +79,10 @@
 			<ion-icon style="color:red"  name="alert-circle-outline" ng-show="registerForm.date.$error.required || registerForm.date.$error.date" ></ion-icon>
 			</div>
         </div>
-        
+
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          
+
           <div class="d-flex align-items-center justify-content-between gap-2">
           <input
             type="text"
@@ -117,7 +117,7 @@
         </div>
         <div class="buttons d-flex justify-content-between">
           <a href="/CorsoSpringWeb/home" class="button-heading reg-btn">Back</a>
-          <input type="submit" ng-disabled="registerForm.name.$dirty && registerForm.name.$invalid || 
+          <input type="submit" ng-disabled="registerForm.name.$dirty && registerForm.name.$invalid ||
           registerForm.surname.$dirty && registerForm.surname.$invalid ||
           registerForm.date.$dirty && registerForm.date.$invalid ||
           registerForm.email.$error.required || registerForm.email.$error.pattern ||
@@ -125,6 +125,9 @@
           registerForm.date.$error.required || registerForm.date.$error.date" class="btn btn-primary cl-submit" >
         </div>
       </form>
+
+
+
       <script>
 		var app = angular.module('regApp', []);
 		app.controller('controlRegApp', function($scope) {
@@ -133,8 +136,14 @@
 		    $scope.email = 'email@email.com';
 		});
 	</script>
+
+
     </div>
+
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
   </body>
 </html>
