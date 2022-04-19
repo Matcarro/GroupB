@@ -1,4 +1,7 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,13 +43,33 @@
 			<li><a href="#who" class="nav-link">About</a></li>
 			<li><a href="#contact" class="nav-link">Contacts</a></li>
 		</ul>
+		
+		<%
+		
+		boolean isLogged = (boolean) request.getAttribute("UserLogged");
+		
+		%>
+		
+		<c:choose>
+        	<c:when test="${UserLogged}">
+	          <div class="col-md-3 text-end">
+					<button onclick="window.location.href='/CorsoSpringWeb/logout'"
+						type="button" class="btn btn-outline-primary me-2">Logout</button>
+					<button onclick="window.location.href='/CorsoSpringWeb/insertTrain'"
+						type="button" class="btn btn-primary">Build Train</button>
+				</div>
+         	</c:when>
+         	<c:otherwise>
+	            
+				  <div class="col-md-3 text-end">
+					<button onclick="window.location.href='/CorsoSpringWeb/login'"
+						type="button" class="btn btn-outline-primary me-2">Login</button>
+					<button onclick="window.location.href='/CorsoSpringWeb/register'"
+						type="button" class="btn btn-primary">Sign-up</button>
+				</div>
+        	 </c:otherwise>
+      	</c:choose>
 
-		<div class="col-md-3 text-end">
-			<button onclick="window.location.href='/CorsoSpringWeb/login'"
-				type="button" class="btn btn-outline-primary me-2">Login</button>
-			<button onclick="window.location.href='/CorsoSpringWeb/register'"
-				type="button" class="btn btn-primary">Sign-up</button>
-		</div>
 	</header>
 
 
@@ -182,7 +205,7 @@
 								height="1.75em">
 								<use xlink:href="#calendar3"></use></svg>
 							<div>
-								<h4 class="fw-bold mb-0">Federico RainÃ²</h4>
+								<h4 class="fw-bold mb-0">Federico Rainò</h4>
 								<p>Paragraph of text beneath the heading to explain the
 									heading.</p>
 							</div>
@@ -312,7 +335,7 @@
 						src="/CorsoSpringWeb/resources/images/logo.png" alt=""
 						class="logo-img small" />
 					</a>
-					<p class="text-center text-muted">Â© 2022 DecHit-Trains, Inc</p>
+					<p class="text-center text-muted">© 2022 DecHit-Trains, Inc</p>
 				</div>
 				<!-- Copyright -->
 			</footer>
