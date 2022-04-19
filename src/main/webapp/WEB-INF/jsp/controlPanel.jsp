@@ -30,19 +30,22 @@
 <link rel="stylesheet" href="/CorsoSpringWeb/resources/css/style.css" />
 </head>
 <body>
-	<header class="header">
+	<header
+		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
+		<a href="#"
+			class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png"
+			alt="" class="logo" />
+		</a>
 
-		<div class="container d-flex justify-content-center">
-			<header class="justify-content-center py-3 mb-4 border-bottom">
-				<a href="./home" class="logo justify-content-center"> <img
-					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
-					class="logo-img" />
-				</a>
-				<ul class="nav nav-pills justify-content-center ">
-					<li class="nav-item"><a href="./home" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="./profile" class="nav-link">Profile</a></li>
-				</ul>
-			</header>
+		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+			<li><a href="./home#how" class="nav-link pill">How it works</a></li>
+			<li><a href="./insertTrain" class="nav-link">New Train</a></li>
+		</ul>
+
+		<div class="col-md-3 text-end">
+			<button onclick="window.location.href='/CorsoSpringWeb/profile'"
+				type="button" class="btn btn-primary">Profile</button>
 		</div>
 	</header>
 
@@ -106,8 +109,8 @@
 									<tr>
 
 										<td><c:out value="${train.sigla}" /></td>
-										<td><c:out value="${train.ownerUsername}" /></td>
-										<td><c:out value="${train.buildCountry}" /></td>
+										<td><c:out value="${train.owner.username}" /></td>
+										<td><c:out value="${train.buildCountry.country}" /></td>
 									</tr>
 								</c:forEach>
 							</table>

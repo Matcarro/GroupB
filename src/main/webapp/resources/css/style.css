@@ -1,3 +1,17 @@
+body {
+	background-color: #ecf3fc;
+	margin-top: 150px;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 0 20px rgb(8 7 16 / 60%);
+	background-color: rgba(255, 255, 255, 0.75);
+	z-index: 1;
+}
+
 .icon-square i {
   margin: 5px;
   background: #052a40;
@@ -25,8 +39,6 @@ display: block;
 
 footer {
   margin: 0 auto;
-  padding: 2.4rem 2.4rem 4.8rem 2.4rem;
-  border-top: 1px solid #eee;
   background-color: #ecf3fc;
 }
 
@@ -90,3 +102,4 @@ footer {
   align-items: center;
   justify-content: center;
 }
+

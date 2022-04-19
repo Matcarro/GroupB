@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.course.controller.test.StringListContainer;
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
-import com.course.model.checkstring.Country;
+import com.course.exceptions.LocomotivaNonInTestaException;
+import com.course.model.checkstring.CheckStringFactory;
+import com.course.model.checkstring.EsitoCheckString;
 import com.course.model.train.ConcreteBuilder;
 import com.course.model.train.Treno;
 import com.course.model.train.TrenoBuilder;
@@ -123,46 +125,63 @@ public class WebController {
 			BaseWagonFactory vf = new BaseWagonFactory();
 			TrenoBuilder tb = new ConcreteBuilder(vf);
 			try {
+				
 				Treno treno = tb.buildTreno(train);
 				model.addAttribute("train", train);
-				
 				model.addAttribute("trainWagons", treno.getVagoni());
 				model.addAttribute("trainSize", treno.getVagoni().size());
-				if (dao.isCountry(country)) {
-					model.addAttribute("country", country);			
-				} else {
-					Country cntry = new Country();
-					cntry.setParola(country);
-					String valid = cntry.selfCheck();
-
-					System.out.println("valid : " + valid);
-					if (valid == null) {
-						// STOP : Nazione non trovata
-						model.addAttribute("country", null);
-					} else {
-						model.addAttribute("country", valid);
-						model.addAttribute("algorithm", cntry);
-					}
-				}
 				
-				System.out.println("trainWagons: " + treno.getVagoni());
-				System.out.println("train: " + train);
-				System.out.println("country: " + country);
-				System.out.println("session: " + session.getId());
+				EsitoCheckString esito  = new EsitoCheckString();
+				
+				if (dao.isCountry(country)) {
+					System.out.println("---> " + country + " : DB found!");
+					esito.setCorrect(country);	
+					
+				} else {
+					System.out.println("---> " + country + " : DB not found! \n\n Algoritms chain >>>");
+					esito = CheckStringFactory.getAlgorithm().check(country, esito);
+					model.addAttribute("confirmCountry", 1);	
+				}
+
+				model.addAttribute("esito", esito);	
+				if(model.getAttribute("train") == null) {
+					throw new LocomotivaNonInTestaException("NO TRAIN","NOO TRAIN");
+				}
+				System.out.println("<<< Algoritms chain \n\nWeb > Model - trainWagons: " + treno.getVagoni());
+				System.out.println("Web > Model - train      : " + train);
+				System.out.println("Web > Model - country    : " + esito.getCorrect());
+				System.out.println("Web > Model - session    : " + session.getId());
+				
 				return "trainView";
+				
 			} catch (Exception e) {
+				
 				System.out.println("error: " + e.getMessage());
 				model.addAttribute("error", e.getMessage());
+				
 				return "trainView";
+				
 			}
+			
 		} else {
+			
 			return "redirect:/";
+			
 		}
 	}
 
 	@GetMapping("/register")
 	public String getRegisterPage() { 
 		return "register";
+	}
+	
+	@GetMapping("/country")
+	public String getCountryPage(@WebParam String country, Model model, HttpSession session) {
+		if(isLogged(session)) {
+			model.addAttribute("country", country);
+			return "country";
+		}
+		return "redirect:/";
 	}
 	
 	//ZONA TESTING

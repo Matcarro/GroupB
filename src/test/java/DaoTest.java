@@ -1,15 +1,19 @@
 import java.sql.Date;
+import java.util.ArrayList;
 
 import com.course.dao.impl.Dao;
 import com.course.dao.impl.DaoImpl;
+import com.course.model.User;
+import com.course.dao.TrainDao;
 
 public class DaoTest {
 public static void main(String[] args) {
 	Dao dao=DaoImpl.getInstance();
 	
-	//System.out.println(dao.isCountry("Italy"));
-	//System.out.println(dao.insertUser("FedericoCiao2", "Pippo123", "Pippo", "Sega",Date.valueOf("1980-04-22")));
+	ArrayList<User> users=new ArrayList<>(dao.serviceUserView());
 	
-	System.out.println(dao.insertTrain("GiuseppeIzzo","Pakistan","LPPPPPRP"));
+	for(User u: users)
+		System.out.println(u.getUsername()+" "+u.getFirstName()+" "+u.getLastName()+" "+u.getTrainNumber());
+	
 }
 }

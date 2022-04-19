@@ -9,8 +9,10 @@
         <id name="id" type="int" column="id">
             <generator class="assigned"></generator>
         </id>
-        <property name="buildCountry" type="string" column="build_country" />
-        <property name="ownerUsername" type="string" column="owner_username" />
+        <many-to-one name = "owner" column = "owner_username" 
+         class="com.course.dao.UserDao" not-null="true"/>
+         <many-to-one name = "buildCountry" column = "build_country" 
+         class="com.course.dao.CountryDao" not-null="true"/>
         <property name="sigla" type="string" column="sigla" />
     </class>
 </hibernate-mapping>

@@ -35,6 +35,12 @@ body {
   z-index: 1;
 }
 
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .header {
+    background-color: rgba(255, 255, 255, .7);
+  }
+}
+
 .logo {
   height: 2.8rem;
   border-radius: 0.3rem;

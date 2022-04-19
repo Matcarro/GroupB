@@ -5,9 +5,19 @@ import java.sql.Timestamp;
 
 public class SearchDao {
 	private String search;
-	private String standardCountry;
 	private String method;
 	private Timestamp insertDate;
+	private CountryDao standardCountry;
+
+	
+
+	public CountryDao getStandardCountry() {
+		return standardCountry;
+	}
+
+	public void setStandardCountry(CountryDao standardCountry) {
+		this.standardCountry = standardCountry;
+	}
 
 	public String getSearch() {
 		return search;
@@ -17,14 +27,7 @@ public class SearchDao {
 		this.search = search;
 	}
 
-	public String getStandardCountry() {
-		return standardCountry;
-	}
-
-	public void setStandardCountry(String standardCountry) {
-		this.standardCountry = standardCountry;
-	}
-
+	
 	public String getMethod() {
 		return method;
 	}
