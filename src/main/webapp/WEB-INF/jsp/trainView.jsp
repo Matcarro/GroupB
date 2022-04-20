@@ -61,6 +61,8 @@
 		String str = (String) request.getAttribute("train");
 	if(str != null) {
 		%>
+		
+		<div class="card p-3 m-1">
 		<h5 class="d-flex justify-content-center align-items-center pb-3">You selected the following train:</h5>
 		<div class="d-flex overflow-auto mb-4 p-5" >
 		<%
@@ -82,8 +84,9 @@
 
 
 	</div>
+	</div>
 	
-	
+	<div class="card p-3 m-1">
 	<c:choose>
          <c:when test = "${esito.correct != null}">
             	
@@ -118,16 +121,17 @@
          </c:otherwise>
       </c:choose>
 	</div>
+	</div>
 	
 	
 	
 	
 	
-	
+	<div class="card p-3 m-1">
 	<h5 class="d-flex justify-content-center align-items-center">Wagon's carousel:</h5>
 	
-	<section class="pt-3 pb-3">
-		<div class="container w-50">
+	<section class="p-3 pt-3 pb-3 h-50">
+		<div class="container">
 	        	<div id="carouselExampleIndicators2" class="carousel slide carousel-fade " data-ride="carousel">
 	        		<div class="carousel-inner" role="listbox">
 						<c:forEach items="${trainWagons}" var="wagon">
@@ -135,7 +139,7 @@
 							    <c:when test="${wagon.getClass().getSimpleName() == \"Locomotiva\"}">
 							         <div class="carousel-item active">
 							        	<div class="card d-blok border-primary mb-3">
-								  			<img class="d-block w-100"  src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+								  			<img class="d-block"  src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" height=30% alt="">
 											<div class="card-body">
 												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
 												<p class="card-text">${wagon.toString()}</p>
@@ -146,7 +150,7 @@
 							    <c:otherwise>
 							       <div class="carousel-item">
 							        	<div class="card d-blok border-primary mb-3">
-								  			<img class="d-block w-100" src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" width=100% alt="">
+								  			<img class="d-block" src="/CorsoSpringWeb/resources/images/${wagon.getClass().getSimpleName()}.jpg" height=30% alt="">
 											<div class="card-body">
 												<h3 class="card-title">${wagon.getClass().getSimpleName()}</h3>
 												<p class="card-text">${wagon.toString()}</p>
@@ -169,7 +173,12 @@
 				</div>
 		</div>
 	</section>
+	</div>
 	
+	<div class="card p-3 m-1 d-grid gap-2">
+		<button type="button" class="btn btn-success">Save train</button>
+		<button type="button" class="btn btn-sm btn-outline-secondary ">Cancel</button>
+	</div>
 	<%
 	} else {
 		String err = (String) request.getAttribute("error");

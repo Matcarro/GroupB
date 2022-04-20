@@ -35,11 +35,8 @@
 								<img src="https://bootdey.com/img/Content/avatar/avatar7.png"
 									alt="Admin" class="rounded-circle" width="150">
 								<div class="mt-3">
-									<h4>${username}</h4>
-									<p class="text-secondary mb-1">${username}</p>
-									<p class="text-muted font-size-sm">Bay Area, San Francisco,
-										CA</p>
-									<button class="btn btn-outline-primary btn-sm">Edit profile</button>
+									<h5>${username}</h5>
+									<button class="btn btn-outline-warning btn-sm disabled">Edit profile</button>
 								</div>
 							</div>
 						</div>
