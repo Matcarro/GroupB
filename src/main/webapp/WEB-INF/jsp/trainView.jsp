@@ -106,7 +106,7 @@
 			<div ng-app="myApp" ng-controller="customersCtrl">
 			<img class="card-img" src="{{myData[0].flags['svg']}}" alt="Country not found">
 				<div class="card-img-overlay d-flex justify-content-center align-items-center">
-					<a class="card-title btn btn-dark " href="/CorsoSpringWeb/country" >${esito.correct}</a>	
+					<a class="card-title btn btn-dark " href="/CorsoSpringWeb/country?country=${esito.correct}" >${esito.correct}</a>	
 				</div>
 			</div>
 		</div>
