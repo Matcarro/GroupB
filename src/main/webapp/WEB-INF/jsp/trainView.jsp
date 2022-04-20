@@ -33,6 +33,12 @@
 </head>
 
 <body>
+
+<%
+		
+	boolean isAdmin = (boolean) session.getAttribute("isAdmin");
+		
+	%>
 <header
 		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
 		<a href="./"
@@ -45,7 +51,11 @@
 			<li><a href="./home#how" class="nav-link pill">How it works</a></li>
 			<li><a href="./insertTrain" class="nav-link">New Train</a></li>
 			
-					<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+		<c:choose>
+        	<c:when test="${isAdmin}">
+	          <li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+         	</c:when>
+      	</c:choose>
 		</ul>
 
 		<div class="col-md-3 text-end">
