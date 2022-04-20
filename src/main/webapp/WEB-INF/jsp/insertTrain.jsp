@@ -40,7 +40,7 @@
 
 	<div class="d-flex justify-content-center align-items-center col-12">
 	
-		<form class="card" id="form" action="/CorsoSpringWeb/train" method="post" ng-app="inserTrainFormApp" name="trainForm" ng-controller="inserTrainFormController">
+		<form class="card p-5 rounded" id="form" action="/CorsoSpringWeb/train" method="post" ng-app="inserTrainFormApp" name="trainForm" ng-controller="inserTrainFormController">
 
             <div class="mb-3">
                 <label for="train" class="form-label">Train code:</label>
