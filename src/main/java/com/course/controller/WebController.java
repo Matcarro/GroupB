@@ -70,7 +70,7 @@ public class WebController {
 		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
 			if(dao.isAdmin((String)session.getAttribute("username"))==true) {
-				session.setAttribute("countriesFull", dao.getAllCountries());
+				session.setAttribute("countriesFull", dao.getAllSearches());
 				session.setAttribute("trainsFull", dao.getAllTrains());
 				session.setAttribute("usersFull", dao.serviceUserView()); 
 				return "controlPanel";

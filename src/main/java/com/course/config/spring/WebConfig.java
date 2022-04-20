@@ -23,7 +23,6 @@ public class WebConfig implements WebMvcConfigurer{
 	
 	@Bean
 	public ViewResolver viewResolver() {
-		DaoImpl.getInstance();
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/jsp/");
 		resolver.setSuffix(".jsp"); 
