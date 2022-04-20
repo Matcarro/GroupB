@@ -198,6 +198,7 @@ public class WebController {
 	}
 	
 	@GetMapping("/country")
+	@Scope("session")
 	public String getCountryPage(@WebParam String country, Model model, HttpSession session) {
 		if(isLogged(session)) {
 			model.addAttribute("country", country);
