@@ -89,6 +89,7 @@ public class WebController {
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
 			session.setMaxInactiveInterval(1000 * 60 * 20);
+			session.setAttribute("isLogged", isLogged(session));
 			return "redirect:/profile";
 		} else {
 			session.invalidate();
