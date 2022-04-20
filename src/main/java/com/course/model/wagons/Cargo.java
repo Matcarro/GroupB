@@ -9,7 +9,7 @@ public class Cargo extends Vagone {
 	
 	@Override
 	public String toString() {
-		return "Cargo [capienza=" + capienza + ", pesoVuoto=" + pesoVuoto + ", pesoPienoMax=" + pesoPienoMax + "]";
+		return "<br> Caratteristiche:<br> <b>Capienza</b> = " + capienza + "<br> <b>Peso vuoto</b> = " + pesoVuoto + "<br> <b>Peso pieno max</b> = " + pesoPienoMax;
 	}
 
 
