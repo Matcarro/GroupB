@@ -70,7 +70,7 @@ public class WebController {
 		Dao dao = DaoImpl.getInstance();
 		if (isLogged(session)) {
 			if(dao.isAdmin((String)session.getAttribute("username"))==true) {
-				session.setAttribute("countriesFull", dao.getAllCountries());
+				session.setAttribute("countriesFull", dao.getAllSearches());
 				session.setAttribute("trainsFull", dao.getAllTrains());
 				session.setAttribute("usersFull", dao.serviceUserView()); 
 				return "controlPanel";
@@ -89,6 +89,7 @@ public class WebController {
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
 			session.setMaxInactiveInterval(1000 * 60 * 20);
+			session.setAttribute("isAdmin", dao.isAdmin(username));
 			return "redirect:/profile";
 		} else {
 			session.invalidate();

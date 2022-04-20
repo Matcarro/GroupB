@@ -1,4 +1,6 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,6 +22,12 @@
 </head>
 <body>
 
+	<%
+		
+	boolean isAdmin = (boolean) session.getAttribute("isAdmin");
+		
+	%>
+
 	<header	class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
 		<a href="#"	class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 			<img height="40" src="/CorsoSpringWeb/resources/images/logo.png" alt="" class="logo" />
@@ -27,7 +35,11 @@
 
 		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 			<li><a href="./" class="nav-link pill">Home</a></li>
-			<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+		<c:choose>
+        	<c:when test="${isAdmin}">
+	          <li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+         	</c:when>
+      	</c:choose>
 		</ul>
 
 		<div class="col-md-3 text-end">
@@ -128,7 +140,7 @@
 					src="/CorsoSpringWeb/resources/images/logo.png" alt=""
 					class="logo-img small" />
 				</a>
-    <div class="text-center text-muted pb-5">Â© 2022 DecHit-Trains, Inc</div>
+    <div class="text-center text-muted pb-5">© 2022 DecHit-Trains, Inc</div>
 				<!-- Copyright -->
 			</footer>
 			<!-- Footer -->
