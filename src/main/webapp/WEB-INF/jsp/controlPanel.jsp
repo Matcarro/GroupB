@@ -84,7 +84,7 @@
 										<td>
 											<form action="./admin" method="post">
 												<input type="hidden" value="${usr.username}" id="deleteUser" name="deleteUser"></input>
-												<button type="submit" class="btn btn-sm btn-danger">X</button>
+												<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 											</form>
 										</td>
 									</tr>
@@ -122,7 +122,7 @@
 										<td>
 											<form action="./admin" method="post">
 												<input type="hidden" value="${train.id}" id="deleteTrain" name="deleteTrain"></input>
-												<button type="submit" class="btn btn-sm btn-danger">X</button>
+												<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 											</form>
 										</td>
 									</tr>
@@ -152,17 +152,28 @@
 									<th>Correction</th>
 									<th>Wrong</th>
 									<th>Solve method</th>
+									<th>Override result</th>
 								</tr>
 								<c:forEach items="${countriesFull}" var="str">
 									<tr>
 										<td><c:out value="${str.standardCountry.country}" /></td>
 										<td><c:out value="${str.search}" /></td>
 										<td><c:out value="${str.method}" /></td>
-										<td>
-											<form action="./admin" method="post">
-												<input type="hidden" value="${str.search}" id="deleteCorrection" name="deleteCorrection"></input>
-												<button type="submit" class="btn btn-sm btn-danger">X</button>
-											</form>
+										<td class="d-flex text-center m-1">
+												<c:if test="${str.method != 'manual'}">
+													<form action="./admin" method="post">
+														<input type="hidden" value="${str.standardCountry.country}" id="country" name="country">
+														<input type="hidden" value="${str.search}" id="searchValidate" name="searchValidate"></input>
+														<button type="submit" class="btn btn-sm btn-success">Correct</button>
+													</form>
+												</c:if> 
+												<c:if test="${str.method != 'wrong'}">
+													<form action="./admin" method="post">
+														<input type="hidden" value="${str.standardCountry.country}" id="country" name="country">
+														<input type="hidden" value="${str.search}" id="searchWrong" name="searchWrong"></input>
+														<button type="submit" class="btn btn-sm btn-warning">Wrong</button>
+													</form>
+									         	</c:if> 
 										</td>
 									</tr>
 								</c:forEach>
