@@ -140,6 +140,10 @@ footer {
   background: linear-gradient(#ffffff, #92d4ff);
 }
 
+.d-block {
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 750px){
 
 	header{
