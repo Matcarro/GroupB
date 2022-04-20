@@ -52,7 +52,7 @@ public class WebController {
 	}
 
 	@PostMapping("/admin") 
-	public String getAdminPagePost(@WebParam String deleteUser, @WebParam String deleteTrain, @WebParam String deleteCorrection, Model model, HttpSession session) {
+	public String getAdminPagePost(@WebParam String deleteUser, @WebParam String deleteTrain, @WebParam String deleteCorrection, @WebParam String searchValidate, @WebParam String searchWrong, @WebParam String country, Model model, HttpSession session) {
 		Dao dao = DaoImpl.getInstance();
 		if (deleteUser != null) {
 			dao.deleteUser(deleteUser);
@@ -61,6 +61,12 @@ public class WebController {
 		} else if (deleteCorrection != null) {
 			System.out.println(deleteCorrection);
 			dao.deleteSearch(deleteCorrection);
+		} else if (searchValidate != null) {
+			System.out.println(searchValidate);
+			dao.insertSearch(searchValidate, country, "MANUAL");
+		} else if (searchWrong != null) {
+			System.out.println(searchWrong);
+			dao.insertSearch(searchWrong, country, "WRONG");
 		}
 		return "redirect:/admin";
 	}

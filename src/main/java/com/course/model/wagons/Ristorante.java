@@ -10,7 +10,7 @@ public class Ristorante extends Vagone {
 	
 	@Override
 	public String toString() {
-		return "Ristorante [capienza=" + capienza + ", peso=" + super.getPeso() + "]";
+		return "<br> Caratteristiche: <br> <b>Capienza</b> = " + capienza + "<br> <b>Peso</b> = " + super.getPeso();
 	}
 	
 	public String toStringSimple() {

@@ -13,7 +13,7 @@ public class Locomotiva extends Vagone{
 
 	@Override
 	public String toString() {
-		return "Locomotiva [pesoTrainabile=" + pesoTrainabile + ", potenza=" + potenza + "]";
+		return "<br> Caratteristiche: <br> <b>Peso trainabile</b> = " + pesoTrainabile + "<br> <b>Potenza</b> = " + potenza;
 	}
 	
 	public String toStringSimple() {
