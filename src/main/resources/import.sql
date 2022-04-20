@@ -60,7 +60,6 @@ INSERT INTO `trains` (`id`, `owner_username`, `build_country`, `sigla`) VALUES (
 INSERT INTO `trains` (`id`, `owner_username`, `build_country`, `sigla`) VALUES (8, 'OscarDeFilpo', 'Fiji', 'LPRP');
 INSERT INTO `trains` (`id`, `owner_username`, `build_country`, `sigla`) VALUES (9, 'MatteoCarrozzo', 'United States of America', 'LP');
 INSERT INTO `trains` (`id`, `owner_username`, `build_country`, `sigla`) VALUES (11, 'GiuseppeIzzo', 'Pakistan', 'LPPPPPRP');
-INSERT INTO `trains` (`id`, `owner_username`, `build_country`, `sigla`) VALUES (12, 'FedericoRaino', 'Cambodia', 'DIOCANE');
 
 
 
