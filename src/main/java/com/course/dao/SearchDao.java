@@ -9,8 +9,6 @@ public class SearchDao {
 	private Timestamp insertDate;
 	private CountryDao standardCountry;
 
-	
-
 	public CountryDao getStandardCountry() {
 		return standardCountry;
 	}

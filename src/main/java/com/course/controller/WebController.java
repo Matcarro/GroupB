@@ -63,10 +63,10 @@ public class WebController {
 			dao.deleteSearch(deleteCorrection);
 		} else if (searchValidate != null) {
 			System.out.println(searchValidate);
-			dao.insertSearch(searchValidate, country, "MANUAL");
+			dao.insertSearch(searchValidate, country, "manual");
 		} else if (searchWrong != null) {
 			System.out.println(searchWrong);
-			dao.insertSearch(searchWrong, country, "WRONG");
+			dao.insertSearch(searchWrong, country, "wrong");
 		}
 		return "redirect:/admin";
 	}

@@ -152,7 +152,7 @@ public class DaoImpl implements Dao {
 		s.setMethod(method);
 		s.setInsertDate(Timestamp.from(Instant.now()));
 
-		session.save(s);
+		session.saveOrUpdate(s);
 		session.getTransaction().commit();
 		session.close();
 
