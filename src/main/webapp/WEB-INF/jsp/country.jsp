@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,13 @@
 
 </head>
 <body>
+
+	<%
+		
+	boolean isAdmin = (boolean) session.getAttribute("isAdmin");
+		
+	%>
+	
 	<header
 		class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-even py-3 mb-4 border-bottom fixed-top">
 		<a href="./"
@@ -35,7 +43,11 @@
 
 		<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 			<li><a href="./home#how" class="nav-link pill">How it works</a></li>
-			<li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+			<c:choose>
+        	<c:when test="${isAdmin}">
+	          <li class="nav-item"><a href="./admin" class="nav-link">Admin</a></li>
+         	</c:when>
+      		</c:choose>
 		</ul>
 
 		<div class="col-md-3 text-end">
