@@ -63,7 +63,7 @@
 	<div class="d-flex">
 		<div>
 			<div class="embed-responsive embed-responsive-16by9 ">
-  				<iframe class="embed-responsive-item p-3" width="800" height="800" src="https://it.wikipedia.org/wiki/${country}">
+  				<iframe class="embed-responsive-item p-3" width="800" height="800" src="https://en.wikipedia.org/wiki/${country}">
   				</iframe>
 			</div>
 		</div>
