@@ -249,6 +249,6 @@ public class WebController {
 		Dao dao=DaoImpl.getInstance();
 		dao.insertTrain((String)session.getAttribute("username"),country,sigla);
 		System.out.println(session.getAttribute("username")+" Insert here");
-		return "profile";
+		return "redirect:/profile";
 	}
 }
