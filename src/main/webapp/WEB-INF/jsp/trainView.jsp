@@ -186,8 +186,12 @@
 	</div>
 	
 	<div class="card p-3 m-1 d-grid gap-2">
-		<button type="button" class="btn btn-success">Save train</button>
-		<button type="button" class="btn btn-sm btn-outline-secondary ">Cancel</button>
+	<form action="./saveTrain" method="post">
+		<input type="hidden" name="sigla" id="sigla" value="${train}"></input>
+		<input type="hidden" name="country" id="country" value="${esito.correct}"></input>
+		<button type="sumbit" class="btn btn-success">Save Train</button>
+		</form>
+		<button type="button" onclick="window.location.href='/CorsoSpringWeb/insertTrain'" class="btn btn-sm btn-outline-secondary ">Cancel</button>
 	</div>
 	<%
 	} else {

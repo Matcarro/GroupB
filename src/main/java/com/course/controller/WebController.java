@@ -152,6 +152,8 @@ public class WebController {
 			return "redirect:/";
 		}
 	}
+	
+	
 
 	@PostMapping("/train")
 	@Scope("session")
@@ -234,4 +236,13 @@ public class WebController {
 		return myString;
 	}
 
+	
+	@PostMapping("/saveTrain")
+	@Scope("session")
+	public String saveTrain(HttpSession session,@WebParam String country,@WebParam String sigla) {
+		Dao dao=DaoImpl.getInstance();
+		dao.insertTrain((String)session.getAttribute("username"),country,sigla);
+		System.out.println(session.getAttribute("username")+" Insert here");
+		return "profile";
+	}
 }
