@@ -310,8 +310,13 @@
 				</div>
 				<!-- Grid container -->
 
-
-				<!-- Grid container -->
+		<c:choose>
+        	<c:when test="${UserLogged}">
+	          <li class="nav-item"><a href="/CorsoSpringWeb/logout" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
+         	</c:when>
+         	<c:otherwise>
+	            
+				  <!-- Grid container -->
 				<div class="container p-4 pb-0">
 					<!-- Section: CTA -->
 					<section class="">
@@ -324,9 +329,13 @@
 					<!-- Section: CTA -->
 				</div>
 				<!-- Grid container -->
+        	 </c:otherwise>
+      	</c:choose>
+
 				
 				
-      <li class="nav-item"><a href="/CorsoSpringWeb/logout" class="nav-link px-2 fw-bold text-light">Log-out</a></li>
+				
+      
 
 				<!-- Copyright -->
 				<div class="text-center p-3"
